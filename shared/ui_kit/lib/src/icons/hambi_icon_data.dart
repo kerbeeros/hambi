@@ -50,6 +50,11 @@ enum HambiIconData {
     '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 12a7 7 0 1 1-2.05-4.95" stroke="#111111" stroke-width="2.5" stroke-linecap="round"/><path d="M17.5 3v4.5H13" stroke="#111111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
   ),
 
+  /// One-time repression card (⦸), removed from the game after use.
+  oneTime(
+    '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="#E8231E" stroke-width="2.5"/><path d="M5.6 18.4L18.4 5.6" stroke="#E8231E" stroke-width="2.5" stroke-linecap="round"/></svg>',
+  ),
+
   /// Opens the game menu.
   menu(
     '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16M4 18h16" stroke="#111111" stroke-width="2" stroke-linecap="round"/></svg>',

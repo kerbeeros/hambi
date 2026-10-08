@@ -23,8 +23,12 @@ import 'package:hambi_widgetbook/ui_kit/hambi_button.dart'
     as _hambi_widgetbook_ui_kit_hambi_button;
 import 'package:hambi_widgetbook/ui_kit/hambi_icon.dart'
     as _hambi_widgetbook_ui_kit_hambi_icon;
+import 'package:hambi_widgetbook/ui_kit/repression_card_view.dart'
+    as _hambi_widgetbook_ui_kit_repression_card_view;
 import 'package:hambi_widgetbook/ui_kit/status_chip.dart'
     as _hambi_widgetbook_ui_kit_status_chip;
+import 'package:hambi_widgetbook/ui_kit/success_track.dart'
+    as _hambi_widgetbook_ui_kit_success_track;
 import 'package:widgetbook/widgetbook.dart' as _widgetbook;
 
 final directories = <_widgetbook.WidgetbookNode>[
@@ -116,12 +120,32 @@ final directories = <_widgetbook.WidgetbookNode>[
         ],
       ),
       _widgetbook.WidgetbookComponent(
+        name: 'RepressionCardView',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'Default',
+            builder: _hambi_widgetbook_ui_kit_repression_card_view
+                .buildRepressionCardViewUseCase,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
         name: 'StatusChip',
         useCases: [
           _widgetbook.WidgetbookUseCase(
             name: 'Default',
             builder:
                 _hambi_widgetbook_ui_kit_status_chip.buildStatusChipUseCase,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'SuccessTrack',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'Default',
+            builder:
+                _hambi_widgetbook_ui_kit_success_track.buildSuccessTrackUseCase,
           ),
         ],
       ),
