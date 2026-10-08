@@ -1,0 +1,118 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:ui_kit/ui_kit.dart';
+
+import '../../helpers/helpers.dart';
+
+void main() {
+  group(RepressionCardView, () {
+    Widget card({
+      RepressionCardKind kind = RepressionCardKind.immediate,
+      bool compact = false,
+    }) => RepressionCardView(
+      title: 'Razzia',
+      description: 'Hälfte der R im Camp entfernen',
+      kind: kind,
+      compact: compact,
+    );
+
+    BoxDecoration decorationOf(WidgetTester tester) =>
+        tester
+                .widget<Container>(
+                  find
+                      .descendant(
+                        of: find.byType(RepressionCardView),
+                        matching: find.byType(Container),
+                      )
+                      .first,
+                )
+                .decoration!
+            as BoxDecoration;
+
+    testWidgets('renders title and description', (tester) async {
+      await tester.pumpApp(card());
+
+      expect(find.text('Razzia'), findsOneWidget);
+      expect(find.text('Hälfte der R im Camp entfernen'), findsOneWidget);
+    });
+
+    for (final compact in [false, true]) {
+      testWidgets('fits a long title on one line (compact: $compact)', (
+        tester,
+      ) async {
+        await tester.pumpApp(
+          RepressionCardView(
+            title: 'Versammlungsverbot',
+            description: '',
+            kind: RepressionCardKind.blocking,
+            compact: compact,
+          ),
+        );
+
+        expect(
+          tester.widget<Text>(find.text('Versammlungsverbot')).maxLines,
+          equals(1),
+        );
+        expect(
+          find.ancestor(
+            of: find.text('Versammlungsverbot'),
+            matching: find.byType(FittedBox),
+          ),
+          findsOneWidget,
+        );
+      });
+    }
+
+    testWidgets('hides the description when compact', (tester) async {
+      await tester.pumpApp(card(compact: true));
+
+      expect(find.text('Hälfte der R im Camp entfernen'), findsNothing);
+    });
+
+    testWidgets('has a thick border when blocking', (tester) async {
+      await tester.pumpApp(card(kind: RepressionCardKind.blocking));
+
+      final border = decorationOf(tester).border! as Border;
+      expect(border.top.width, equals(4));
+    });
+
+    testWidgets('has a thin border when immediate', (tester) async {
+      await tester.pumpApp(card());
+
+      final border = decorationOf(tester).border! as Border;
+      expect(border.top.width, equals(1));
+    });
+
+    testWidgets('shows the one-time symbol only for one-time cards', (
+      tester,
+    ) async {
+      await tester.pumpApp(card(kind: RepressionCardKind.oneTime));
+      expect(_iconFinder(HambiIconData.oneTime), findsOneWidget);
+
+      await tester.pumpApp(card());
+      expect(_iconFinder(HambiIconData.oneTime), findsNothing);
+    });
+
+    testWidgets('is 200 × 280 logical pixels', (tester) async {
+      await tester.pumpApp(card());
+
+      expect(
+        tester.getSize(find.byType(RepressionCardView)),
+        equals(const Size(200, 280)),
+      );
+    });
+
+    testWidgets('is 113 × 56 logical pixels when compact', (tester) async {
+      await tester.pumpApp(card(compact: true));
+
+      expect(
+        tester.getSize(find.byType(RepressionCardView)),
+        equals(const Size(113, 56)),
+      );
+    });
+  });
+}
+
+Finder _iconFinder(HambiIconData icon) => find.byWidgetPredicate(
+  (widget) => widget is HambiIcon && widget.icon == icon,
+);
