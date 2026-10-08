@@ -453,4 +453,27 @@ class GameLocalizationsDe extends GameLocalizations {
 
   @override
   String get repressionKindOneTime => 'Einmalig: Die Karte wird nach der Ausführung aus dem Spiel genommen.';
+
+  @override
+  String forestDetailTitle(int column, int position) {
+    return 'Waldspalte $column, Karte $position';
+  }
+
+  @override
+  String get forestDetailIntact => 'Wald: Wird die Karte getroffen, wird sie abgeholzt.';
+
+  @override
+  String get forestDetailCleared => 'Abgeholzt: Wird die Karte getroffen, wird sie entfernt.';
+
+  @override
+  String get forestDetailRemoved => 'Entfernt: RWE hat dieses Waldgebiet abgebaggert.';
+
+  @override
+  String get forestDetailActivist => 'Ein*e Mitstreiter*in schützt die Karte: Wird sie getroffen, bleibt sie unverändert, der*die Mitstreiter*in wird aber aus dem Spiel genommen.';
+
+  @override
+  String get forestDetailSecu => 'Ein Secu steht auf der Karte: Wird sie getroffen, wird der Secu entfernt und danach die Karte abgeholzt bzw. abgebaggert.';
+
+  @override
+  String get forestDetailThreatened => 'Bedroht: Der nächste Bagger in dieser Waldspalte trifft diese Karte.';
 }

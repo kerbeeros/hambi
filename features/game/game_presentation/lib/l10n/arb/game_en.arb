@@ -136,5 +136,12 @@
   "symbolPreventRepression": "In the repression phase, draw one repression card less than you would have to.",
   "repressionKindImmediate": "Immediate: the card is executed at once.",
   "repressionKindBlocking": "Blocking: the card applies until the next repression phase.",
-  "repressionKindOneTime": "One-time: the card is removed from the game after it is executed."
+  "repressionKindOneTime": "One-time: the card is removed from the game after it is executed.",
+  "forestDetailTitle": "Forest column {column}, card {position}",
+  "forestDetailIntact": "Forest: if the card is hit, it is cleared.",
+  "forestDetailCleared": "Cleared: if the card is hit, it is removed.",
+  "forestDetailRemoved": "Removed: RWE has excavated this forest area.",
+  "forestDetailActivist": "An activist protects the card: if it is hit, it stays unchanged, but the activist is removed from the game.",
+  "forestDetailSecu": "A security guard stands on the card: if it is hit, the guard is removed and then the card is cleared or excavated.",
+  "forestDetailThreatened": "Threatened: the next excavator in this forest column hits this card."
 }

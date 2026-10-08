@@ -38,4 +38,28 @@ extension ForestCardPresentation on ForestCard {
     ].join(', ');
     return l10n.forestCardLabel(column + 1, position + 1, description);
   }
+
+  /// Title of the card detail (UX-07); [column] and [position] are
+  /// zero-based.
+  static String detailTitle(
+    GameLocalizations l10n, {
+    required int column,
+    required int position,
+  }) => l10n.forestDetailTitle(column + 1, position + 1);
+
+  /// Explanations of state, piece and threat in the card detail (UX-07,
+  /// R-123).
+  List<String> explanations(
+    GameLocalizations l10n, {
+    required bool isThreatened,
+  }) => [
+    switch (state) {
+      ForestCardState.forest => l10n.forestDetailIntact,
+      ForestCardState.clearCut => l10n.forestDetailCleared,
+      ForestCardState.removed => l10n.forestDetailRemoved,
+    },
+    if (hasActivist) l10n.forestDetailActivist,
+    if (hasSecurity) l10n.forestDetailSecu,
+    if (isThreatened) l10n.forestDetailThreatened,
+  ];
 }

@@ -645,5 +645,41 @@
   "repressionKindOneTime": "Einmalig: Die Karte wird nach der Ausführung aus dem Spiel genommen.",
   "@repressionKindOneTime": {
     "description": "One-time: the card is removed from the game after it is executed."
+  },
+  "forestDetailTitle": "Waldspalte {column}, Karte {position}",
+  "@forestDetailTitle": {
+    "description": "Forest column {column}, card {position}",
+    "placeholders": {
+      "column": {
+        "type": "int"
+      },
+      "position": {
+        "type": "int"
+      }
+    }
+  },
+  "forestDetailIntact": "Wald: Wird die Karte getroffen, wird sie abgeholzt.",
+  "@forestDetailIntact": {
+    "description": "Forest: if the card is hit, it is cleared."
+  },
+  "forestDetailCleared": "Abgeholzt: Wird die Karte getroffen, wird sie entfernt.",
+  "@forestDetailCleared": {
+    "description": "Cleared: if the card is hit, it is removed."
+  },
+  "forestDetailRemoved": "Entfernt: RWE hat dieses Waldgebiet abgebaggert.",
+  "@forestDetailRemoved": {
+    "description": "Removed: RWE has excavated this forest area."
+  },
+  "forestDetailActivist": "Ein*e Mitstreiter*in schützt die Karte: Wird sie getroffen, bleibt sie unverändert, der*die Mitstreiter*in wird aber aus dem Spiel genommen.",
+  "@forestDetailActivist": {
+    "description": "An activist protects the card: if it is hit, it stays unchanged, but the activist is removed from the game."
+  },
+  "forestDetailSecu": "Ein Secu steht auf der Karte: Wird sie getroffen, wird der Secu entfernt und danach die Karte abgeholzt bzw. abgebaggert.",
+  "@forestDetailSecu": {
+    "description": "A security guard stands on the card: if it is hit, the guard is removed and then the card is cleared or excavated."
+  },
+  "forestDetailThreatened": "Bedroht: Der nächste Bagger in dieser Waldspalte trifft diese Karte.",
+  "@forestDetailThreatened": {
+    "description": "Threatened: the next excavator in this forest column hits this card."
   }
 }

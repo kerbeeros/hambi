@@ -212,6 +212,50 @@ void main() {
         equals('WS2, Karte 4: entfernt'),
       );
     });
+
+    test('UX-07: names a card by column and position', () {
+      expect(
+        ForestCardPresentation.detailTitle(l10n, column: 1, position: 3),
+        equals('Waldspalte 2, Karte 4'),
+      );
+    });
+
+    test('UX-07: explains an intact, threatened card with an activist', () {
+      expect(
+        const ForestCard(hasActivist: true)
+            .explanations(l10n, isThreatened: true),
+        equals([
+          'Wald: Wird die Karte getroffen, wird sie abgeholzt.',
+          'Ein*e Mitstreiter*in schützt die Karte: Wird sie getroffen, '
+              'bleibt sie unverändert, der*die Mitstreiter*in wird aber aus '
+              'dem Spiel genommen.',
+          'Bedroht: Der nächste Bagger in dieser Waldspalte trifft diese '
+              'Karte.',
+        ]),
+      );
+    });
+
+    test('UX-07: explains a cleared card with a security guard', () {
+      expect(
+        const ForestCard(
+          state: ForestCardState.clearCut,
+          hasSecurity: true,
+        ).explanations(l10n, isThreatened: false),
+        equals([
+          'Abgeholzt: Wird die Karte getroffen, wird sie entfernt.',
+          'Ein Secu steht auf der Karte: Wird sie getroffen, wird der Secu '
+              'entfernt und danach die Karte abgeholzt bzw. abgebaggert.',
+        ]),
+      );
+    });
+
+    test('UX-07: explains a removed card', () {
+      expect(
+        const ForestCard(state: ForestCardState.removed)
+            .explanations(l10n, isThreatened: false),
+        equals(['Entfernt: RWE hat dieses Waldgebiet abgebaggert.']),
+      );
+    });
   });
 
   group('RepressionCardPresentation', () {

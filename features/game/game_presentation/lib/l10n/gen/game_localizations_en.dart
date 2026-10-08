@@ -453,4 +453,27 @@ class GameLocalizationsEn extends GameLocalizations {
 
   @override
   String get repressionKindOneTime => 'One-time: the card is removed from the game after it is executed.';
+
+  @override
+  String forestDetailTitle(int column, int position) {
+    return 'Forest column $column, card $position';
+  }
+
+  @override
+  String get forestDetailIntact => 'Forest: if the card is hit, it is cleared.';
+
+  @override
+  String get forestDetailCleared => 'Cleared: if the card is hit, it is removed.';
+
+  @override
+  String get forestDetailRemoved => 'Removed: RWE has excavated this forest area.';
+
+  @override
+  String get forestDetailActivist => 'An activist protects the card: if it is hit, it stays unchanged, but the activist is removed from the game.';
+
+  @override
+  String get forestDetailSecu => 'A security guard stands on the card: if it is hit, the guard is removed and then the card is cleared or excavated.';
+
+  @override
+  String get forestDetailThreatened => 'Threatened: the next excavator in this forest column hits this card.';
 }
