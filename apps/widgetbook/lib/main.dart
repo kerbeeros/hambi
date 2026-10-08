@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_presentation/l10n/l10n.dart';
 import 'package:hambi_widgetbook/main.directories.g.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:widgetbook/widgetbook.dart';
@@ -28,6 +29,11 @@ class WidgetbookApp extends StatelessWidget {
           AndroidViewports.samsungGalaxyS20,
           Viewports.none,
         ]),
+        LocalizationAddon(
+          locales: GameLocalizations.supportedLocales,
+          localizationsDelegates: GameLocalizations.localizationsDelegates,
+          initialLocale: const Locale('de'),
+        ),
         TextScaleAddon(divisions: 4),
         AlignmentAddon(),
       ],
