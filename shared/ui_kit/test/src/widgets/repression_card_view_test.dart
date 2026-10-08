@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -100,6 +101,46 @@ void main() {
         tester.getSize(find.byType(RepressionCardView)),
         equals(const Size(200, 280)),
       );
+    });
+
+    testWidgets('UX-07: calls onLongPress when long pressed', (tester) async {
+      var longPresses = 0;
+      await tester.pumpApp(
+        RepressionCardView(
+          title: 'Razzia',
+          description: 'Hälfte der R im Camp entfernen',
+          kind: RepressionCardKind.immediate,
+          compact: true,
+          onLongPress: () => longPresses++,
+        ),
+      );
+
+      await tester.longPress(find.byType(RepressionCardView));
+
+      expect(longPresses, equals(1));
+    });
+
+    testWidgets('UX-07: offers the long press to screen readers', (
+      tester,
+    ) async {
+      final semantics = tester.ensureSemantics();
+      var longPresses = 0;
+      await tester.pumpApp(
+        RepressionCardView(
+          title: 'Razzia',
+          description: 'Hälfte der R im Camp entfernen',
+          kind: RepressionCardKind.immediate,
+          compact: true,
+          onLongPress: () => longPresses++,
+        ),
+      );
+
+      tester.semantics.longPress(
+        find.semantics.byAction(SemanticsAction.longPress),
+      );
+
+      expect(longPresses, equals(1));
+      semantics.dispose();
     });
 
     testWidgets('is 113 × 56 logical pixels when compact', (tester) async {
