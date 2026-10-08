@@ -417,4 +417,31 @@ class GameLocalizationsDe extends GameLocalizations {
 
   @override
   String get backToStartAction => 'Zum Start';
+
+  @override
+  String get symbolActivist => 'Ihr müsst eine*n Mitstreiter*in einsetzen.';
+
+  @override
+  String get symbolResource => 'Ihr müsst eine Ressource einsetzen.';
+
+  @override
+  String get symbolLoseSupport => 'Ihr müsst die öffentliche Unterstützung auf der Erfolgsleiste um eins senken.';
+
+  @override
+  String get symbolGainSupport => 'Steigert die öffentliche Unterstützung um ein Feld.';
+
+  @override
+  String get symbolGainActivist => 'Stellt eine*n neue*n Mitstreiter*in ins Camp.';
+
+  @override
+  String get symbolGainResource => 'Legt eine Ressource in das Camp.';
+
+  @override
+  String get symbolActivistToForest => 'Stellt den*die Mitstreiter*in, den*die ihr oben auf der Karte eingesetzt habt, auf ein beliebiges Waldgebiet.';
+
+  @override
+  String get symbolRerollDie => 'In der Baggerphase dürft ihr einen Bagger-Würfel neu würfeln.';
+
+  @override
+  String get symbolPreventRepression => 'Zieht in der Repressionsphase eine Repressionskarte weniger, als ihr müsstet.';
 }

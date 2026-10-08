@@ -100,6 +100,45 @@ void main() {
     });
   });
 
+  group('CardSymbolPresentation', () {
+    for (final (symbol, explanation) in [
+      (CardSymbol.activist, 'Ihr müsst eine*n Mitstreiter*in einsetzen.'),
+      (CardSymbol.resource, 'Ihr müsst eine Ressource einsetzen.'),
+      (
+        CardSymbol.loseSupport,
+        'Ihr müsst die öffentliche Unterstützung auf der Erfolgsleiste um '
+            'eins senken.',
+      ),
+      (
+        CardSymbol.gainSupport,
+        'Steigert die öffentliche Unterstützung um ein Feld.',
+      ),
+      (
+        CardSymbol.gainActivist,
+        'Stellt eine*n neue*n Mitstreiter*in ins Camp.',
+      ),
+      (CardSymbol.gainResource, 'Legt eine Ressource in das Camp.'),
+      (
+        CardSymbol.activistToForest,
+        'Stellt den*die Mitstreiter*in, den*die ihr oben auf der Karte '
+            'eingesetzt habt, auf ein beliebiges Waldgebiet.',
+      ),
+      (
+        CardSymbol.rerollDie,
+        'In der Baggerphase dürft ihr einen Bagger-Würfel neu würfeln.',
+      ),
+      (
+        CardSymbol.preventRepression,
+        'Zieht in der Repressionsphase eine Repressionskarte weniger, als '
+            'ihr müsstet.',
+      ),
+    ]) {
+      test('UX-07: explains $symbol', () {
+        expect(symbol.explanation(l10n), equals(explanation));
+      });
+    }
+  });
+
   group('AssignmentStatusPresentation', () {
     for (final (status, viewStatus, label) in [
       (AssignmentStatus.available, ActionCardStatus.available, null),

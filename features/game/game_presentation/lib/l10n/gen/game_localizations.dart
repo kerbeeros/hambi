@@ -846,6 +846,60 @@ abstract class GameLocalizations {
   /// In de, this message translates to:
   /// **'Zum Start'**
   String get backToStartAction;
+
+  /// You have to place an activist.
+  ///
+  /// In de, this message translates to:
+  /// **'Ihr müsst eine*n Mitstreiter*in einsetzen.'**
+  String get symbolActivist;
+
+  /// You have to place a resource.
+  ///
+  /// In de, this message translates to:
+  /// **'Ihr müsst eine Ressource einsetzen.'**
+  String get symbolResource;
+
+  /// You have to lower public support on the success track by one.
+  ///
+  /// In de, this message translates to:
+  /// **'Ihr müsst die öffentliche Unterstützung auf der Erfolgsleiste um eins senken.'**
+  String get symbolLoseSupport;
+
+  /// Raise public support by one space.
+  ///
+  /// In de, this message translates to:
+  /// **'Steigert die öffentliche Unterstützung um ein Feld.'**
+  String get symbolGainSupport;
+
+  /// Put a new activist into the camp.
+  ///
+  /// In de, this message translates to:
+  /// **'Stellt eine*n neue*n Mitstreiter*in ins Camp.'**
+  String get symbolGainActivist;
+
+  /// Put a resource into the camp.
+  ///
+  /// In de, this message translates to:
+  /// **'Legt eine Ressource in das Camp.'**
+  String get symbolGainResource;
+
+  /// Put the activist you placed on top of the card onto any forest area.
+  ///
+  /// In de, this message translates to:
+  /// **'Stellt den*die Mitstreiter*in, den*die ihr oben auf der Karte eingesetzt habt, auf ein beliebiges Waldgebiet.'**
+  String get symbolActivistToForest;
+
+  /// In the excavator phase you may reroll one excavator die.
+  ///
+  /// In de, this message translates to:
+  /// **'In der Baggerphase dürft ihr einen Bagger-Würfel neu würfeln.'**
+  String get symbolRerollDie;
+
+  /// In the repression phase, draw one repression card less than you would have to.
+  ///
+  /// In de, this message translates to:
+  /// **'Zieht in der Repressionsphase eine Repressionskarte weniger, als ihr müsstet.'**
+  String get symbolPreventRepression;
 }
 
 class _GameLocalizationsDelegate extends LocalizationsDelegate<GameLocalizations> {
