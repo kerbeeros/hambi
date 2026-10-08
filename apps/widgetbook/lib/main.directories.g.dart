@@ -13,6 +13,8 @@
 
 import 'package:hambi_widgetbook/ui_kit/action_card_view.dart'
     as _hambi_widgetbook_ui_kit_action_card_view;
+import 'package:hambi_widgetbook/ui_kit/board_controls.dart'
+    as _hambi_widgetbook_ui_kit_board_controls;
 import 'package:hambi_widgetbook/ui_kit/camp_card_view.dart'
     as _hambi_widgetbook_ui_kit_camp_card_view;
 import 'package:hambi_widgetbook/ui_kit/die_view.dart'
@@ -66,6 +68,16 @@ final directories = <_widgetbook.WidgetbookNode>[
         ],
       ),
       _widgetbook.WidgetbookComponent(
+        name: 'BoardTabs',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'Default',
+            builder:
+                _hambi_widgetbook_ui_kit_board_controls.buildBoardTabsUseCase,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
         name: 'CampCardView',
         useCases: [
           _widgetbook.WidgetbookUseCase(
@@ -105,6 +117,16 @@ final directories = <_widgetbook.WidgetbookNode>[
         ],
       ),
       _widgetbook.WidgetbookComponent(
+        name: 'HambiBottomSheet',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'Default',
+            builder: _hambi_widgetbook_ui_kit_board_controls
+                .buildHambiBottomSheetUseCase,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
         name: 'HambiButton',
         useCases: [
           _widgetbook.WidgetbookUseCase(
@@ -120,12 +142,42 @@ final directories = <_widgetbook.WidgetbookNode>[
         ],
       ),
       _widgetbook.WidgetbookComponent(
+        name: 'HambiDialog',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'Decision',
+            builder:
+                _hambi_widgetbook_ui_kit_board_controls.buildHambiDialogUseCase,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'PhaseStepper',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'Default',
+            builder: _hambi_widgetbook_ui_kit_board_controls
+                .buildPhaseStepperUseCase,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
         name: 'RepressionCardView',
         useCases: [
           _widgetbook.WidgetbookUseCase(
             name: 'Default',
             builder: _hambi_widgetbook_ui_kit_repression_card_view
                 .buildRepressionCardViewUseCase,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'RoundHeader',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'Default',
+            builder:
+                _hambi_widgetbook_ui_kit_board_controls.buildRoundHeaderUseCase,
           ),
         ],
       ),
