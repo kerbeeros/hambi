@@ -80,7 +80,7 @@ GameStateDto _$GameStateDtoFromJson(Map<String, dynamic> json) =>
         log: $checkedConvert(
           'log',
           (v) => (v as List<dynamic>)
-              .map((e) => GameEventDto.fromJson(e as Map<String, dynamic>))
+              .map((e) => GameLogEntryDto.fromJson(e as Map<String, dynamic>))
               .toList(),
         ),
         repressionCardsToDraw: $checkedConvert(

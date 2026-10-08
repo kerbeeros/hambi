@@ -10,7 +10,7 @@ GameState buildGameState({
   Set<ActionCardId> activatedCards = const {},
   PendingDecision? pendingDecision,
   GameOutcome? outcome,
-  List<GameEvent> log = const [],
+  List<GameLogEntry> log = const [],
   int repressionCardsToDraw = 0,
 }) => GameState(
   playerCount: 4,

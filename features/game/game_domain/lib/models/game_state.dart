@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:game_domain/models/action_card_id.dart';
 import 'package:game_domain/models/camp.dart';
 import 'package:game_domain/models/forest.dart';
-import 'package:game_domain/models/game_event.dart';
+import 'package:game_domain/models/game_log_entry.dart';
 import 'package:game_domain/models/game_outcome.dart';
 import 'package:game_domain/models/game_phase.dart';
 import 'package:game_domain/models/pending_decision.dart';
@@ -29,7 +29,7 @@ class GameState extends Equatable {
     Set<ActionCardId> activatedCards = const {},
     this.pendingDecision,
     this.outcome,
-    List<GameEvent> log = const [],
+    List<GameLogEntry> log = const [],
     this.repressionCardsToDraw = 0,
   }) : cardSides = Map.unmodifiable(cardSides),
        repressionDeck = List.unmodifiable(repressionDeck),
@@ -93,7 +93,7 @@ class GameState extends Equatable {
   final GameOutcome? outcome;
 
   /// Log of the current round (F-07).
-  final List<GameEvent> log;
+  final List<GameLogEntry> log;
 
   /// Repression cards still to be drawn in the current phase (R-093).
   final int repressionCardsToDraw;
@@ -156,7 +156,7 @@ class GameState extends Equatable {
     Set<ActionCardId>? activatedCards,
     PendingDecision? Function()? pendingDecision,
     GameOutcome? outcome,
-    List<GameEvent>? log,
+    List<GameLogEntry>? log,
     int? repressionCardsToDraw,
     int? randomState,
   }) => GameState(

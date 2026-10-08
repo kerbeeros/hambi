@@ -1,18 +1,18 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'game_event_dto.dart';
+part of 'game_log_entry_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-GameEventDto _$GameEventDtoFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('GameEventDto', json, ($checkedConvert) {
+GameLogEntryDto _$GameLogEntryDtoFromJson(Map<String, dynamic> json) =>
+    $checkedCreate('GameLogEntryDto', json, ($checkedConvert) {
       $checkKeys(
         json,
         allowedKeys: const ['type', 'dice', 'index', 'value', 'card'],
       );
-      final val = GameEventDto(
+      final val = GameLogEntryDto(
         type: $checkedConvert('type', (v) => v as String),
         dice: $checkedConvert(
           'dice',
@@ -25,7 +25,7 @@ GameEventDto _$GameEventDtoFromJson(Map<String, dynamic> json) =>
       return val;
     });
 
-Map<String, dynamic> _$GameEventDtoToJson(GameEventDto instance) =>
+Map<String, dynamic> _$GameLogEntryDtoToJson(GameLogEntryDto instance) =>
     <String, dynamic>{
       'type': instance.type,
       'dice': ?instance.dice,

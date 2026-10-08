@@ -2,14 +2,14 @@ import 'package:equatable/equatable.dart';
 import 'package:game_domain/models/repression_card.dart';
 
 /// Entry of the round log (F-07).
-sealed class GameEvent extends Equatable {
+sealed class GameLogEntry extends Equatable {
   const new();
 }
 
 /// {@template dice_rolled}
 /// The excavator dice were rolled (R-120).
 /// {@endtemplate}
-final class DiceRolled extends GameEvent {
+final class DiceRolled extends GameLogEntry {
   /// {@macro dice_rolled}
   const new(this.dice);
 
@@ -23,7 +23,7 @@ final class DiceRolled extends GameEvent {
 /// {@template die_rerolled}
 /// An excavator die was rerolled thanks to sabotage (R-121).
 /// {@endtemplate}
-final class DieRerolled extends GameEvent {
+final class DieRerolled extends GameLogEntry {
   /// {@macro die_rerolled}
   const new({required this.index, required this.value});
 
@@ -40,7 +40,7 @@ final class DieRerolled extends GameEvent {
 /// {@template repression_card_drawn}
 /// A repression card was drawn (R-093).
 /// {@endtemplate}
-final class RepressionCardDrawn extends GameEvent {
+final class RepressionCardDrawn extends GameLogEntry {
   /// {@macro repression_card_drawn}
   const new(this.card);
 
@@ -54,7 +54,7 @@ final class RepressionCardDrawn extends GameEvent {
 /// {@template repression_die_rolled}
 /// A die was rolled for a repression card (R-050, R-052).
 /// {@endtemplate}
-final class RepressionDieRolled extends GameEvent {
+final class RepressionDieRolled extends GameLogEntry {
   /// {@macro repression_die_rolled}
   const new(this.value);
 
