@@ -11,6 +11,13 @@ extension RepressionCardPresentation on RepressionCard {
     RepressionCardType.oneTime => RepressionCardKind.oneTime,
   };
 
+  /// Explanation of [kind] in the card detail (UX-07).
+  String kindExplanation(GameLocalizations l10n) => switch (type) {
+    RepressionCardType.immediate => l10n.repressionKindImmediate,
+    RepressionCardType.blocking => l10n.repressionKindBlocking,
+    RepressionCardType.oneTime => l10n.repressionKindOneTime,
+  };
+
   /// Card title.
   String title(GameLocalizations l10n) => switch (this) {
     RepressionCard.security => l10n.repressionSecurity,

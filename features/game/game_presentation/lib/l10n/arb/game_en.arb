@@ -133,5 +133,8 @@
   "symbolGainResource": "Put a resource into the camp.",
   "symbolActivistToForest": "Put the activist you placed on top of the card onto any forest area.",
   "symbolRerollDie": "In the excavator phase you may reroll one excavator die.",
-  "symbolPreventRepression": "In the repression phase, draw one repression card less than you would have to."
+  "symbolPreventRepression": "In the repression phase, draw one repression card less than you would have to.",
+  "repressionKindImmediate": "Immediate: the card is executed at once.",
+  "repressionKindBlocking": "Blocking: the card applies until the next repression phase.",
+  "repressionKindOneTime": "One-time: the card is removed from the game after it is executed."
 }

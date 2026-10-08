@@ -234,6 +234,23 @@ void main() {
         expect(card.kind, equals(kind));
       });
     }
+
+    for (final (card, explanation) in [
+      (RepressionCard.raid, 'Sofort: Die Karte wird direkt ausgeführt.'),
+      (
+        RepressionCard.assemblyBan,
+        'Blockierend: Die Karte gilt bis zur nächsten Repressionsphase.',
+      ),
+      (
+        RepressionCard.threat,
+        'Einmalig: Die Karte wird nach der Ausführung aus dem Spiel '
+            'genommen.',
+      ),
+    ]) {
+      test('UX-07: explains the kind of $card', () {
+        expect(card.kindExplanation(l10n), equals(explanation));
+      });
+    }
   });
 
   group('GamePhasePresentation', () {
