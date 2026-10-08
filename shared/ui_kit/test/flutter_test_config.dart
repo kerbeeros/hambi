@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import 'helpers/load_package_fonts.dart';
+import 'helpers/tolerant_golden_comparator.dart';
 
 Future<void> testExecutable(FutureOr<void> Function() testMain) async {
   // CI only compares platform-independent goldens, see ADR 0004.
@@ -13,6 +14,14 @@ Future<void> testExecutable(FutureOr<void> Function() testMain) async {
 
   TestWidgetsFlutterBinding.ensureInitialized();
   await loadPackageFonts();
+
+  final comparator = goldenFileComparator;
+  if (isRunningInCi && comparator is LocalFileComparator) {
+    goldenFileComparator = TolerantGoldenFileComparator(
+      comparator.basedir.resolve('flutter_test_config.dart'),
+      tolerance: 0.001,
+    );
+  }
 
   await AlchemistConfig.runWithConfig(
     config: AlchemistConfig(

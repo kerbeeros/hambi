@@ -29,11 +29,13 @@ jobs:
       # Only platform-independent CI goldens are compared on CI (ADR 0004).
       dart_define: CI=true
 
+  # Flutter workflow although game_domain is pure Dart: the pub workspace
+  # contains Flutter packages, so dependency resolution needs the Flutter SDK.
   game_domain:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
     with:
       working_directory: features/game/game_domain
-      dart_sdk: 3.13.5
+      flutter_version: 3.47.6
       min_coverage: 100
 
   widgetbook:
@@ -56,3 +58,42 @@ jobs:
         run: flutter analyze --fatal-infos --fatal-warnings
       - name: Build web
         run: flutter build web --release
+
+  generated_code:
+    name: generated code is up to date
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package:
+          - apps/widgetbook
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.47.6
+          channel: stable
+          cache: true
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Generate code
+        working-directory: ${{ matrix.package }}
+        run: dart run build_runner build --delete-conflicting-outputs
+      - name: Format generated code
+        run: dart format .
+      - name: Fail on changes
+        run: git diff --exit-code
+
+  # Single required status check for merging into main.
+  ci-success:
+    if: always()
+    needs:
+      - hambi_app
+      - ui_kit
+      - game_domain
+      - widgetbook
+      - generated_code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check that all jobs succeeded
+        run: |
+          echo '${{ toJSON(needs) }}' | jq -e 'all(.[]; .result == "success")'
