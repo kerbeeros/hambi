@@ -45,6 +45,16 @@ final directories = <_widgetbook.WidgetbookNode>[
         name: 'dialogs',
         children: [
           _widgetbook.WidgetbookComponent(
+            name: 'ActionCardDetail',
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'Action card',
+                builder: _hambi_widgetbook_game_game_screens
+                    .buildActionCardDetailUseCase,
+              ),
+            ],
+          ),
+          _widgetbook.WidgetbookComponent(
             name: 'DecisionDialog',
             useCases: [
               _widgetbook.WidgetbookUseCase(
@@ -55,12 +65,32 @@ final directories = <_widgetbook.WidgetbookNode>[
             ],
           ),
           _widgetbook.WidgetbookComponent(
+            name: 'ForestCardDetail',
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'Forest card',
+                builder: _hambi_widgetbook_game_game_screens
+                    .buildForestCardDetailUseCase,
+              ),
+            ],
+          ),
+          _widgetbook.WidgetbookComponent(
             name: 'LogEntryDialog',
             useCases: [
               _widgetbook.WidgetbookUseCase(
                 name: 'Log entries',
                 builder: _hambi_widgetbook_game_game_screens
                     .buildLogEntryDialogUseCase,
+              ),
+            ],
+          ),
+          _widgetbook.WidgetbookComponent(
+            name: 'RepressionCardDetail',
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'Repression card',
+                builder: _hambi_widgetbook_game_game_screens
+                    .buildRepressionCardDetailUseCase,
               ),
             ],
           ),
