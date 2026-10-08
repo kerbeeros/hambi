@@ -63,7 +63,7 @@ class LocalToDomainGameStateMapper {
       null => null,
       final outcome => _byName(GameOutcome.values, outcome),
     },
-    log: [for (final event in dto.log) _mapEvent(event)],
+    log: [for (final entry in dto.log) _mapLogEntry(entry)],
     repressionCardsToDraw: dto.repressionCardsToDraw,
     randomState: dto.randomState,
   );
@@ -90,7 +90,7 @@ class LocalToDomainGameStateMapper {
     final type => throw FormatException('Unknown decision type', type),
   };
 
-  GameEvent _mapEvent(GameEventDto dto) => switch (dto.type) {
+  GameLogEntry _mapLogEntry(GameLogEntryDto dto) => switch (dto.type) {
     'diceRolled' => DiceRolled(_required(dto.dice, dto.type)),
     'dieRerolled' => DieRerolled(
       index: _required(dto.index, dto.type),
@@ -102,7 +102,7 @@ class LocalToDomainGameStateMapper {
     'repressionDieRolled' => RepressionDieRolled(
       _required(dto.value, dto.type),
     ),
-    final type => throw FormatException('Unknown event type', type),
+    final type => throw FormatException('Unknown log entry type', type),
   };
 
   T _byName<T extends Enum>(List<T> values, String name) {

@@ -4,7 +4,7 @@ export 'action_card_id.dart';
 export 'camp.dart';
 export 'forest.dart';
 export 'forest_position.dart';
-export 'game_event.dart';
+export 'game_log_entry.dart';
 export 'game_outcome.dart';
 export 'game_phase.dart';
 export 'game_state.dart';

@@ -1,18 +1,19 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'game_event_dto.g.dart';
+part 'game_log_entry_dto.g.dart';
 
-/// {@template game_event_dto}
+/// {@template game_log_entry_dto}
 /// Stored round log entry; [type] selects the variant and which of the
 /// optional values are set.
 /// {@endtemplate}
 @JsonSerializable(includeIfNull: false)
-class GameEventDto {
-  /// {@macro game_event_dto}
+class GameLogEntryDto {
+  /// {@macro game_log_entry_dto}
   const new({required this.type, this.dice, this.index, this.value, this.card});
 
-  /// Creates a [GameEventDto] from JSON.
-  factory fromJson(Map<String, dynamic> json) => _$GameEventDtoFromJson(json);
+  /// Creates a [GameLogEntryDto] from JSON.
+  factory fromJson(Map<String, dynamic> json) =>
+      _$GameLogEntryDtoFromJson(json);
 
   /// Variant name.
   final String type;
@@ -30,5 +31,5 @@ class GameEventDto {
   final String? card;
 
   /// Converts this DTO to JSON.
-  Map<String, dynamic> toJson() => _$GameEventDtoToJson(this);
+  Map<String, dynamic> toJson() => _$GameLogEntryDtoToJson(this);
 }

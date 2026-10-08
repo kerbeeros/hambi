@@ -1,6 +1,6 @@
 import 'package:game_data/data_sources/dtos/camp_dto.dart';
 import 'package:game_data/data_sources/dtos/forest_card_dto.dart';
-import 'package:game_data/data_sources/dtos/game_event_dto.dart';
+import 'package:game_data/data_sources/dtos/game_log_entry_dto.dart';
 import 'package:game_data/data_sources/dtos/pending_decision_dto.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -74,7 +74,7 @@ class GameStateDto {
   final String? outcome;
 
   /// Round log.
-  final List<GameEventDto> log;
+  final List<GameLogEntryDto> log;
 
   /// Repression cards still to be drawn.
   final int repressionCardsToDraw;

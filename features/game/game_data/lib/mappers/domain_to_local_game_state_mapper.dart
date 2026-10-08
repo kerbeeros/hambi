@@ -42,7 +42,7 @@ class DomainToLocalGameStateMapper {
       final decision => _mapDecision(decision),
     },
     outcome: state.outcome?.name,
-    log: [for (final event in state.log) _mapEvent(event)],
+    log: [for (final entry in state.log) _mapLogEntry(entry)],
     repressionCardsToDraw: state.repressionCardsToDraw,
     randomState: state.randomState,
   );
@@ -70,18 +70,18 @@ class DomainToLocalGameStateMapper {
         ),
       };
 
-  GameEventDto _mapEvent(GameEvent event) => switch (event) {
-    DiceRolled(:final dice) => GameEventDto(type: 'diceRolled', dice: dice),
-    DieRerolled(:final index, :final value) => GameEventDto(
+  GameLogEntryDto _mapLogEntry(GameLogEntry entry) => switch (entry) {
+    DiceRolled(:final dice) => GameLogEntryDto(type: 'diceRolled', dice: dice),
+    DieRerolled(:final index, :final value) => GameLogEntryDto(
       type: 'dieRerolled',
       index: index,
       value: value,
     ),
-    RepressionCardDrawn(:final card) => GameEventDto(
+    RepressionCardDrawn(:final card) => GameLogEntryDto(
       type: 'repressionCardDrawn',
       card: card.name,
     ),
-    RepressionDieRolled(:final value) => GameEventDto(
+    RepressionDieRolled(:final value) => GameLogEntryDto(
       type: 'repressionDieRolled',
       value: value,
     ),
