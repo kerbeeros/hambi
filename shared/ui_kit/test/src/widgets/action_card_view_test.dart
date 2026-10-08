@@ -11,6 +11,7 @@ void main() {
       String? sideLabel,
       String? statusLabel,
       VoidCallback? onTap,
+      VoidCallback? onLongPress,
     }) => ActionCardView(
       category: ActionCardCategory.directAction,
       title: 'Blockade',
@@ -20,6 +21,7 @@ void main() {
       status: status,
       statusLabel: statusLabel,
       onTap: onTap,
+      onLongPress: onLongPress,
     );
 
     testWidgets('renders the title', (tester) async {
@@ -95,6 +97,37 @@ void main() {
       await tester.tap(find.byType(ActionCardView));
 
       expect(taps, equals(1));
+    });
+
+    testWidgets('UX-07: calls onLongPress when long pressed', (tester) async {
+      var longPresses = 0;
+      await tester.pumpApp(card(onLongPress: () => longPresses++));
+
+      await tester.longPress(find.byType(ActionCardView));
+
+      expect(longPresses, equals(1));
+    });
+
+    testWidgets('UX-07: offers the long press to screen readers', (
+      tester,
+    ) async {
+      final semantics = tester.ensureSemantics();
+      var longPresses = 0;
+      await tester.pumpApp(
+        ActionCardView(
+          category: ActionCardCategory.support,
+          title: 'Baumarkt',
+          conditions: const [CardSymbol.activist],
+          effects: const [CardSymbol.gainResource],
+          semanticLabel: 'Baumarkt',
+          onLongPress: () => longPresses++,
+        ),
+      );
+
+      tester.semantics.longPress(find.semantics.byLabel('Baumarkt'));
+
+      expect(longPresses, equals(1));
+      semantics.dispose();
     });
 
     testWidgets('is 113 × 96 logical pixels', (tester) async {
