@@ -226,11 +226,11 @@ void main() {
             .explanations(l10n, isThreatened: true),
         equals([
           'Wald: Wird die Karte getroffen, wird sie abgeholzt.',
-          'Ein*e Mitstreiter*in schützt die Karte: Wird sie getroffen, '
+          ('Ein*e Mitstreiter*in schützt die Karte: Wird sie getroffen, '
               'bleibt sie unverändert, der*die Mitstreiter*in wird aber aus '
-              'dem Spiel genommen.',
-          'Bedroht: Der nächste Bagger in dieser Waldspalte trifft diese '
-              'Karte.',
+              'dem Spiel genommen.'),
+          ('Bedroht: Der nächste Bagger in dieser Waldspalte trifft diese '
+              'Karte.'),
         ]),
       );
     });
@@ -243,8 +243,8 @@ void main() {
         ).explanations(l10n, isThreatened: false),
         equals([
           'Abgeholzt: Wird die Karte getroffen, wird sie entfernt.',
-          'Ein Secu steht auf der Karte: Wird sie getroffen, wird der Secu '
-              'entfernt und danach die Karte abgeholzt bzw. abgebaggert.',
+          ('Ein Secu steht auf der Karte: Wird sie getroffen, wird der Secu '
+              'entfernt und danach die Karte abgeholzt bzw. abgebaggert.'),
         ]),
       );
     });
