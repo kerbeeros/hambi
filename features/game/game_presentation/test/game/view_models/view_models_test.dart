@@ -167,6 +167,11 @@ void main() {
             .semanticLabel(l10n, column: 2, position: 0, isThreatened: false),
         equals('WS3, Karte 1: Wald, mit Secu'),
       );
+      expect(
+        const ForestCard(state: ForestCardState.removed)
+            .semanticLabel(l10n, column: 1, position: 3, isThreatened: false),
+        equals('WS2, Karte 4: entfernt'),
+      );
     });
   });
 
