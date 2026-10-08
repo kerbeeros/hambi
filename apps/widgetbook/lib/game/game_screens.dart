@@ -95,3 +95,51 @@ Widget buildLogEntryDialogUseCase(BuildContext context) {
 Widget buildRoundLogSheetUseCase(BuildContext context) {
   return RoundLogSheet(log: SampleGames.game().log);
 }
+
+/// The card detail of an action card (D-08).
+@widgetbook.UseCase(name: 'Action card', type: ActionCardDetail)
+Widget buildActionCardDetailUseCase(BuildContext context) {
+  return ActionCardDetail(
+    game: SampleGames.game(),
+    card: context.knobs.object.dropdown(
+      label: 'Card',
+      options: ActionCardId.values,
+      labelBuilder: (card) => card.name,
+    ),
+  );
+}
+
+/// The card detail of a forest card (D-08).
+@widgetbook.UseCase(name: 'Forest card', type: ForestCardDetail)
+Widget buildForestCardDetailUseCase(BuildContext context) {
+  return ForestCardDetail(
+    card: context.knobs.object.dropdown(
+      label: 'Card',
+      options: const [
+        ForestCard(),
+        ForestCard(hasActivist: true),
+        ForestCard(state: ForestCardState.clearCut, hasSecurity: true),
+        ForestCard(state: ForestCardState.removed),
+      ],
+      labelBuilder: (card) => [
+        card.state.name,
+        if (card.hasActivist) 'activist',
+        if (card.hasSecurity) 'secu',
+      ].join(', '),
+    ),
+    position: const ForestPosition(column: 0, position: 0),
+    isThreatened: context.knobs.boolean(label: 'Threatened'),
+  );
+}
+
+/// The card detail of a repression card (D-08).
+@widgetbook.UseCase(name: 'Repression card', type: RepressionCardDetail)
+Widget buildRepressionCardDetailUseCase(BuildContext context) {
+  return RepressionCardDetail(
+    card: context.knobs.object.dropdown(
+      label: 'Card',
+      options: RepressionCard.values,
+      labelBuilder: (card) => card.name,
+    ),
+  );
+}
