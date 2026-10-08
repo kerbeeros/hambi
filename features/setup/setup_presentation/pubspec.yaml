@@ -1,0 +1,33 @@
+name: setup_presentation
+description: Hambi start and setup screens.
+version: 0.1.0+1
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ^3.13.0
+  flutter: ^3.47.0
+
+dependencies:
+  bloc: ^9.2.1
+  equatable: ^3.0.0
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.1.1
+  flutter_localizations:
+    sdk: flutter
+  game_domain:
+    path: ../../game/game_domain
+  intl: ^0.20.3
+  ui_kit:
+    path: ../../../shared/ui_kit
+
+dev_dependencies:
+  bloc_test: ^10.0.0
+  flutter_test:
+    sdk: flutter
+  mocktail: ^1.0.5
+  very_good_analysis: ^11.0.0
+
+flutter:
+  generate: true
