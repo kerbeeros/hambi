@@ -1,0 +1,49 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:ui_kit/ui_kit.dart';
+
+import '../../helpers/helpers.dart';
+
+void main() {
+  group(RoundHeader, () {
+    Widget header({VoidCallback? onLog, VoidCallback? onMenu}) => RoundHeader(
+      title: 'Runde 3/12',
+      subtitle: 'Vorbereitung',
+      logTooltip: 'Rundenlog',
+      menuTooltip: 'Spielmenü',
+      onLogPressed: onLog ?? () {},
+      onMenuPressed: onMenu ?? () {},
+    );
+
+    testWidgets('renders title and subtitle', (tester) async {
+      await tester.pumpApp(header());
+
+      expect(find.text('Runde 3/12'), findsOneWidget);
+      expect(find.text('Vorbereitung'), findsOneWidget);
+    });
+
+    testWidgets('calls onLogPressed', (tester) async {
+      var taps = 0;
+      await tester.pumpApp(header(onLog: () => taps++));
+
+      await tester.tap(find.byTooltip('Rundenlog'));
+
+      expect(taps, equals(1));
+    });
+
+    testWidgets('calls onMenuPressed', (tester) async {
+      var taps = 0;
+      await tester.pumpApp(header(onMenu: () => taps++));
+
+      await tester.tap(find.byTooltip('Spielmenü'));
+
+      expect(taps, equals(1));
+    });
+
+    testWidgets('is 64 logical pixels high', (tester) async {
+      await tester.pumpApp(header());
+
+      expect(tester.getSize(find.byType(RoundHeader)).height, equals(64));
+    });
+  });
+}

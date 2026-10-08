@@ -105,7 +105,9 @@ Touch-Ziele mindestens 44 × 44 pt. Bildschirmrand Smartphone: `lg` (16).
 
 ## 4. Icons
 
-24 × 24 Vektor-Icons im Stil des Spielmaterials, als SVG-Assets im `ui_kit` (Paket `flutter_svg` – vor Einsatz per ADR bestätigen) oder als `CustomPainter`. Farben sind fest (entsprechen dem Original) und werden nicht umgefärbt.
+24 × 24 Vektor-Icons im Stil des Spielmaterials, gerendert mit `flutter_svg` (ADR 0007) als `HambiIcon(HambiIconData.x)`. Farben der Spielsymbole sind fest (entsprechen dem Original) und werden nicht umgefärbt. `ui_kit`-Widgets verwenden keine Material-Icons.
+
+Zusätzlich zu den Spielsymbolen unten gibt es UI-Icons im selben Stil (Quelltext in `shared/ui_kit/lib/src/icons/hambi_icon_data.dart`): `die` (Würfel), `arrow` (→), `reroll` (↻), `oneTime` (⦸, einmalige Repressionskarte), `menu`, `log`, `lock` (blockiert), `check` (belegt). UI-Icons dürfen per `color` eingefärbt werden (z. B. `text/on-dark` im Header).
 
 | Icon | SVG |
 |---|---|
@@ -122,21 +124,23 @@ Zusätzlich aus den Original-PDFs (`docs/reference/`): Logo „Hambi bleibt!“,
 ## 5. Komponenten (`ui_kit`)
 
 Jede Komponente ist ein eigenes Widget, hat einen Widgetbook-Use-Case pro Zustand und einen Alchemist-Golden-Test.
+Karten-Widgets tragen das Suffix `View` (z. B. `ForestCardView`), um Namenskonflikte mit den Domain-Models (`ForestCard`) zu vermeiden. Texte werden immer als Parameter übergeben; das `ui_kit` kennt keine Lokalisierung.
 
 | Widget | Zustände / Parameter | Maße (Smartphone) |
 |---|---|---|
 | `HambiButton` | primary / secondary × enabled / disabled, Label | Höhe 48, Radius `lg` |
 | `StatusChip` | activist / resource / support / repression, Label | Höhe 28, Radius `full` |
-| `ForestCard` | intact / cleared / removed × none / activist / secu × target | 78 × 104, Radius 10 |
-| `ActionCard` | direct / campaign / support × default / assigned / blocked / disabled; Titel, Kosten, Effekt, Seite A/B | 113 × 96, Radius 10; oben Kartenfarbe (Bedingung), unten Effektfarbe |
-| `CampCard` | Anzahl M, Anzahl R | 113 × 96 |
-| `RepressionCard` | instant / blocking (dicker Rahmen) / once (⦸-Symbol); Titel, Text | Dialog: 200 × 280 |
-| `SuccessTrack` | activists / support; Wert 0–11; Repressionsfelder | Zellen 22 (kompakt) bzw. 26 |
-| `Dice` | Wert 1–6 | 40 × 40, Radius `md` |
+| `ForestCardView` | intact / cleared / removed × none / activist / secu × target (roter Rand + „!“-Badge) | 78 × 104, Radius `card` |
+| `ActionCardView` | directAction / campaign / support × available / assigned (✓) / blocked (Schloss) / unavailable (abgeblendet); Titel, Bedingungen und Effekte als `CardSymbol`, Seite, Status-Text | 113 × 96, Radius `card`; oben Kartenfarbe (Bedingung), unten Effektfarbe |
+| `CardSymbolView` | activist, resource, ±support, +activist, +resource, activist→forest, reroll, −repression | Icons 14 (Karte) bzw. 18 |
+| `CampCardView` | Anzahl M, Anzahl R | 113 × 96 |
+| `RepressionCardView` | immediate / blocking (dicker Rahmen) / oneTime (⦸); Titel, Text; kompakt fürs Brett | Dialog 200 × 280, kompakt 113 × 56 |
+| `SuccessTrack` | activists / support; Wert 0–11; Repressionsfelder (roter Rand), aktivierte Felder (Repressions-Symbol) | Zellen 22 (kompakt) bzw. 26 |
+| `DieView` | Wert 1–6 | 40 × 40, Radius `md` |
 | `RoundHeader` | Runde, Phase, Buttons Log/Menü | Höhe ≈ 64, `bg/board` |
 | `PhaseStepper` | aktive Phase 1–4 | |
 | `BoardTabs` | Wald / Aktionen, Badge | Segmented Control, Höhe 44 |
-| `HambiDialog`, `HambiBottomSheet` | Titel, Inhalt, Aktionen | |
+| `HambiDialog`, `HambiBottomSheet` | Titel, Inhalt, Aktionen; Dialoge nicht durch Tippen daneben schließbar (UX-03) | |
 
 ## 6. Layout „Spielbrett“ (Variante B, ADR 0003)
 
