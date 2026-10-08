@@ -15,6 +15,8 @@ import 'package:hambi_widgetbook/ui_kit/camp_card_view.dart'
     as _hambi_widgetbook_ui_kit_camp_card_view;
 import 'package:hambi_widgetbook/ui_kit/die_view.dart'
     as _hambi_widgetbook_ui_kit_die_view;
+import 'package:hambi_widgetbook/ui_kit/forest_card_view.dart'
+    as _hambi_widgetbook_ui_kit_forest_card_view;
 import 'package:hambi_widgetbook/ui_kit/hambi_button.dart'
     as _hambi_widgetbook_ui_kit_hambi_button;
 import 'package:hambi_widgetbook/ui_kit/hambi_icon.dart'
@@ -63,6 +65,16 @@ final directories = <_widgetbook.WidgetbookNode>[
           _widgetbook.WidgetbookUseCase(
             name: 'Default',
             builder: _hambi_widgetbook_ui_kit_die_view.buildDieViewUseCase,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'ForestCardView',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'Default',
+            builder: _hambi_widgetbook_ui_kit_forest_card_view
+                .buildForestCardViewUseCase,
           ),
         ],
       ),
