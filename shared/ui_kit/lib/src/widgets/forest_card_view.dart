@@ -37,6 +37,7 @@ class ForestCardView extends StatelessWidget {
     this.isTarget = false,
     this.semanticLabel,
     this.onTap,
+    this.onLongPress,
     super.key,
   });
 
@@ -55,6 +56,9 @@ class ForestCardView extends StatelessWidget {
 
   /// Called when the card is tapped, e.g. to choose it as a target.
   final VoidCallback? onTap;
+
+  /// Called when the card is long pressed, e.g. to show its details (UX-07).
+  final VoidCallback? onLongPress;
 
   /// Card width in logical pixels.
   static const double width = 78;
@@ -84,6 +88,7 @@ class ForestCardView extends StatelessWidget {
     return Semantics(
       label: semanticLabel,
       button: onTap != null,
+      onLongPress: onLongPress,
       excludeSemantics: true,
       child: SizedBox(
         width: width,
@@ -99,6 +104,7 @@ class ForestCardView extends StatelessWidget {
           clipBehavior: Clip.antiAlias,
           child: InkWell(
             onTap: onTap,
+            onLongPress: onLongPress,
             child: Stack(
               children: [
                 if (symbol case (final first, final second))

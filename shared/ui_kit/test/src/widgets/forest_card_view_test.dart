@@ -84,6 +84,39 @@ void main() {
       expect(taps, equals(1));
     });
 
+    testWidgets('UX-07: calls onLongPress when long pressed', (tester) async {
+      var longPresses = 0;
+      await tester.pumpApp(
+        ForestCardView(
+          state: ForestCardViewState.intact,
+          onLongPress: () => longPresses++,
+        ),
+      );
+
+      await tester.longPress(find.byType(ForestCardView));
+
+      expect(longPresses, equals(1));
+    });
+
+    testWidgets('UX-07: offers the long press to screen readers', (
+      tester,
+    ) async {
+      final semantics = tester.ensureSemantics();
+      var longPresses = 0;
+      await tester.pumpApp(
+        ForestCardView(
+          state: ForestCardViewState.intact,
+          semanticLabel: 'Waldkarte',
+          onLongPress: () => longPresses++,
+        ),
+      );
+
+      tester.semantics.longPress(find.semantics.byLabel('Waldkarte'));
+
+      expect(longPresses, equals(1));
+      semantics.dispose();
+    });
+
     testWidgets('is 78 × 104 logical pixels', (tester) async {
       await tester.pumpApp(
         const ForestCardView(state: ForestCardViewState.removed),
