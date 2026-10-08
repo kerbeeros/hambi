@@ -918,6 +918,48 @@ abstract class GameLocalizations {
   /// In de, this message translates to:
   /// **'Einmalig: Die Karte wird nach der Ausführung aus dem Spiel genommen.'**
   String get repressionKindOneTime;
+
+  /// Forest column {column}, card {position}
+  ///
+  /// In de, this message translates to:
+  /// **'Waldspalte {column}, Karte {position}'**
+  String forestDetailTitle(int column, int position);
+
+  /// Forest: if the card is hit, it is cleared.
+  ///
+  /// In de, this message translates to:
+  /// **'Wald: Wird die Karte getroffen, wird sie abgeholzt.'**
+  String get forestDetailIntact;
+
+  /// Cleared: if the card is hit, it is removed.
+  ///
+  /// In de, this message translates to:
+  /// **'Abgeholzt: Wird die Karte getroffen, wird sie entfernt.'**
+  String get forestDetailCleared;
+
+  /// Removed: RWE has excavated this forest area.
+  ///
+  /// In de, this message translates to:
+  /// **'Entfernt: RWE hat dieses Waldgebiet abgebaggert.'**
+  String get forestDetailRemoved;
+
+  /// An activist protects the card: if it is hit, it stays unchanged, but the activist is removed from the game.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein*e Mitstreiter*in schützt die Karte: Wird sie getroffen, bleibt sie unverändert, der*die Mitstreiter*in wird aber aus dem Spiel genommen.'**
+  String get forestDetailActivist;
+
+  /// A security guard stands on the card: if it is hit, the guard is removed and then the card is cleared or excavated.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Secu steht auf der Karte: Wird sie getroffen, wird der Secu entfernt und danach die Karte abgeholzt bzw. abgebaggert.'**
+  String get forestDetailSecu;
+
+  /// Threatened: the next excavator in this forest column hits this card.
+  ///
+  /// In de, this message translates to:
+  /// **'Bedroht: Der nächste Bagger in dieser Waldspalte trifft diese Karte.'**
+  String get forestDetailThreatened;
 }
 
 class _GameLocalizationsDelegate extends LocalizationsDelegate<GameLocalizations> {
