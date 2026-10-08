@@ -12,6 +12,9 @@ abstract final class AppRadius {
   /// 16 – sheets.
   static const double xl = 16;
 
+  /// 10 – forest, action and camp cards.
+  static const double card = 10;
+
   /// Pill shape.
   static const double full = 999;
 }
