@@ -13,6 +13,8 @@
 
 import 'package:hambi_widgetbook/game/game_screens.dart'
     as _hambi_widgetbook_game_game_screens;
+import 'package:hambi_widgetbook/setup/setup_screens.dart'
+    as _hambi_widgetbook_setup_setup_screens;
 import 'package:hambi_widgetbook/ui_kit/action_card_view.dart'
     as _hambi_widgetbook_ui_kit_action_card_view;
 import 'package:hambi_widgetbook/ui_kit/board_controls.dart'
@@ -116,6 +118,46 @@ final directories = <_widgetbook.WidgetbookNode>[
             name: 'Single',
             builder:
                 _hambi_widgetbook_ui_kit_hambi_icon.buildHambiIconSingleUseCase,
+          ),
+        ],
+      ),
+    ],
+  ),
+  _widgetbook.WidgetbookFolder(
+    name: 'setup',
+    children: [
+      _widgetbook.WidgetbookFolder(
+        name: 'view',
+        children: [
+          _widgetbook.WidgetbookComponent(
+            name: 'SetupView',
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'Setup',
+                builder:
+                    _hambi_widgetbook_setup_setup_screens.buildSetupViewUseCase,
+              ),
+            ],
+          ),
+        ],
+      ),
+    ],
+  ),
+  _widgetbook.WidgetbookFolder(
+    name: 'start',
+    children: [
+      _widgetbook.WidgetbookFolder(
+        name: 'view',
+        children: [
+          _widgetbook.WidgetbookComponent(
+            name: 'StartView',
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'Start',
+                builder:
+                    _hambi_widgetbook_setup_setup_screens.buildStartViewUseCase,
+              ),
+            ],
           ),
         ],
       ),
