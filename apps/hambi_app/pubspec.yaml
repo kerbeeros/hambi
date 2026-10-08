@@ -15,7 +15,17 @@ dependencies:
   flutter_bloc: ^9.1.1
   flutter_localizations:
     sdk: flutter
+  game_data:
+    path: ../../features/game/game_data
+  game_domain:
+    path: ../../features/game/game_domain
+  game_presentation:
+    path: ../../features/game/game_presentation
+  go_router: ^18.0.2
   intl: ^0.20.2
+  setup_presentation:
+    path: ../../features/setup/setup_presentation
+  shared_preferences: ^2.5.6
   ui_kit:
     path: ../../shared/ui_kit
 
@@ -23,8 +33,10 @@ dev_dependencies:
   bloc_lint: ^0.4.2
   bloc_test: ^10.0.0
   bloc_tools: ^0.1.0-dev.24
+  build_runner: ^2.16.1
   flutter_test:
     sdk: flutter
+  go_router_builder: ^4.5.0
   mocktail: ^1.0.5
   very_good_analysis: ^11.0.0
 
