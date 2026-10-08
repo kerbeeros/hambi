@@ -221,21 +221,28 @@ void main() {
     });
 
     test('UX-07: explains an intact, threatened card with an activist', () {
+      const activist =
+          'Ein*e Mitstreiter*in schützt die Karte: Wird sie getroffen, '
+          'bleibt sie unverändert, der*die Mitstreiter*in wird aber aus '
+          'dem Spiel genommen.';
+      const threatened =
+          'Bedroht: Der nächste Bagger in dieser Waldspalte trifft diese '
+          'Karte.';
       expect(
         const ForestCard(hasActivist: true)
             .explanations(l10n, isThreatened: true),
         equals([
           'Wald: Wird die Karte getroffen, wird sie abgeholzt.',
-          ('Ein*e Mitstreiter*in schützt die Karte: Wird sie getroffen, '
-              'bleibt sie unverändert, der*die Mitstreiter*in wird aber aus '
-              'dem Spiel genommen.'),
-          ('Bedroht: Der nächste Bagger in dieser Waldspalte trifft diese '
-              'Karte.'),
+          activist,
+          threatened,
         ]),
       );
     });
 
     test('UX-07: explains a cleared card with a security guard', () {
+      const secu =
+          'Ein Secu steht auf der Karte: Wird sie getroffen, wird der Secu '
+          'entfernt und danach die Karte abgeholzt bzw. abgebaggert.';
       expect(
         const ForestCard(
           state: ForestCardState.clearCut,
@@ -243,8 +250,7 @@ void main() {
         ).explanations(l10n, isThreatened: false),
         equals([
           'Abgeholzt: Wird die Karte getroffen, wird sie entfernt.',
-          ('Ein Secu steht auf der Karte: Wird sie getroffen, wird der Secu '
-              'entfernt und danach die Karte abgeholzt bzw. abgebaggert.'),
+          secu,
         ]),
       );
     });
