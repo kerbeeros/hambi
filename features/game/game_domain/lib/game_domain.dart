@@ -6,3 +6,4 @@ export 'engine/engine.dart';
 export 'exceptions/exceptions.dart';
 export 'models/models.dart';
 export 'random/random.dart';
+export 'repositories/repositories.dart';
