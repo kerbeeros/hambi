@@ -15,8 +15,11 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
+  flutter_localizations:
+    sdk: flutter
   game_domain:
     path: ../game_domain
+  intl: ^0.20.3
   ui_kit:
     path: ../../../shared/ui_kit
 
@@ -27,3 +30,6 @@ dev_dependencies:
     sdk: flutter
   mocktail: ^1.0.5
   very_good_analysis: ^11.0.0
+
+flutter:
+  generate: true

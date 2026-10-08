@@ -1,0 +1,601 @@
+{
+  "@@locale": "de",
+  "roundTitle": "Runde {round}/{total}",
+  "@roundTitle": {
+    "description": "Round {round}/{total}",
+    "placeholders": {
+      "round": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "setupTitle": "Spielaufbau",
+  "@setupTitle": {
+    "description": "Setup"
+  },
+  "phaseSetup": "Start-Repression",
+  "@phaseSetup": {
+    "description": "Initial repression"
+  },
+  "phasePreparation": "Vorbereitung",
+  "@phasePreparation": {
+    "description": "Preparation"
+  },
+  "phaseAction": "Aktion",
+  "@phaseAction": {
+    "description": "Action"
+  },
+  "phaseExcavation": "Bagger",
+  "@phaseExcavation": {
+    "description": "Excavator"
+  },
+  "phaseRepression": "Repression",
+  "@phaseRepression": {
+    "description": "Repression"
+  },
+  "phaseFinished": "Spielende",
+  "@phaseFinished": {
+    "description": "Game over"
+  },
+  "logTooltip": "Rundenlog",
+  "@logTooltip": {
+    "description": "Round log"
+  },
+  "menuTooltip": "Spielmenü",
+  "@menuTooltip": {
+    "description": "Game menu"
+  },
+  "tabForest": "Wald",
+  "@tabForest": {
+    "description": "Forest"
+  },
+  "tabActions": "Aktionen",
+  "@tabActions": {
+    "description": "Actions"
+  },
+  "campActivistsLabel": "{count} Mitstreiter*innen im Camp",
+  "@campActivistsLabel": {
+    "description": "{count} activists in the camp",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "campResourcesLabel": "{count} Ressourcen im Camp",
+  "@campResourcesLabel": {
+    "description": "{count} resources in the camp",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "upcomingRepressionLabel": "{count} Repressionskarten drohen",
+  "@upcomingRepressionLabel": {
+    "description": "{count} repression cards threaten",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "activistTrackLabel": "Mitstreiter*innen im Spiel: {value} von 11",
+  "@activistTrackLabel": {
+    "description": "Activists in play: {value} of 11",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "supportTrackLabel": "Öffentliche Unterstützung: {value} von 11",
+  "@supportTrackLabel": {
+    "description": "Public support: {value} of 11",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "campTitle": "Camp",
+  "@campTitle": {
+    "description": "Camp"
+  },
+  "startGameAction": "Start-Repression ausführen",
+  "@startGameAction": {
+    "description": "Run initial repression"
+  },
+  "endPreparationAction": "Vorbereitung beenden",
+  "@endPreparationAction": {
+    "description": "End preparation"
+  },
+  "continueAction": "Weiter",
+  "@continueAction": {
+    "description": "Continue"
+  },
+  "sectionDirectActions": "Direkte Aktionen",
+  "@sectionDirectActions": {
+    "description": "Direct actions"
+  },
+  "sectionCampaigns": "Kampagnen",
+  "@sectionCampaigns": {
+    "description": "Campaigns"
+  },
+  "sectionSupport": "Support",
+  "@sectionSupport": {
+    "description": "Support"
+  },
+  "sectionRepressionInPlay": "Liegende Repressionskarten",
+  "@sectionRepressionInPlay": {
+    "description": "Repression cards in play"
+  },
+  "columnLabel": "WS{column}",
+  "@columnLabel": {
+    "description": "FC{column}",
+    "placeholders": {
+      "column": {
+        "type": "int"
+      }
+    }
+  },
+  "forestCardLabel": "WS{column}, Karte {position}: {description}",
+  "@forestCardLabel": {
+    "description": "FC{column}, card {position}: {description}",
+    "placeholders": {
+      "column": {
+        "type": "int"
+      },
+      "position": {
+        "type": "int"
+      },
+      "description": {
+        "type": "String"
+      }
+    }
+  },
+  "forestStateIntact": "Wald",
+  "@forestStateIntact": {
+    "description": "forest"
+  },
+  "forestStateCleared": "abgeholzt",
+  "@forestStateCleared": {
+    "description": "cleared"
+  },
+  "forestStateRemoved": "entfernt",
+  "@forestStateRemoved": {
+    "description": "removed"
+  },
+  "forestOccupantActivist": "mit Mitstreiter*in",
+  "@forestOccupantActivist": {
+    "description": "with activist"
+  },
+  "forestOccupantSecu": "mit Secu",
+  "@forestOccupantSecu": {
+    "description": "with security guard"
+  },
+  "forestThreatened": "bedroht",
+  "@forestThreatened": {
+    "description": "threatened"
+  },
+  "cardSideB": "B",
+  "@cardSideB": {
+    "description": "B"
+  },
+  "cardSabotage": "Sabotage",
+  "@cardSabotage": {
+    "description": "Sabotage"
+  },
+  "cardLegalTeam": "Legal-Team",
+  "@cardLegalTeam": {
+    "description": "Legal team"
+  },
+  "cardCivilDisobedience": "Ziviler Ungehorsam",
+  "@cardCivilDisobedience": {
+    "description": "Civil disobedience"
+  },
+  "cardBlockade": "Blockade",
+  "@cardBlockade": {
+    "description": "Blockade"
+  },
+  "cardTreeHouse": "Baumhaus",
+  "@cardTreeHouse": {
+    "description": "Tree house"
+  },
+  "cardDemo": "Demo",
+  "@cardDemo": {
+    "description": "Demonstration"
+  },
+  "cardPublicity": "Öffentlichkeit",
+  "@cardPublicity": {
+    "description": "Publicity"
+  },
+  "cardInternet": "Internet",
+  "@cardInternet": {
+    "description": "Internet"
+  },
+  "cardHardwareStore": "Baumarkt",
+  "@cardHardwareStore": {
+    "description": "Hardware store"
+  },
+  "cardRuralCommune": "Landkommune",
+  "@cardRuralCommune": {
+    "description": "Rural commune"
+  },
+  "cardAutonomousCentre": "Autonomes Zentrum",
+  "@cardAutonomousCentre": {
+    "description": "Autonomous centre"
+  },
+  "cardAllies": "Verbündete",
+  "@cardAllies": {
+    "description": "Allies"
+  },
+  "statusBlocked": "Blockiert",
+  "@statusBlocked": {
+    "description": "Blocked"
+  },
+  "statusNotEnoughActivists": "Zu wenig M",
+  "@statusNotEnoughActivists": {
+    "description": "Too few activists"
+  },
+  "statusNotEnoughResources": "Zu wenig R",
+  "@statusNotEnoughResources": {
+    "description": "Too few resources"
+  },
+  "statusNotEnoughSupport": "Zu wenig U",
+  "@statusNotEnoughSupport": {
+    "description": "Too little support"
+  },
+  "repressionSecurity": "Security",
+  "@repressionSecurity": {
+    "description": "Security"
+  },
+  "repressionSecurityText": "Würfeln: Ein Secu kommt auf eine Waldkarte der gewürfelten Spalte. Mitstreiter*innen dort werden aus dem Spiel genommen.",
+  "@repressionSecurityText": {
+    "description": "Roll: a security guard goes onto a forest card of the rolled column. Activists there leave the game."
+  },
+  "repressionRaid": "Razzia",
+  "@repressionRaid": {
+    "description": "Raid"
+  },
+  "repressionRaidText": "Die Hälfte der Ressourcen im Camp (aufgerundet) wird entfernt.",
+  "@repressionRaidText": {
+    "description": "Half of the resources in the camp (rounded up) are removed."
+  },
+  "repressionNightShift": "Nachtschicht",
+  "@repressionNightShift": {
+    "description": "Night shift"
+  },
+  "repressionNightShiftText": "Ein Baggerwürfel wird geworfen und wie in der Baggerphase ausgeführt.",
+  "@repressionNightShiftText": {
+    "description": "One excavator die is rolled and resolved as in the excavator phase."
+  },
+  "repressionNegativePress": "Negative Presse",
+  "@repressionNegativePress": {
+    "description": "Negative press"
+  },
+  "repressionNegativePressText": "Ihr verliert 1 Unterstützung oder 1 Mitstreiter*in.",
+  "@repressionNegativePressText": {
+    "description": "You lose 1 support or 1 activist."
+  },
+  "repressionPublicProtection": "Schutz durch die Öffentlichkeit",
+  "@repressionPublicProtection": {
+    "description": "Protection by the public"
+  },
+  "repressionPublicProtectionText": "1 Ressource kommt ins Camp.",
+  "@repressionPublicProtectionText": {
+    "description": "1 resource goes to the camp."
+  },
+  "repressionLegalAid": "Rechtlicher Beistand",
+  "@repressionLegalAid": {
+    "description": "Legal aid"
+  },
+  "repressionLegalAidText": "Eine Karte auf der B-Seite wird zurück auf die A-Seite gedreht.",
+  "@repressionLegalAidText": {
+    "description": "One card on side B is turned back to side A."
+  },
+  "repressionInternetCensorship": "Zensur (Internet)",
+  "@repressionInternetCensorship": {
+    "description": "Censorship (internet)"
+  },
+  "repressionInternetCensorshipText": "Die Kampagne Internet wird auf die B-Seite gedreht.",
+  "@repressionInternetCensorshipText": {
+    "description": "The internet campaign is turned to side B."
+  },
+  "repressionPublicityCensorship": "Zensur (Öffentlichkeit)",
+  "@repressionPublicityCensorship": {
+    "description": "Censorship (publicity)"
+  },
+  "repressionPublicityCensorshipText": "Die Kampagne Öffentlichkeit wird auf die B-Seite gedreht.",
+  "@repressionPublicityCensorshipText": {
+    "description": "The publicity campaign is turned to side B."
+  },
+  "repressionObservation": "Observation",
+  "@repressionObservation": {
+    "description": "Observation"
+  },
+  "repressionObservationText": "Der Support Baumarkt wird auf die B-Seite gedreht.",
+  "@repressionObservationText": {
+    "description": "The hardware store support is turned to side B."
+  },
+  "repressionConfiscation": "Beschlagnahme",
+  "@repressionConfiscation": {
+    "description": "Confiscation"
+  },
+  "repressionConfiscationText": "Der Support Landkommune wird auf die B-Seite gedreht.",
+  "@repressionConfiscationText": {
+    "description": "The rural commune support is turned to side B."
+  },
+  "repressionThreat": "Drohung",
+  "@repressionThreat": {
+    "description": "Threat"
+  },
+  "repressionThreatText": "Der Support Verbündete wird auf die B-Seite gedreht.",
+  "@repressionThreatText": {
+    "description": "The allies support is turned to side B."
+  },
+  "repressionBan": "Verbot",
+  "@repressionBan": {
+    "description": "Ban"
+  },
+  "repressionBanText": "Der Support Autonomes Zentrum wird auf die B-Seite gedreht.",
+  "@repressionBanText": {
+    "description": "The autonomous centre support is turned to side B."
+  },
+  "repressionInternetSurveillance": "Internetüberwachung",
+  "@repressionInternetSurveillance": {
+    "description": "Internet surveillance"
+  },
+  "repressionInternetSurveillanceText": "Die Kampagne Internet ist in der nächsten Runde blockiert.",
+  "@repressionInternetSurveillanceText": {
+    "description": "The internet campaign is blocked next round."
+  },
+  "repressionAssemblyBan": "Versammlungsverbot",
+  "@repressionAssemblyBan": {
+    "description": "Assembly ban"
+  },
+  "repressionAssemblyBanText": "Die Kampagne Demo ist in der nächsten Runde blockiert.",
+  "@repressionAssemblyBanText": {
+    "description": "The demonstration campaign is blocked next round."
+  },
+  "repressionSurveillance": "Überwachung",
+  "@repressionSurveillance": {
+    "description": "Surveillance"
+  },
+  "repressionSurveillanceText": "Der Support Baumarkt ist in der nächsten Runde blockiert.",
+  "@repressionSurveillanceText": {
+    "description": "The hardware store support is blocked next round."
+  },
+  "repressionCourtOrder": "Richterlicher Beschluss",
+  "@repressionCourtOrder": {
+    "description": "Court order"
+  },
+  "repressionCourtOrderText": "Der Support Autonomes Zentrum ist in der nächsten Runde blockiert.",
+  "@repressionCourtOrderText": {
+    "description": "The autonomous centre support is blocked next round."
+  },
+  "logDiceRolled": "Bagger würfelt {first} und {second}",
+  "@logDiceRolled": {
+    "description": "Excavator rolls {first} and {second}",
+    "placeholders": {
+      "first": {
+        "type": "int"
+      },
+      "second": {
+        "type": "int"
+      }
+    }
+  },
+  "logDieRerolled": "Sabotage: Würfel {number} neu geworfen, zeigt {value}",
+  "@logDieRerolled": {
+    "description": "Sabotage: die {number} rerolled, shows {value}",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "logRepressionCardDrawn": "Repressionskarte gezogen: {card}",
+  "@logRepressionCardDrawn": {
+    "description": "Repression card drawn: {card}",
+    "placeholders": {
+      "card": {
+        "type": "String"
+      }
+    }
+  },
+  "logRepressionDieRolled": "Würfel für Repression: {value}",
+  "@logRepressionDieRolled": {
+    "description": "Die for repression: {value}",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "logEmpty": "In dieser Runde ist noch nichts passiert.",
+  "@logEmpty": {
+    "description": "Nothing has happened this round yet."
+  },
+  "diceDialogTitle": "Baggerwürfel",
+  "@diceDialogTitle": {
+    "description": "Excavator dice"
+  },
+  "dieHitsColumn": "{value} trifft WS{column}",
+  "@dieHitsColumn": {
+    "description": "{value} hits FC{column}",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "column": {
+        "type": "int"
+      }
+    }
+  },
+  "rerollDialogTitle": "Sabotage",
+  "@rerollDialogTitle": {
+    "description": "Sabotage"
+  },
+  "rerollDialogBody": "Ihr dürft genau einen Würfel einmal neu werfen.",
+  "@rerollDialogBody": {
+    "description": "You may reroll exactly one die once."
+  },
+  "rerollDieAction": "Würfel {number} neu werfen",
+  "@rerollDieAction": {
+    "description": "Reroll die {number}",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "keepDiceAction": "Würfel behalten",
+  "@keepDiceAction": {
+    "description": "Keep dice"
+  },
+  "repressionDieTitle": "Würfel",
+  "@repressionDieTitle": {
+    "description": "Die"
+  },
+  "repressionCardDialogTitle": "Repressionskarte",
+  "@repressionCardDialogTitle": {
+    "description": "Repression card"
+  },
+  "placeActivistTitle": "Mitstreiter*in in den Wald",
+  "@placeActivistTitle": {
+    "description": "Activist into the forest"
+  },
+  "placeActivistBody": "Wählt eine Waldkarte ({count} übrig).",
+  "@placeActivistBody": {
+    "description": "Choose a forest card ({count} left).",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "securityTitle": "Security",
+  "@securityTitle": {
+    "description": "Security"
+  },
+  "securityBody": "Wählt eine Karte in WS{column} für den Secu.",
+  "@securityBody": {
+    "description": "Choose a card in FC{column} for the security guard.",
+    "placeholders": {
+      "column": {
+        "type": "int"
+      }
+    }
+  },
+  "negativePressBody": "Was verliert ihr?",
+  "@negativePressBody": {
+    "description": "What do you lose?"
+  },
+  "loseSupportAction": "Unterstützung −1",
+  "@loseSupportAction": {
+    "description": "Support −1"
+  },
+  "loseActivistAction": "Mitstreiter*in −1",
+  "@loseActivistAction": {
+    "description": "Activist −1"
+  },
+  "restoreCardBody": "Wählt eine Karte, die zurück auf die A-Seite gedreht wird.",
+  "@restoreCardBody": {
+    "description": "Choose a card to turn back to side A."
+  },
+  "returnActivistsTitle": "Zurück ins Camp?",
+  "@returnActivistsTitle": {
+    "description": "Back to the camp?"
+  },
+  "returnActivistsBody": "Wählt die Mitstreiter*innen, die ins Camp zurückkehren. Die anderen bleiben im Wald.",
+  "@returnActivistsBody": {
+    "description": "Choose the activists returning to the camp. The others stay in the forest."
+  },
+  "returnActivistsAction": "Auswahl zurückholen",
+  "@returnActivistsAction": {
+    "description": "Bring back selection"
+  },
+  "keepActivistsAction": "Alle bleiben im Wald",
+  "@keepActivistsAction": {
+    "description": "All stay in the forest"
+  },
+  "menuExitAction": "Spiel abbrechen",
+  "@menuExitAction": {
+    "description": "Leave game"
+  },
+  "menuCloseAction": "Zurück zum Spiel",
+  "@menuCloseAction": {
+    "description": "Back to the game"
+  },
+  "exitConfirmTitle": "Spiel abbrechen?",
+  "@exitConfirmTitle": {
+    "description": "Leave the game?"
+  },
+  "exitConfirmBody": "Der Spielstand bleibt gespeichert und kann später fortgesetzt werden.",
+  "@exitConfirmBody": {
+    "description": "The game stays saved and can be continued later."
+  },
+  "exitConfirmAction": "Spiel abbrechen",
+  "@exitConfirmAction": {
+    "description": "Leave game"
+  },
+  "exitCancelAction": "Weiterspielen",
+  "@exitCancelAction": {
+    "description": "Keep playing"
+  },
+  "resultVictoryTitle": "Hambi bleibt!",
+  "@resultVictoryTitle": {
+    "description": "Hambi stays!"
+  },
+  "resultVictoryText": "Ihr habt mehr Unterstützung als entfernte Waldkarten.",
+  "@resultVictoryText": {
+    "description": "You have more support than removed forest cards."
+  },
+  "resultDefeatTitle": "Der Wald ist verloren",
+  "@resultDefeatTitle": {
+    "description": "The forest is lost"
+  },
+  "resultDefeatColumnText": "Eine Waldspalte wurde vollständig gerodet.",
+  "@resultDefeatColumnText": {
+    "description": "A forest column was completely cleared."
+  },
+  "resultDefeatSupportText": "Die Unterstützung reicht nicht gegen die entfernten Waldkarten.",
+  "@resultDefeatSupportText": {
+    "description": "Support is not enough against the removed forest cards."
+  },
+  "resultSupport": "Unterstützung",
+  "@resultSupport": {
+    "description": "Support"
+  },
+  "resultRemovedCards": "Entfernte Waldkarten",
+  "@resultRemovedCards": {
+    "description": "Removed forest cards"
+  },
+  "resultRound": "Erreichte Runde",
+  "@resultRound": {
+    "description": "Round reached"
+  },
+  "newGameAction": "Neues Spiel",
+  "@newGameAction": {
+    "description": "New game"
+  },
+  "failureNoSavedGame": "Es gibt kein gespeichertes Spiel.",
+  "@failureNoSavedGame": {
+    "description": "There is no saved game."
+  },
+  "failureLoad": "Der Spielstand konnte nicht geladen werden.",
+  "@failureLoad": {
+    "description": "The saved game could not be loaded."
+  },
+  "backToStartAction": "Zum Start",
+  "@backToStartAction": {
+    "description": "Back to start"
+  }
+}
