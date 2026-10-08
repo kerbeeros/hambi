@@ -681,5 +681,30 @@
   "forestDetailThreatened": "Bedroht: Der nächste Bagger in dieser Waldspalte trifft diese Karte.",
   "@forestDetailThreatened": {
     "description": "Threatened: the next excavator in this forest column hits this card."
+  },
+  "detailConditions": "Bedingungen",
+  "@detailConditions": {
+    "description": "Conditions"
+  },
+  "detailEffects": "Effekte",
+  "@detailEffects": {
+    "description": "Effects"
+  },
+  "detailSymbolCount": "{count} ×",
+  "@detailSymbolCount": {
+    "description": "{count} ×",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "statusAssigned": "Belegt",
+  "@statusAssigned": {
+    "description": "Assigned"
+  },
+  "closeAction": "Schließen",
+  "@closeAction": {
+    "description": "Close"
   }
 }

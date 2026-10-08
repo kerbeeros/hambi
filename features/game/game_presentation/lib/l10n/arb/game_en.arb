@@ -143,5 +143,10 @@
   "forestDetailRemoved": "Removed: RWE has excavated this forest area.",
   "forestDetailActivist": "An activist protects the card: if it is hit, it stays unchanged, but the activist is removed from the game.",
   "forestDetailSecu": "A security guard stands on the card: if it is hit, the guard is removed and then the card is cleared or excavated.",
-  "forestDetailThreatened": "Threatened: the next excavator in this forest column hits this card."
+  "forestDetailThreatened": "Threatened: the next excavator in this forest column hits this card.",
+  "detailConditions": "Conditions",
+  "detailEffects": "Effects",
+  "detailSymbolCount": "{count} ×",
+  "statusAssigned": "Assigned",
+  "closeAction": "Close"
 }

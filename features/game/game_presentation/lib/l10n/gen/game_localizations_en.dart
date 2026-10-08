@@ -476,4 +476,21 @@ class GameLocalizationsEn extends GameLocalizations {
 
   @override
   String get forestDetailThreatened => 'Threatened: the next excavator in this forest column hits this card.';
+
+  @override
+  String get detailConditions => 'Conditions';
+
+  @override
+  String get detailEffects => 'Effects';
+
+  @override
+  String detailSymbolCount(int count) {
+    return '$count ×';
+  }
+
+  @override
+  String get statusAssigned => 'Assigned';
+
+  @override
+  String get closeAction => 'Close';
 }
