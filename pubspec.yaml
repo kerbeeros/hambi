@@ -11,6 +11,7 @@ workspace:
   - shared/ui_kit
   - features/game/game_domain
   - features/game/game_data
+  - features/game/game_presentation
 
 dev_dependencies:
   very_good_analysis: ^11.0.0
