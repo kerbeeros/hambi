@@ -1,0 +1,29 @@
+name: game_presentation
+description: Hambi game screen - board, decisions and result.
+version: 0.1.0+1
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ^3.13.0
+  flutter: ^3.47.0
+
+dependencies:
+  bloc: ^9.2.1
+  bloc_concurrency: ^0.3.0
+  equatable: ^3.0.0
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.1.1
+  game_domain:
+    path: ../game_domain
+  ui_kit:
+    path: ../../../shared/ui_kit
+
+dev_dependencies:
+  alchemist: ^0.14.1
+  bloc_test: ^10.0.0
+  flutter_test:
+    sdk: flutter
+  mocktail: ^1.0.5
+  very_good_analysis: ^11.0.0
