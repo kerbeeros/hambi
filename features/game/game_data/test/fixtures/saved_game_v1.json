@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "game": {
+    "playerCount": 4,
+    "forest": [
+      [
+        {
+          "state": "removed",
+          "hasSecurity": false,
+          "hasActivist": false
+        },
+        {
+          "state": "forest",
+          "hasSecurity": false,
+          "hasActivist": false
+        },
+        {
+          "state": "forest",
+          "hasSecurity": false,
+          "hasActivist": false
+        },
+        {
+          "state": "forest",
+          "hasSecurity": false,
+          "hasActivist": false
+        }
+      ],
+      [
+        {
+          "state": "forest",
+          "hasSecurity": false,
+          "hasActivist": false
+        },
+        {
+          "state": "forest",
+          "hasSecurity": false,
+          "hasActivist": false
+        },
+        {
+          "state": "clearCut",
+          "hasSecurity": false,
+          "hasActivist": true
+        },
+        {
+          "state": "forest",
+          "hasSecurity": false,
+          "hasActivist": false
+        }
+      ],
+      [
+        {
+          "state": "forest",
+          "hasSecurity": false,
+          "hasActivist": false
+        },
+        {
+          "state": "forest",
+          "hasSecurity": false,
+          "hasActivist": false
+        },
+        {
+          "state": "forest",
+          "hasSecurity": false,
+          "hasActivist": false
+        },
+        {
+          "state": "forest",
+          "hasSecurity": true,
+          "hasActivist": false
+        }
+      ]
+    ],
+    "cardSides": {
+      "sabotage": "a",
+      "legalTeam": "a",
+      "civilDisobedience": "a",
+      "blockade": "a",
+      "treeHouse": "a",
+      "demo": "a",
+      "publicity": "a",
+      "internet": "b",
+      "hardwareStore": "a",
+      "ruralCommune": "a",
+      "autonomousCentre": "a",
+      "allies": "b"
+    },
+    "camp": {
+      "activists": 3,
+      "resources": 2
+    },
+    "support": 5,
+    "round": 7,
+    "phase": "preparation",
+    "repressionDeck": [
+      "raid",
+      "security"
+    ],
+    "repressionInPlay": [
+      "assemblyBan",
+      "raid"
+    ],
+    "assignedCards": [
+      "demo",
+      "sabotage"
+    ],
+    "activatedCards": [
+      "legalTeam"
+    ],
+    "pendingDecision": null,
+    "outcome": null,
+    "log": [
+      {
+        "type": "diceRolled",
+        "dice": [
+          2,
+          5
+        ]
+      },
+      {
+        "type": "dieRerolled",
+        "index": 1,
+        "value": 6
+      },
+      {
+        "type": "repressionCardDrawn",
+        "card": "nightShift"
+      },
+      {
+        "type": "repressionDieRolled",
+        "value": 3
+      }
+    ],
+    "repressionCardsToDraw": 2,
+    "randomState": 123456789
+  }
+}
