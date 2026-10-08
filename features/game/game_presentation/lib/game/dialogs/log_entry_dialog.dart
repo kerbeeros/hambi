@@ -8,10 +8,10 @@ import 'package:ui_kit/ui_kit.dart';
 abstract final class LogEntryDialog {
   /// Shows [entry] until the players continue.
   static Future<void> show(BuildContext context, GameLogEntry entry) =>
-      HambiDialog.show<void>(
-        context,
-        builder: (_) => _LogEntryDialog(entry: entry),
-      );
+      HambiDialog.show<void>(context, builder: (_) => dialogFor(entry));
+
+  /// The dialog for [entry]; it pops when the players continue.
+  static Widget dialogFor(GameLogEntry entry) => _LogEntryDialog(entry: entry);
 }
 
 class _LogEntryDialog extends StatelessWidget {

@@ -16,21 +16,27 @@ abstract final class DecisionDialog {
     required PendingDecision decision,
   }) => HambiDialog.show<GameCommand>(
     context,
-    builder: (_) => switch (decision) {
-      PlaceActivistsDecision(:final activists) => _PlaceActivistsDialog(
-        forest: game.forest,
-        activists: activists,
-      ),
-      SecurityPlacementDecision(:final column) => _SecurityDialog(
-        forest: game.forest,
-        column: column,
-      ),
-      RerollDecision(:final dice) => _RerollDialog(dice: dice),
-      NegativePressDecision() => const _NegativePressDialog(),
-      RestoreCardDecision() => _RestoreCardDialog(cardSides: game.cardSides),
-      ReturnActivistsDecision() => _ReturnActivistsDialog(forest: game.forest),
-    },
+    builder: (_) => dialogFor(game: game, decision: decision),
   );
+
+  /// The dialog for [decision]; it pops the chosen move.
+  static Widget dialogFor({
+    required GameState game,
+    required PendingDecision decision,
+  }) => switch (decision) {
+    PlaceActivistsDecision(:final activists) => _PlaceActivistsDialog(
+      forest: game.forest,
+      activists: activists,
+    ),
+    SecurityPlacementDecision(:final column) => _SecurityDialog(
+      forest: game.forest,
+      column: column,
+    ),
+    RerollDecision(:final dice) => _RerollDialog(dice: dice),
+    NegativePressDecision() => const _NegativePressDialog(),
+    RestoreCardDecision() => _RestoreCardDialog(cardSides: game.cardSides),
+    ReturnActivistsDecision() => _ReturnActivistsDialog(forest: game.forest),
+  };
 }
 
 /// D-01: activist of a forest action (R-085).

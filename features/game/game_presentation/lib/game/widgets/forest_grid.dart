@@ -30,7 +30,8 @@ class ForestGrid extends StatelessWidget {
   /// Cards marked as chosen, e.g. in a selection dialog.
   final Set<ForestPosition> selected;
 
-  /// Which cards can be tapped; all cards when `null`.
+  /// Which cards can be tapped; all cards when `null`. Other cards are
+  /// dimmed.
   final bool Function(ForestPosition position)? isSelectable;
 
   /// Called with the position of a tapped card.
@@ -101,11 +102,14 @@ class _ForestGridCard extends StatelessWidget {
   final bool Function(ForestPosition position)? isSelectable;
   final ValueChanged<ForestPosition>? onTap;
 
+  static const double _dimmedOpacity = 0.4;
+
   @override
   Widget build(BuildContext context) {
     final onTap = this.onTap;
-    final canTap = onTap != null && (isSelectable?.call(position) ?? true);
-    return ForestCardView(
+    final selectable = isSelectable?.call(position) ?? true;
+    final canTap = onTap != null && selectable;
+    final view = ForestCardView(
       state: card.viewState,
       occupant: card.occupant,
       isTarget: isMarked,
@@ -117,5 +121,6 @@ class _ForestGridCard extends StatelessWidget {
       ),
       onTap: canTap ? () => onTap(position) : null,
     );
+    return selectable ? view : Opacity(opacity: _dimmedOpacity, child: view);
   }
 }

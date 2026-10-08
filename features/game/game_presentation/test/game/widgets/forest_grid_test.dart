@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:game_domain/game_domain.dart';
 import 'package:game_presentation/game_presentation.dart';
@@ -49,6 +50,27 @@ void main() {
       await tester.tap(find.bySemanticsLabel(RegExp('^WS1, Karte 1')));
 
       expect(tapped, equals([const ForestPosition(column: 1, position: 2)]));
+    });
+
+    testWidgets('dims cards that cannot be selected', (tester) async {
+      await tester.pumpApp(
+        ForestGrid(
+          forest: Forest.initial(),
+          isSelectable: (position) => position.column == 0,
+          onCardTap: (_) {},
+        ),
+      );
+
+      final dimmed = tester
+          .widgetList<Opacity>(find.byType(Opacity))
+          .where((opacity) => opacity.opacity < 1);
+      expect(dimmed, hasLength(8));
+    });
+
+    testWidgets('does not dim cards outside a selection', (tester) async {
+      await tester.pumpApp(ForestGrid(forest: Forest.initial()));
+
+      expect(find.byType(Opacity), findsNothing);
     });
 
     testWidgets('marks selected cards as targets', (tester) async {
