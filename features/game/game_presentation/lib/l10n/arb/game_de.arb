@@ -597,5 +597,41 @@
   "backToStartAction": "Zum Start",
   "@backToStartAction": {
     "description": "Back to start"
+  },
+  "symbolActivist": "Ihr müsst eine*n Mitstreiter*in einsetzen.",
+  "@symbolActivist": {
+    "description": "You have to place an activist."
+  },
+  "symbolResource": "Ihr müsst eine Ressource einsetzen.",
+  "@symbolResource": {
+    "description": "You have to place a resource."
+  },
+  "symbolLoseSupport": "Ihr müsst die öffentliche Unterstützung auf der Erfolgsleiste um eins senken.",
+  "@symbolLoseSupport": {
+    "description": "You have to lower public support on the success track by one."
+  },
+  "symbolGainSupport": "Steigert die öffentliche Unterstützung um ein Feld.",
+  "@symbolGainSupport": {
+    "description": "Raise public support by one space."
+  },
+  "symbolGainActivist": "Stellt eine*n neue*n Mitstreiter*in ins Camp.",
+  "@symbolGainActivist": {
+    "description": "Put a new activist into the camp."
+  },
+  "symbolGainResource": "Legt eine Ressource in das Camp.",
+  "@symbolGainResource": {
+    "description": "Put a resource into the camp."
+  },
+  "symbolActivistToForest": "Stellt den*die Mitstreiter*in, den*die ihr oben auf der Karte eingesetzt habt, auf ein beliebiges Waldgebiet.",
+  "@symbolActivistToForest": {
+    "description": "Put the activist you placed on top of the card onto any forest area."
+  },
+  "symbolRerollDie": "In der Baggerphase dürft ihr einen Bagger-Würfel neu würfeln.",
+  "@symbolRerollDie": {
+    "description": "In the excavator phase you may reroll one excavator die."
+  },
+  "symbolPreventRepression": "Zieht in der Repressionsphase eine Repressionskarte weniger, als ihr müsstet.",
+  "@symbolPreventRepression": {
+    "description": "In the repression phase, draw one repression card less than you would have to."
   }
 }

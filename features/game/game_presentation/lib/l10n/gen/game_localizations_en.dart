@@ -417,4 +417,31 @@ class GameLocalizationsEn extends GameLocalizations {
 
   @override
   String get backToStartAction => 'Back to start';
+
+  @override
+  String get symbolActivist => 'You have to place an activist.';
+
+  @override
+  String get symbolResource => 'You have to place a resource.';
+
+  @override
+  String get symbolLoseSupport => 'You have to lower public support on the success track by one.';
+
+  @override
+  String get symbolGainSupport => 'Raise public support by one space.';
+
+  @override
+  String get symbolGainActivist => 'Put a new activist into the camp.';
+
+  @override
+  String get symbolGainResource => 'Put a resource into the camp.';
+
+  @override
+  String get symbolActivistToForest => 'Put the activist you placed on top of the card onto any forest area.';
+
+  @override
+  String get symbolRerollDie => 'In the excavator phase you may reroll one excavator die.';
+
+  @override
+  String get symbolPreventRepression => 'In the repression phase, draw one repression card less than you would have to.';
 }

@@ -84,3 +84,19 @@ extension AssignmentStatusPresentation on AssignmentStatus {
     AssignmentStatus.notEnoughSupport => l10n.statusNotEnoughSupport,
   };
 }
+
+/// How a [CardSymbol] is explained in the card detail (UX-07).
+extension CardSymbolPresentation on CardSymbol {
+  /// Explanation of the symbol, after the symbol legend of the rulebook.
+  String explanation(GameLocalizations l10n) => switch (this) {
+    CardSymbol.activist => l10n.symbolActivist,
+    CardSymbol.resource => l10n.symbolResource,
+    CardSymbol.loseSupport => l10n.symbolLoseSupport,
+    CardSymbol.gainSupport => l10n.symbolGainSupport,
+    CardSymbol.gainActivist => l10n.symbolGainActivist,
+    CardSymbol.gainResource => l10n.symbolGainResource,
+    CardSymbol.activistToForest => l10n.symbolActivistToForest,
+    CardSymbol.rerollDie => l10n.symbolRerollDie,
+    CardSymbol.preventRepression => l10n.symbolPreventRepression,
+  };
+}
