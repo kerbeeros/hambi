@@ -1,0 +1,32 @@
+name: goldens
+
+# Generates the platform-independent CI goldens on Linux, the platform the
+# ci workflow compares them on (ADR 0004). Run it on a branch, download the
+# "ci-goldens" artifact and commit the files.
+on:
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package:
+          - shared/ui_kit
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.47.6
+          channel: stable
+          cache: true
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Update CI goldens
+        working-directory: ${{ matrix.package }}
+        run: flutter test --tags golden --update-goldens --dart-define=CI=true
+      - name: Upload CI goldens
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-goldens-${{ strategy.job-index }}
+          path: ${{ matrix.package }}/test/**/goldens/ci/
