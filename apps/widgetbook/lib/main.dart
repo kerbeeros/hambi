@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:game_presentation/l10n/l10n.dart';
+import 'package:game_presentation/l10n/l10n.dart' show GameLocalizations;
 import 'package:hambi_widgetbook/main.directories.g.dart';
+import 'package:setup_presentation/l10n/l10n.dart' show SetupLocalizations;
 import 'package:ui_kit/ui_kit.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
@@ -31,7 +32,10 @@ class WidgetbookApp extends StatelessWidget {
         ]),
         LocalizationAddon(
           locales: GameLocalizations.supportedLocales,
-          localizationsDelegates: GameLocalizations.localizationsDelegates,
+          localizationsDelegates: const [
+            ...GameLocalizations.localizationsDelegates,
+            SetupLocalizations.delegate,
+          ],
           initialLocale: const Locale('de'),
         ),
         TextScaleAddon(divisions: 4),
