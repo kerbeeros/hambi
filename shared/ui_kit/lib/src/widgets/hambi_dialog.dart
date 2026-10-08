@@ -24,12 +24,16 @@ class HambiDialog extends StatelessWidget {
 
   /// Shows a dialog that can only be closed through its actions, because
   /// game decisions must not be skipped by tapping outside (UX-03).
+  ///
+  /// Dialogs without a decision, e.g. the card detail (D-08), pass
+  /// [dismissible] to close on a tap outside.
   static Future<T?> show<T>(
     BuildContext context, {
     required WidgetBuilder builder,
+    bool dismissible = false,
   }) => showDialog<T>(
     context: context,
-    barrierDismissible: false,
+    barrierDismissible: dismissible,
     builder: builder,
   );
 
