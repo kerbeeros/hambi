@@ -158,6 +158,17 @@ class GameState extends Equatable {
     return draws < 0 ? 0 : draws;
   }
 
+  /// Log entries added on the way from [previous] to this state (F-07).
+  ///
+  /// The log restarts when the action phase begins, so after leaving the
+  /// preparation phase the whole log is new.
+  List<GameLogEntry> logEntriesSince(GameState previous) {
+    final startedActionPhase =
+        previous.phase == GamePhase.preparation &&
+        phase != GamePhase.preparation;
+    return startedActionPhase ? log : log.sublist(previous.log.length);
+  }
+
   /// Whether [card] is blocked by a repression card in play (R-083).
   bool isBlocked(ActionCardId card) =>
       repressionInPlay.any((repression) => repression.blocks == card);
