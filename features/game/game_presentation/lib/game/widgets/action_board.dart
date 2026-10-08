@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:game_domain/game_domain.dart';
+import 'package:game_presentation/game/dialogs/card_detail_dialog.dart';
 import 'package:game_presentation/game/view_models/view_models.dart';
 import 'package:game_presentation/l10n/l10n.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -9,7 +10,8 @@ import 'package:ui_kit/ui_kit.dart';
 /// support and the repression cards in play.
 ///
 /// In the preparation phase, tapping a card assigns it or takes the
-/// assignment back (UX-02, F-06).
+/// assignment back (UX-02, F-06). Long pressing a card shows its detail
+/// (UX-07).
 /// {@endtemplate}
 class ActionBoard extends StatelessWidget {
   /// {@macro action_board}
@@ -67,6 +69,8 @@ class ActionBoard extends StatelessWidget {
                   description: card.description(l10n),
                   kind: card.kind,
                   compact: true,
+                  onLongPress: () =>
+                      CardDetailDialog.showRepressionCard(context, card: card),
                 ),
             ],
           ),
@@ -130,6 +134,8 @@ class _BoardActionCard extends StatelessWidget {
       onTap: command != null && onCommand != null
           ? () => onCommand(command)
           : null,
+      onLongPress: () =>
+          CardDetailDialog.showActionCard(context, game: game, card: card),
     );
   }
 }
