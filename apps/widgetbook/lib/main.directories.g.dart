@@ -11,6 +11,8 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'package:hambi_widgetbook/game/game_screens.dart'
+    as _hambi_widgetbook_game_game_screens;
 import 'package:hambi_widgetbook/ui_kit/action_card_view.dart'
     as _hambi_widgetbook_ui_kit_action_card_view;
 import 'package:hambi_widgetbook/ui_kit/board_controls.dart'
@@ -34,6 +36,71 @@ import 'package:hambi_widgetbook/ui_kit/success_track.dart'
 import 'package:widgetbook/widgetbook.dart' as _widgetbook;
 
 final directories = <_widgetbook.WidgetbookNode>[
+  _widgetbook.WidgetbookFolder(
+    name: 'game',
+    children: [
+      _widgetbook.WidgetbookFolder(
+        name: 'dialogs',
+        children: [
+          _widgetbook.WidgetbookComponent(
+            name: 'DecisionDialog',
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'Decisions',
+                builder: _hambi_widgetbook_game_game_screens
+                    .buildDecisionDialogUseCase,
+              ),
+            ],
+          ),
+          _widgetbook.WidgetbookComponent(
+            name: 'LogEntryDialog',
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'Log entries',
+                builder: _hambi_widgetbook_game_game_screens
+                    .buildLogEntryDialogUseCase,
+              ),
+            ],
+          ),
+          _widgetbook.WidgetbookComponent(
+            name: 'RoundLogSheet',
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'Round log',
+                builder: _hambi_widgetbook_game_game_screens
+                    .buildRoundLogSheetUseCase,
+              ),
+            ],
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookFolder(
+        name: 'view',
+        children: [
+          _widgetbook.WidgetbookComponent(
+            name: 'GameBoard',
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'Board',
+                builder:
+                    _hambi_widgetbook_game_game_screens.buildGameBoardUseCase,
+              ),
+            ],
+          ),
+          _widgetbook.WidgetbookComponent(
+            name: 'GameResultView',
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'Result',
+                builder: _hambi_widgetbook_game_game_screens
+                    .buildGameResultViewUseCase,
+              ),
+            ],
+          ),
+        ],
+      ),
+    ],
+  ),
   _widgetbook.WidgetbookFolder(
     name: 'icons',
     children: [

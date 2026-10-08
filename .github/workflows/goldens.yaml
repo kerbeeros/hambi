@@ -13,6 +13,7 @@ jobs:
       matrix:
         package:
           - shared/ui_kit
+          - features/game/game_presentation
     steps:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2

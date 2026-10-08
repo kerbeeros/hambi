@@ -11,6 +11,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  game_domain:
+    path: ../../features/game/game_domain
+  game_presentation:
+    path: ../../features/game/game_presentation
   ui_kit:
     path: ../../shared/ui_kit
   widgetbook: ^3.25.0
