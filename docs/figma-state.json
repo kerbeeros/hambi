@@ -1,0 +1,132 @@
+{
+ "fileKey": "hkKNHto4XLTympeTQwSkTo",
+ "pages": {
+  "01 Design System": "0:1",
+  "02 Wireframes": "5:4",
+  "03 Screens": "5:5"
+ },
+ "collections": {
+  "primitives": "VariableCollectionId:5:6",
+  "color": "VariableCollectionId:5:30",
+  "dimension": "VariableCollectionId:5:60"
+ },
+ "color": {
+  "bg/app": "VariableID:5:31",
+  "bg/surface": "VariableID:5:32",
+  "bg/board": "VariableID:5:33",
+  "text/primary": "VariableID:5:34",
+  "text/secondary": "VariableID:5:35",
+  "text/on-dark": "VariableID:5:36",
+  "border/default": "VariableID:5:37",
+  "border/subtle": "VariableID:5:38",
+  "forest/intact": "VariableID:5:39",
+  "forest/cleared": "VariableID:5:40",
+  "forest/removed": "VariableID:5:41",
+  "card/direct-action": "VariableID:5:42",
+  "card/direct-action-effect": "VariableID:5:43",
+  "card/campaign": "VariableID:5:44",
+  "card/campaign-effect": "VariableID:5:45",
+  "card/support": "VariableID:5:46",
+  "card/support-effect": "VariableID:5:47",
+  "card/camp": "VariableID:5:48",
+  "card/repression": "VariableID:5:49",
+  "token/activist": "VariableID:5:50",
+  "token/resource": "VariableID:5:51",
+  "token/secu": "VariableID:5:52",
+  "track/activists": "VariableID:5:53",
+  "track/support": "VariableID:5:54",
+  "track/repression-field": "VariableID:5:55",
+  "state/blocked": "VariableID:5:56",
+  "state/disabled": "VariableID:5:57",
+  "action/primary": "VariableID:5:58",
+  "action/on-primary": "VariableID:5:59"
+ },
+ "dimension": {
+  "spacing/2xs": "VariableID:5:61",
+  "spacing/xs": "VariableID:5:62",
+  "spacing/sm": "VariableID:5:63",
+  "spacing/md": "VariableID:5:64",
+  "spacing/lg": "VariableID:5:65",
+  "spacing/xl": "VariableID:5:66",
+  "spacing/2xl": "VariableID:5:67",
+  "spacing/3xl": "VariableID:5:68",
+  "radius/sm": "VariableID:5:69",
+  "radius/md": "VariableID:5:70",
+  "radius/lg": "VariableID:5:71",
+  "radius/xl": "VariableID:5:72",
+  "radius/full": "VariableID:5:73"
+ },
+ "textStyles": {
+  "Display": "S:ad0be6c4a42df234f56e477f31790c9b57a2ac9b,",
+  "Heading/H1": "S:985a65150a55b18592f64aaf7d0577190b423447,",
+  "Heading/H2": "S:c820a9b8a936bdd0897b801f7f8369aa67504a4e,",
+  "Card/Title": "S:81c3a31abc6e7fce66e8035ed617cf8bbe05af9b,",
+  "Body/Default": "S:77764211b660813239be4c2a6027e38686105ffb,",
+  "Body/Small": "S:821a103dd4162c4aa4e3925c8c7996b05dd5c997,",
+  "Label/Default": "S:9ae25ea25b645ddd660b43fb2d3c4193869b69b1,",
+  "Caption": "S:50b9af3256fa42182e207405c8cad5d623c90131,",
+  "Number/Large": "S:d2b35670438f8565515405c27f3558bf941de2e3,",
+  "Number/Small": "S:2c593d85df0671e6956af37bc2f8d9917af95194,"
+ },
+ "completed": [
+  "pages",
+  "foundations",
+  "wireframe-components",
+  "wireframes-ABC",
+  "ds-foundations-specimen",
+  "ds-base-components"
+ ],
+ "components": {
+  "WF/ForestCard": "7:14",
+  "WF/ActionCard": "7:69",
+  "ActionCardProps": {
+   "title": "Title#7:0",
+   "cost": "Cost#7:13",
+   "effect": "Effect#7:26"
+  }
+ },
+ "wireframes": {
+  "sectionBausteine": "7:2",
+  "A": {
+   "section": "8:2",
+   "screen": "8:4"
+  },
+  "B": {
+   "section": "9:44",
+   "b1": "9:46",
+   "b2": "9:213"
+  },
+  "C": {
+   "section": "9:324",
+   "c1": "9:326",
+   "c2": "9:493"
+  }
+ },
+ "designSystem": {
+  "foundationsSection": "10:2",
+  "baseSection": "10:107",
+  "icons": {
+   "Activist": "10:109",
+   "Resource": "10:113",
+   "Secu": "10:118",
+   "Support": "10:122",
+   "Tree": "10:128",
+   "Pine": "10:133",
+   "Stump": "10:138"
+  },
+  "Dice": "10:169",
+  "Button": {
+   "id": "10:178",
+   "label": "Label#10:0"
+  },
+  "StatusChip": {
+   "id": "10:202",
+   "label": "Label#10:5"
+  }
+ },
+ "pending": [
+  "ds-cards (ForestCard, ActionCard, CampCard) \u2013 Skript fertig, an MCP-Limit gescheitert",
+  "ds-repression/track/tabs/header/stepper/dialog",
+  "screens S-01..S-05 + S-03a-d + D-01..D-11 (phone + tablet)"
+ ]
+}

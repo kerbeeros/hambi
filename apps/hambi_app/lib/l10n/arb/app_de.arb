@@ -1,0 +1,7 @@
+{
+    "@@locale": "de",
+    "appTitle": "Hambi bleibt!",
+    "@appTitle": {
+        "description": "App name shown on the placeholder start page"
+    }
+}

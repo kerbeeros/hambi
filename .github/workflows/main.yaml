@@ -1,0 +1,58 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  hambi_app:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
+    with:
+      working_directory: apps/hambi_app
+      flutter_version: 3.47.6
+      min_coverage: 100
+      dart_define: CI=true
+      coverage_excludes: "**/*.g.dart"
+
+  ui_kit:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
+    with:
+      working_directory: shared/ui_kit
+      flutter_version: 3.47.6
+      min_coverage: 100
+      # Only platform-independent CI goldens are compared on CI (ADR 0004).
+      dart_define: CI=true
+
+  game_domain:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
+    with:
+      working_directory: features/game/game_domain
+      dart_sdk: 3.13.5
+      min_coverage: 100
+
+  widgetbook:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/widgetbook
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.47.6
+          channel: stable
+          cache: true
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Generate use-case directories
+        run: dart run build_runner build --delete-conflicting-outputs
+      - name: Analyze
+        run: flutter analyze --fatal-infos --fatal-warnings
+      - name: Build web
+        run: flutter build web --release

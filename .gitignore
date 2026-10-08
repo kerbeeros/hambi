@@ -1,0 +1,26 @@
+# Dart / Flutter
+.dart_tool/
+.packages
+build/
+coverage/
+*.iml
+.idea/
+.flutter-plugins
+.flutter-plugins-dependencies
+**/doc/api/
+
+# macOS
+.DS_Store
+
+# Golden tests: only CI goldens are versioned (ADR 0004)
+**/goldens/macos/
+**/goldens/linux/
+**/goldens/windows/
+**/failures/
+
+# Local-only files (not versioned)
+.mcp.json
+.claude/
+CLAUDE.md
+todo.md
+spec.md

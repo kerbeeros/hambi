@@ -1,0 +1,163 @@
+# Design-Tokens & UI-Bausteine
+
+> Quelle der Wahrheit für das visuelle Design. Umsetzung in `shared/ui_kit` (`AppColors`, `AppTextStyle`, `AppSpacing`, `AppRadius`, Icons, Widgets).
+> Figma (https://www.figma.com/design/hkKNHto4XLTympeTQwSkTo/Hambi) ist nur noch **Archiv** (Wireframes A/B/C, erste Foundations) – siehe `docs/adr/0004-design-in-code.md`.
+> Visuelle Abnahme erfolgt über **Widgetbook** (Katalog) und **Golden Tests** (Alchemist).
+
+## 1. Farben
+
+### 1.1 Primitive (aus den Originalgrafiken abgeleitet)
+
+| Token | Hex | Herkunft |
+|---|---|---|
+| `green/tree` | `#00CC00` | Bäume, Camp-Karte |
+| `green/forest-light` | `#66CC00` | Verlauf Waldkarten (hell) |
+| `green/forest-dark` | `#336600` | Verlauf Waldkarten (dunkel), Spielbrett-Hintergrund |
+| `green/forest-deep` | `#1F4000` | Reserve (Schatten/Hover) |
+| `green/action` | `#00FF66` | Direkte Aktion (oben) |
+| `green/action-light` | `#80FFAA` | Direkte Aktion (Effekt-Bereich) |
+| `green/resource` | `#33E06A` | Ressourcen-Würfel |
+| `yellow/campaign` | `#FFFF00` | Kampagne (oben) |
+| `yellow/campaign-light` | `#FFFF80` | Kampagne (Effekt-Bereich) |
+| `yellow/smiley` | `#FFD500` | Öffentliche Unterstützung |
+| `blue/support` | `#66CCFF` | Support (oben) |
+| `blue/support-light` | `#B3E5FF` | Support (Effekt-Bereich) |
+| `blue/activist` | `#1E6BFF` | Mitstreiter*innen |
+| `blue/track` | `#3399FF` | Erfolgsleiste Mitstreiter*innen |
+| `brown/cleared` | `#9A6633` | abgeholzte Waldkarte |
+| `brown/soil` | `#4A1A00` | entfernte Waldkarte / Erde |
+| `red/repression` | `#E8231E` | Repressionsfelder, Sperren, Fehler |
+| `neutral/white` | `#FFFFFF` | |
+| `neutral/paper` | `#F7F3EA` | App-Hintergrund (Papier) |
+| `neutral/gray-200` | `#E2E0DA` | Ränder, deaktiviert |
+| `neutral/gray-500` | `#77756F` | Sekundärtext |
+| `neutral/gray-900` | `#222222` | Secu |
+| `neutral/black` | `#111111` | Primärtext, Ränder |
+
+### 1.2 Semantisch (`AppColors`)
+
+Widgets verwenden **nur** semantische Tokens. Nur ein Modus (hell); Dark Mode ist kein MVP-Ziel.
+
+| Token | → Primitive | Verwendung |
+|---|---|---|
+| `bg/app` | `neutral/paper` | Scaffold-Hintergrund |
+| `bg/surface` | `neutral/white` | Karten, Sheets, Dialoge |
+| `bg/board` | `green/forest-dark` | Header, Wald-Bereich |
+| `text/primary` | `neutral/black` | Text |
+| `text/secondary` | `neutral/gray-500` | Hilfstext |
+| `text/on-dark` | `neutral/white` | Text auf `bg/board` |
+| `border/default` | `neutral/black` | starke Ränder, belegte Karte |
+| `border/subtle` | `neutral/gray-200` | normale Ränder |
+| `forest/intact` | `green/tree` | Waldkarte „wald“ |
+| `forest/cleared` | `brown/cleared` | Waldkarte „abgeholzt“ |
+| `forest/removed` | `brown/soil` | Waldkarte „entfernt“ |
+| `card/direct-action` / `-effect` | `green/action` / `green/action-light` | Direkte Aktionen |
+| `card/campaign` / `-effect` | `yellow/campaign` / `yellow/campaign-light` | Kampagnen |
+| `card/support` / `-effect` | `blue/support` / `blue/support-light` | Support |
+| `card/camp` | `green/tree` | Camp |
+| `card/repression` | `neutral/white` | Repressionskarten |
+| `token/activist` | `blue/activist` | Mitstreiter*in-Marker |
+| `token/resource` | `green/resource` | Ressourcen-Marker |
+| `token/secu` | `neutral/gray-900` | Secu-Marker |
+| `track/activists` | `blue/track` | gefüllte Felder M-Leiste |
+| `track/support` | `yellow/smiley` | gefüllte Felder U-Leiste |
+| `track/repression-field` | `red/repression` | Markierung Repressionsfeld |
+| `state/blocked` | `red/repression` | gesperrte Karte, Bagger-Ziel |
+| `state/disabled` | `neutral/gray-200` | leere Leistenfelder, deaktiviert |
+| `action/primary` | `green/forest-dark` | Primärbutton |
+| `action/on-primary` | `neutral/white` | Text auf Primärbutton |
+
+Kontrast: Text immer `text/primary` auf den hellen Kartenfarben (Gelb/Grün/Blau); `text/on-dark` nur auf `bg/board` / `action/primary`. Zustände nie nur über Farbe (zusätzlich Badge/Icon/Text, NF-04).
+
+## 2. Typografie (`AppTextStyle`)
+
+Schriften: **Special Elite** (Überschriften, Kartentitel – Schreibmaschine wie das Original) und **Nunito** (Text, Zahlen). Lizenzen: Nunito SIL OFL 1.1, Special Elite Apache 2.0 (Lizenztexte in `shared/ui_kit/assets/fonts/`). Als Assets im `ui_kit` gebündelt (kein Laden zur Laufzeit).
+
+| Stil | Schrift | Gewicht | Größe / Zeilenhöhe |
+|---|---|---|---|
+| `display` | Special Elite | Regular | 32 / 40 |
+| `headingH1` | Special Elite | Regular | 24 / 32 |
+| `headingH2` | Special Elite | Regular | 20 / 28 |
+| `cardTitle` | Special Elite | Regular | 13 / 16 |
+| `bodyDefault` | Nunito | Regular | 16 / 24 |
+| `bodySmall` | Nunito | Regular | 14 / 20 |
+| `label` | Nunito | Bold | 14 / 20 |
+| `caption` | Nunito | SemiBold | 12 / 16 |
+| `numberLarge` | Nunito | ExtraBold | 20 / 24 |
+| `numberSmall` | Nunito | ExtraBold | 14 / 16 |
+
+Alle Stile skalieren mit der System-Schriftgröße (`MediaQuery.textScaler`).
+
+## 3. Abstände & Radien (`AppSpacing`, `AppRadius`)
+
+| Abstand | Wert | | Radius | Wert |
+|---|---|---|---|---|
+| `xxs` | 2 | | `sm` | 4 |
+| `xs` | 4 | | `md` | 8 |
+| `sm` | 8 | | `lg` | 12 |
+| `md` | 12 | | `xl` | 16 |
+| `lg` | 16 | | `full` | 999 |
+| `xl` | 24 | | | |
+| `xxl` | 32 | | | |
+| `xxxl` | 48 | | | |
+
+Touch-Ziele mindestens 44 × 44 pt. Bildschirmrand Smartphone: `lg` (16).
+
+## 4. Icons
+
+24 × 24 Vektor-Icons im Stil des Spielmaterials, als SVG-Assets im `ui_kit` (Paket `flutter_svg` – vor Einsatz per ADR bestätigen) oder als `CustomPainter`. Farben sind fest (entsprechen dem Original) und werden nicht umgefärbt.
+
+| Icon | SVG |
+|---|---|
+| Mitstreiter*in | `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6" fill="#1E6BFF" stroke="#0A2E80" stroke-width="1.5"/><ellipse cx="12" cy="6" rx="7" ry="3" fill="#6FA0FF" stroke="#0A2E80" stroke-width="1.5"/></svg>` |
+| Ressource | `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8l8-4 8 4-8 4-8-4z" fill="#8CF5A8" stroke="#0E6B2C" stroke-width="1.5" stroke-linejoin="round"/><path d="M4 8v8l8 4v-8L4 8z" fill="#33E06A" stroke="#0E6B2C" stroke-width="1.5" stroke-linejoin="round"/><path d="M20 8v8l-8 4v-8l8-4z" fill="#22B553" stroke="#0E6B2C" stroke-width="1.5" stroke-linejoin="round"/></svg>` |
+| Secu | `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6" fill="#222222" stroke="#000000" stroke-width="1.5"/><ellipse cx="12" cy="6" rx="7" ry="3" fill="#555555" stroke="#000000" stroke-width="1.5"/></svg>` |
+| Unterstützung | `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="#FFD500" stroke="#7A5C00" stroke-width="1.5"/><circle cx="8.5" cy="10" r="1.4" fill="#111111"/><circle cx="15.5" cy="10" r="1.4" fill="#111111"/><path d="M7.5 14.5c1.2 1.8 2.7 2.6 4.5 2.6s3.3-.8 4.5-2.6" stroke="#111111" stroke-width="1.6" stroke-linecap="round"/></svg>` |
+| Laubbaum | `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10.5" y="14" width="3" height="8" rx="1" fill="#5A1E00"/><circle cx="12" cy="9.5" r="7" fill="#008A00" stroke="#004D00" stroke-width="1.5"/><circle cx="12" cy="9.5" r="3" fill="#33DD33"/></svg>` |
+| Tanne | `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10.5" y="17" width="3" height="5" rx="1" fill="#5A1E00"/><path d="M12 2L4 18h16L12 2z" fill="#006B2E" stroke="#003D18" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 8l-3.5 7h7L12 8z" fill="#00B04A"/></svg>` |
+| Baumstumpf | `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 11v8c0 1.1 2.2 2 5 2s5-.9 5-2v-8" fill="#6B3A12" stroke="#3A1A00" stroke-width="1.5"/><ellipse cx="12" cy="11" rx="5" ry="2" fill="#D9A066" stroke="#3A1A00" stroke-width="1.5"/></svg>` |
+
+Zusätzlich aus den Original-PDFs (`docs/reference/`): Logo „Hambi bleibt!“, Uhr/„System Change not Climate Change“, Waldkarten-Illustrationen – als Assets extrahieren, wenn die jeweiligen Screens gebaut werden.
+
+## 5. Komponenten (`ui_kit`)
+
+Jede Komponente ist ein eigenes Widget, hat einen Widgetbook-Use-Case pro Zustand und einen Alchemist-Golden-Test.
+
+| Widget | Zustände / Parameter | Maße (Smartphone) |
+|---|---|---|
+| `HambiButton` | primary / secondary × enabled / disabled, Label | Höhe 48, Radius `lg` |
+| `StatusChip` | activist / resource / support / repression, Label | Höhe 28, Radius `full` |
+| `ForestCard` | intact / cleared / removed × none / activist / secu × target | 78 × 104, Radius 10 |
+| `ActionCard` | direct / campaign / support × default / assigned / blocked / disabled; Titel, Kosten, Effekt, Seite A/B | 113 × 96, Radius 10; oben Kartenfarbe (Bedingung), unten Effektfarbe |
+| `CampCard` | Anzahl M, Anzahl R | 113 × 96 |
+| `RepressionCard` | instant / blocking (dicker Rahmen) / once (⦸-Symbol); Titel, Text | Dialog: 200 × 280 |
+| `SuccessTrack` | activists / support; Wert 0–11; Repressionsfelder | Zellen 22 (kompakt) bzw. 26 |
+| `Dice` | Wert 1–6 | 40 × 40, Radius `md` |
+| `RoundHeader` | Runde, Phase, Buttons Log/Menü | Höhe ≈ 64, `bg/board` |
+| `PhaseStepper` | aktive Phase 1–4 | |
+| `BoardTabs` | Wald / Aktionen, Badge | Segmented Control, Höhe 44 |
+| `HambiDialog`, `HambiBottomSheet` | Titel, Inhalt, Aktionen | |
+
+## 6. Layout „Spielbrett“ (Variante B, ADR 0003)
+
+Smartphone (Referenz 393 × 852):
+
+```
+┌───────────────────────────────┐
+│ RoundHeader (Runde x/12, Phase) │  bg/board
+├───────────────────────────────┤
+│ StatusChips: M frei · R · Repr. │  bg/app, fest
+│ SuccessTrack M (kompakt)        │
+│ SuccessTrack U (kompakt)        │
+├───────────────────────────────┤
+│ BoardTabs [Wald • | Aktionen]   │
+├───────────────────────────────┤
+│ Tab-Inhalt (scrollt)            │
+│  Wald: 3 Waldspalten × 4 Karten │
+│  Aktionen: Gruppen 3-spaltig    │
+├───────────────────────────────┤
+│ Primäraktion (fixiert)          │  bg/surface
+└───────────────────────────────┘
+```
+
+Tablet: Statusbereich oben über volle Breite, darunter Wald (links) und Aktionsplan (rechts) nebeneinander, Primäraktion unten rechts.
