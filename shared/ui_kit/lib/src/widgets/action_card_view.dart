@@ -46,6 +46,7 @@ class ActionCardView extends StatelessWidget {
     this.statusLabel,
     this.semanticLabel,
     this.onTap,
+    this.onLongPress,
     super.key,
   });
 
@@ -75,6 +76,9 @@ class ActionCardView extends StatelessWidget {
 
   /// Called when the card is tapped.
   final VoidCallback? onTap;
+
+  /// Called when the card is long pressed, e.g. to show its details (UX-07).
+  final VoidCallback? onLongPress;
 
   /// Card width in logical pixels.
   static const double width = 113;
@@ -128,6 +132,7 @@ class ActionCardView extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: onTap,
+        onLongPress: onLongPress,
         child: Stack(
           children: [
             Column(
@@ -181,6 +186,7 @@ class ActionCardView extends StatelessWidget {
     return Semantics(
       label: semanticLabel,
       button: onTap != null,
+      onLongPress: onLongPress,
       excludeSemantics: semanticLabel != null,
       child: SizedBox(width: width, height: height, child: card),
     );
