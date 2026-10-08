@@ -162,4 +162,36 @@ void main() {
       );
     });
   });
+
+  group('logEntriesSince', () {
+    const dice = DiceRolled([2, 5]);
+    const drawn = RepressionCardDrawn(RepressionCard.raid);
+
+    test('F-07: returns the entries added to the log', () {
+      final previous = buildGameState(phase: GamePhase.repression, log: [dice]);
+      final next = buildGameState(
+        phase: GamePhase.repression,
+        log: [dice, drawn],
+      );
+      expect(next.logEntriesSince(previous), equals([drawn]));
+    });
+
+    test('F-07: returns the whole log once a new action phase started', () {
+      final previous = buildGameState(
+        phase: GamePhase.preparation,
+        log: [dice],
+      );
+      final next = buildGameState(phase: GamePhase.excavation, log: [dice]);
+      expect(next.logEntriesSince(previous), equals([dice]));
+    });
+
+    test('returns nothing while preparing', () {
+      final previous = buildGameState(
+        phase: GamePhase.preparation,
+        log: [dice],
+      );
+      final next = buildGameState(phase: GamePhase.preparation, log: [dice]);
+      expect(next.logEntriesSince(previous), isEmpty);
+    });
+  });
 }
