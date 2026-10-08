@@ -476,4 +476,21 @@ class GameLocalizationsDe extends GameLocalizations {
 
   @override
   String get forestDetailThreatened => 'Bedroht: Der nächste Bagger in dieser Waldspalte trifft diese Karte.';
+
+  @override
+  String get detailConditions => 'Bedingungen';
+
+  @override
+  String get detailEffects => 'Effekte';
+
+  @override
+  String detailSymbolCount(int count) {
+    return '$count ×';
+  }
+
+  @override
+  String get statusAssigned => 'Belegt';
+
+  @override
+  String get closeAction => 'Schließen';
 }

@@ -960,6 +960,36 @@ abstract class GameLocalizations {
   /// In de, this message translates to:
   /// **'Bedroht: Der nächste Bagger in dieser Waldspalte trifft diese Karte.'**
   String get forestDetailThreatened;
+
+  /// Conditions
+  ///
+  /// In de, this message translates to:
+  /// **'Bedingungen'**
+  String get detailConditions;
+
+  /// Effects
+  ///
+  /// In de, this message translates to:
+  /// **'Effekte'**
+  String get detailEffects;
+
+  /// {count} ×
+  ///
+  /// In de, this message translates to:
+  /// **'{count} ×'**
+  String detailSymbolCount(int count);
+
+  /// Assigned
+  ///
+  /// In de, this message translates to:
+  /// **'Belegt'**
+  String get statusAssigned;
+
+  /// Close
+  ///
+  /// In de, this message translates to:
+  /// **'Schließen'**
+  String get closeAction;
 }
 
 class _GameLocalizationsDelegate extends LocalizationsDelegate<GameLocalizations> {
