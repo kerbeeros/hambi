@@ -9,7 +9,7 @@ import 'helpers/load_package_fonts.dart';
 import 'helpers/tolerant_golden_comparator.dart';
 
 Future<void> testExecutable(FutureOr<void> Function() testMain) async {
-  // CI only compares platform-independent goldens, see ADR 0004.
+  // Set by the ci and goldens workflows, see ADR 0004.
   const isRunningInCi = bool.fromEnvironment('CI');
 
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -32,9 +32,12 @@ Future<void> testExecutable(FutureOr<void> Function() testMain) async {
         nameTextStyle: AppTextStyle.caption,
         padding: const EdgeInsets.all(AppSpacing.sm),
       ),
+      // Each platform compares only goldens generated on it: macOS goldens
+      // locally, Linux CI goldens (workflow "goldens") in CI.
       platformGoldensConfig: isRunningInCi
           ? const PlatformGoldensConfig(enabled: false)
           : const PlatformGoldensConfig(),
+      ciGoldensConfig: const CiGoldensConfig(enabled: isRunningInCi),
     ),
     run: testMain,
   );

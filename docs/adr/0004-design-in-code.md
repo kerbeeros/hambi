@@ -15,6 +15,10 @@ Das Spielbrett-Layout ist entschieden (ADR 0003), Farben, Typografie, Abstände 
 - **Widgetbook** (`widgetbook`, `widgetbook_annotation`, `widgetbook_generator`) als eigene App `apps/widgetbook`
   ersetzt die Figma-Ansicht: alle Widgets und Screens je Zustand, Smartphone und Tablet.
 - **Golden Tests mit Alchemist** (`alchemist`, von VGV empfohlen) sichern jeden Zustand visuell ab; in der CI nur CI-sichere Goldens.
+- Goldens werden nur auf der Plattform verglichen, auf der sie erzeugt wurden: lokal die Plattform-Goldens (`goldens/macos/`,
+  nicht versioniert), in der CI die CI-Goldens (`goldens/ci/`, versioniert). CI-Goldens erzeugt ausschließlich der manuell
+  gestartete Workflow **`goldens`** auf Linux (Artefakt herunterladen und committen) – auf macOS erzeugte CI-Goldens
+  weichen bei Kantenglättung und SVG-Rendering um bis zu ~1 % ab (Nachtrag M3).
 - Figma bleibt als Archiv (Wireframes A/B/C) bestehen und wird nicht weiter gepflegt.
 
 ## Konsequenzen
