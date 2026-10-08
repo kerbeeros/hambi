@@ -2,18 +2,22 @@ part of 'game_engine.dart';
 
 extension on GameEngine {
   GameState _assign(GameState state, GameCommand command, ActionCardId card) {
-    _requirePhase(state, command, GamePhase.preparation);
-    if (state.isBlocked(card)) throw CardBlockedException(card);
-    if (state.assignedCards.contains(card)) {
-      throw CardAlreadyAssignedException(card);
+    switch (state.assignmentStatus(card)) {
+      case AssignmentStatus.notInPreparation:
+        throw InvalidPhaseException(command, state.phase);
+      case AssignmentStatus.blocked:
+        throw CardBlockedException(card);
+      case AssignmentStatus.assigned:
+        throw CardAlreadyAssignedException(card);
+      case AssignmentStatus.notEnoughActivists ||
+          AssignmentStatus.notEnoughResources ||
+          AssignmentStatus.notEnoughSupport:
+        throw ConditionNotMetException(card);
+      case AssignmentStatus.available:
+        break;
     }
     final cost = card.cost(state.cardSides[card]!);
     final camp = state.camp;
-    if (camp.activists < cost.activists ||
-        camp.resources < cost.resources ||
-        state.support < cost.support) {
-      throw ConditionNotMetException(card);
-    }
     return state.copyWith(
       camp: Camp(
         activists: camp.activists - cost.activists,

@@ -11,11 +11,7 @@ extension on GameEngine {
         ...state.repressionInPlay,
       ], randomState);
     }
-    final legalTeam = state.activatedCards.contains(ActionCardId.legalTeam);
-    final draws = math.max(
-      0,
-      state.activatedRepressionFields.length - (legalTeam ? 1 : 0),
-    );
+    final draws = state.upcomingRepressionDraws;
     return _drawRepressionCards(
       state.copyWith(
         phase: GamePhase.repression,

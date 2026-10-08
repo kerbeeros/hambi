@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:game_domain/models/action_card_id.dart';
+import 'package:game_domain/models/assignment_status.dart';
 import 'package:game_domain/models/camp.dart';
 import 'package:game_domain/models/forest.dart';
 import 'package:game_domain/models/game_log_entry.dart';
@@ -128,6 +129,34 @@ class GameState extends Equatable {
   int get removedForestCards => forest.cards
       .where((card) => card.state == ForestCardState.removed)
       .length;
+
+  /// Whether and why [card] can be assigned now (UX-02).
+  AssignmentStatus assignmentStatus(ActionCardId card) {
+    if (phase != GamePhase.preparation) {
+      return AssignmentStatus.notInPreparation;
+    }
+    if (isBlocked(card)) return AssignmentStatus.blocked;
+    if (assignedCards.contains(card)) return AssignmentStatus.assigned;
+    final cost = card.cost(cardSides[card]!);
+    if (camp.activists < cost.activists) {
+      return AssignmentStatus.notEnoughActivists;
+    }
+    if (camp.resources < cost.resources) {
+      return AssignmentStatus.notEnoughResources;
+    }
+    if (support < cost.support) return AssignmentStatus.notEnoughSupport;
+    return AssignmentStatus.available;
+  }
+
+  /// Repression cards drawn in the next repression phase at the current
+  /// track values (R-092); an assigned or activated legal team counts.
+  int get upcomingRepressionDraws {
+    final legalTeam =
+        assignedCards.contains(ActionCardId.legalTeam) ||
+        activatedCards.contains(ActionCardId.legalTeam);
+    final draws = activatedRepressionFields.length - (legalTeam ? 1 : 0);
+    return draws < 0 ? 0 : draws;
+  }
 
   /// Whether [card] is blocked by a repression card in play (R-083).
   bool isBlocked(ActionCardId card) =>

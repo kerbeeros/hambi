@@ -71,11 +71,8 @@ extension on GameEngine {
   /// A column always has such a card: once all of its cards are removed,
   /// the game is lost (R-100).
   GameState _excavate(GameState state, int column) {
-    final cards = state.forest.columns[column];
-    final position = cards.indexWhere(
-      (card) => card.state != ForestCardState.removed,
-    );
-    final target = cards[position];
+    final position = state.forest.targetPosition(column)!;
+    final target = state.forest.columns[column][position];
     final hit = target.hasActivist
         ? target.copyWith(hasActivist: false)
         : ForestCard(
