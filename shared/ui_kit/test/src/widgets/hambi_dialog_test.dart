@@ -74,6 +74,27 @@ void main() {
 
       expect(find.text('Pflicht'), findsOneWidget);
     });
+
+    testWidgets('show is dismissible by tapping outside when allowed', (
+      tester,
+    ) async {
+      await tester.pumpApp(const SizedBox());
+      final context = tester.element(find.byType(SizedBox));
+
+      unawaited(
+        HambiDialog.show<void>(
+          context,
+          dismissible: true,
+          builder: (_) =>
+              const HambiDialog(title: 'Details', content: SizedBox()),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.tapAt(Offset.zero);
+      await tester.pumpAndSettle();
+
+      expect(find.text('Details'), findsNothing);
+    });
   });
 
   group(HambiBottomSheet, () {
