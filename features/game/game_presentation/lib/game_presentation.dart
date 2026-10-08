@@ -2,3 +2,4 @@
 library;
 
 export 'game/bloc/bloc.dart';
+export 'game/view_models/view_models.dart';
