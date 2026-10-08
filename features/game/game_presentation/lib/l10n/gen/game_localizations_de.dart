@@ -444,4 +444,13 @@ class GameLocalizationsDe extends GameLocalizations {
 
   @override
   String get symbolPreventRepression => 'Zieht in der Repressionsphase eine Repressionskarte weniger, als ihr müsstet.';
+
+  @override
+  String get repressionKindImmediate => 'Sofort: Die Karte wird direkt ausgeführt.';
+
+  @override
+  String get repressionKindBlocking => 'Blockierend: Die Karte gilt bis zur nächsten Repressionsphase.';
+
+  @override
+  String get repressionKindOneTime => 'Einmalig: Die Karte wird nach der Ausführung aus dem Spiel genommen.';
 }

@@ -633,5 +633,17 @@
   "symbolPreventRepression": "Zieht in der Repressionsphase eine Repressionskarte weniger, als ihr müsstet.",
   "@symbolPreventRepression": {
     "description": "In the repression phase, draw one repression card less than you would have to."
+  },
+  "repressionKindImmediate": "Sofort: Die Karte wird direkt ausgeführt.",
+  "@repressionKindImmediate": {
+    "description": "Immediate: the card is executed at once."
+  },
+  "repressionKindBlocking": "Blockierend: Die Karte gilt bis zur nächsten Repressionsphase.",
+  "@repressionKindBlocking": {
+    "description": "Blocking: the card applies until the next repression phase."
+  },
+  "repressionKindOneTime": "Einmalig: Die Karte wird nach der Ausführung aus dem Spiel genommen.",
+  "@repressionKindOneTime": {
+    "description": "One-time: the card is removed from the game after it is executed."
   }
 }

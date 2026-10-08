@@ -900,6 +900,24 @@ abstract class GameLocalizations {
   /// In de, this message translates to:
   /// **'Zieht in der Repressionsphase eine Repressionskarte weniger, als ihr müsstet.'**
   String get symbolPreventRepression;
+
+  /// Immediate: the card is executed at once.
+  ///
+  /// In de, this message translates to:
+  /// **'Sofort: Die Karte wird direkt ausgeführt.'**
+  String get repressionKindImmediate;
+
+  /// Blocking: the card applies until the next repression phase.
+  ///
+  /// In de, this message translates to:
+  /// **'Blockierend: Die Karte gilt bis zur nächsten Repressionsphase.'**
+  String get repressionKindBlocking;
+
+  /// One-time: the card is removed from the game after it is executed.
+  ///
+  /// In de, this message translates to:
+  /// **'Einmalig: Die Karte wird nach der Ausführung aus dem Spiel genommen.'**
+  String get repressionKindOneTime;
 }
 
 class _GameLocalizationsDelegate extends LocalizationsDelegate<GameLocalizations> {
