@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:game_domain/game_domain.dart';
+import 'package:game_presentation/game/dialogs/card_detail_dialog.dart';
 import 'package:game_presentation/game/view_models/view_models.dart';
 import 'package:game_presentation/l10n/l10n.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -8,7 +9,8 @@ import 'package:ui_kit/ui_kit.dart';
 /// The forest: one row of 4 cards per forest column (R-020).
 ///
 /// Excavator targets without an activist are marked as threatened unless
-/// [showThreats] is false; [selected] cards are marked as chosen.
+/// [showThreats] is false; [selected] cards are marked as chosen. With
+/// [showsDetails], long pressing a card shows its detail (UX-07).
 /// {@endtemplate}
 class ForestGrid extends StatelessWidget {
   /// {@macro forest_grid}
@@ -18,6 +20,7 @@ class ForestGrid extends StatelessWidget {
     this.selected = const {},
     this.isSelectable,
     this.onCardTap,
+    this.showsDetails = false,
     super.key,
   });
 
@@ -36,6 +39,9 @@ class ForestGrid extends StatelessWidget {
 
   /// Called with the position of a tapped card.
   final ValueChanged<ForestPosition>? onCardTap;
+
+  /// Whether long pressing a card shows its detail (D-08).
+  final bool showsDetails;
 
   @override
   Widget build(BuildContext context) {
@@ -75,6 +81,7 @@ class ForestGrid extends StatelessWidget {
                   ),
                   isSelectable: isSelectable,
                   onTap: onCardTap,
+                  showsDetails: showsDetails,
                 ),
               ],
             ],
@@ -93,6 +100,7 @@ class _ForestGridCard extends StatelessWidget {
     required this.isThreatened,
     required this.isSelectable,
     required this.onTap,
+    required this.showsDetails,
   });
 
   final ForestCard card;
@@ -101,6 +109,7 @@ class _ForestGridCard extends StatelessWidget {
   final bool isThreatened;
   final bool Function(ForestPosition position)? isSelectable;
   final ValueChanged<ForestPosition>? onTap;
+  final bool showsDetails;
 
   static const double _dimmedOpacity = 0.4;
 
@@ -120,6 +129,14 @@ class _ForestGridCard extends StatelessWidget {
         isThreatened: isThreatened,
       ),
       onTap: canTap ? () => onTap(position) : null,
+      onLongPress: showsDetails
+          ? () => CardDetailDialog.showForestCard(
+              context,
+              card: card,
+              position: position,
+              isThreatened: isThreatened,
+            )
+          : null,
     );
     return selectable ? view : Opacity(opacity: _dimmedOpacity, child: view);
   }

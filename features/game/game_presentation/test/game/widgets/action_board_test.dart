@@ -109,5 +109,39 @@ void main() {
 
       expect(find.text('Liegende Repressionskarten'), findsNothing);
     });
+
+    testWidgets('UX-07: long pressing an action card shows its detail', (
+      tester,
+    ) async {
+      await tester.pumpApp(ActionBoard(game: buildGameState()));
+
+      await tester.longPress(find.text('Sabotage'));
+      await tester.pumpAndSettle();
+
+      expect(
+        tester.widget<ActionCardDetail>(find.byType(ActionCardDetail)).card,
+        equals(ActionCardId.sabotage),
+      );
+    });
+
+    testWidgets('UX-07: long pressing a repression card shows its detail', (
+      tester,
+    ) async {
+      await tester.pumpApp(
+        ActionBoard(
+          game: buildGameState(repressionInPlay: [RepressionCard.assemblyBan]),
+        ),
+      );
+
+      await tester.longPress(find.byType(RepressionCardView));
+      await tester.pumpAndSettle();
+
+      expect(
+        tester
+            .widget<RepressionCardDetail>(find.byType(RepressionCardDetail))
+            .card,
+        equals(RepressionCard.assemblyBan),
+      );
+    });
   });
 }

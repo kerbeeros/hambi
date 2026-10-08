@@ -87,5 +87,48 @@ void main() {
           .where((card) => card.isTarget);
       expect(targets, hasLength(1));
     });
+
+    testWidgets('UX-07: long pressing a card shows its detail', (tester) async {
+      await tester.pumpApp(
+        ForestGrid(forest: Forest.initial(), showsDetails: true),
+      );
+
+      await tester.longPress(find.byType(ForestCardView).at(5));
+      await tester.pumpAndSettle();
+
+      final detail = tester.widget<ForestCardDetail>(
+        find.byType(ForestCardDetail),
+      );
+      expect(
+        detail.position,
+        equals(const ForestPosition(column: 1, position: 1)),
+      );
+      expect(detail.isThreatened, isFalse);
+    });
+
+    testWidgets('UX-07: marks a threatened card in its detail', (tester) async {
+      await tester.pumpApp(
+        ForestGrid(forest: Forest.initial(), showsDetails: true),
+      );
+
+      await tester.longPress(find.byType(ForestCardView).first);
+      await tester.pumpAndSettle();
+
+      expect(
+        tester
+            .widget<ForestCardDetail>(find.byType(ForestCardDetail))
+            .isThreatened,
+        isTrue,
+      );
+    });
+
+    testWidgets('shows no detail unless showsDetails', (tester) async {
+      await tester.pumpApp(ForestGrid(forest: Forest.initial()));
+
+      await tester.longPress(find.byType(ForestCardView).first);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(ForestCardDetail), findsNothing);
+    });
   });
 }
