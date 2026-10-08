@@ -57,6 +57,17 @@ void main() {
       expect(find.byType(ActionBoard), findsNothing);
     });
 
+    testWidgets('UX-07: long pressing a forest card shows its detail', (
+      tester,
+    ) async {
+      await tester.pumpApp(board(tab: BoardSection.forest));
+
+      await tester.longPress(find.byType(ForestCardView).first);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(ForestCardDetail), findsOneWidget);
+    });
+
     testWidgets('ADR 0003: the forest tab shows the threatened cards', (
       tester,
     ) async {
