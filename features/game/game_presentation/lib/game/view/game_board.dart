@@ -55,7 +55,7 @@ class GameBoard extends StatelessWidget {
       GamePhase.excavation,
       GamePhase.repression,
     ].map((phase) => phase.label(l10n)).toList();
-    final forest = ForestGrid(forest: game.forest);
+    final forest = ForestGrid(forest: game.forest, showsDetails: true);
     final actions = ActionBoard(game: game, onCommand: onCommand);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
