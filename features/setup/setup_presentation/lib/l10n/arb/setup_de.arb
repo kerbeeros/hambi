@@ -1,0 +1,80 @@
+{
+  "@@locale": "de",
+  "appTitle": "Hambi bleibt!",
+  "@appTitle": {
+    "description": "Hambi stays!"
+  },
+  "startSubtitle": "Ein kooperatives Spiel um den Hambacher Forst",
+  "@startSubtitle": {
+    "description": "A cooperative game about the Hambach Forest"
+  },
+  "newGameAction": "Neues Spiel",
+  "@newGameAction": {
+    "description": "New game"
+  },
+  "resumeGameAction": "Fortsetzen",
+  "@resumeGameAction": {
+    "description": "Continue"
+  },
+  "setupTitle": "Neues Spiel",
+  "@setupTitle": {
+    "description": "New game"
+  },
+  "playerCountLabel": "Spieler*innen",
+  "@playerCountLabel": {
+    "description": "Players"
+  },
+  "playerCountValue": "{count} Spieler*innen",
+  "@playerCountValue": {
+    "description": "{count} players",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "decreasePlayersAction": "Weniger Spieler*innen",
+  "@decreasePlayersAction": {
+    "description": "Fewer players"
+  },
+  "increasePlayersAction": "Mehr Spieler*innen",
+  "@increasePlayersAction": {
+    "description": "More players"
+  },
+  "startingCampHint": "Ihr startet mit {activists} Mitstreiter*innen und {resources} Ressourcen im Camp.",
+  "@startingCampHint": {
+    "description": "You start with {activists} activists and {resources} resources in the camp.",
+    "placeholders": {
+      "activists": {
+        "type": "int"
+      },
+      "resources": {
+        "type": "int"
+      }
+    }
+  },
+  "startGameAction": "Spiel starten",
+  "@startGameAction": {
+    "description": "Start game"
+  },
+  "backAction": "Zurück",
+  "@backAction": {
+    "description": "Back"
+  },
+  "overwriteTitle": "Spielstand überschreiben?",
+  "@overwriteTitle": {
+    "description": "Overwrite saved game?"
+  },
+  "overwriteBody": "Es gibt eine laufende Partie. Ein neues Spiel ersetzt sie.",
+  "@overwriteBody": {
+    "description": "There is a game in progress. A new game replaces it."
+  },
+  "overwriteConfirmAction": "Neues Spiel starten",
+  "@overwriteConfirmAction": {
+    "description": "Start new game"
+  },
+  "overwriteCancelAction": "Abbrechen",
+  "@overwriteCancelAction": {
+    "description": "Cancel"
+  }
+}

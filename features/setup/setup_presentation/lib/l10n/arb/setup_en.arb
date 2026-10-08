@@ -1,0 +1,19 @@
+{
+  "@@locale": "en",
+  "appTitle": "Hambi stays!",
+  "startSubtitle": "A cooperative game about the Hambach Forest",
+  "newGameAction": "New game",
+  "resumeGameAction": "Continue",
+  "setupTitle": "New game",
+  "playerCountLabel": "Players",
+  "playerCountValue": "{count} players",
+  "decreasePlayersAction": "Fewer players",
+  "increasePlayersAction": "More players",
+  "startingCampHint": "You start with {activists} activists and {resources} resources in the camp.",
+  "startGameAction": "Start game",
+  "backAction": "Back",
+  "overwriteTitle": "Overwrite saved game?",
+  "overwriteBody": "There is a game in progress. A new game replaces it.",
+  "overwriteConfirmAction": "Start new game",
+  "overwriteCancelAction": "Cancel"
+}
