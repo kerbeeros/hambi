@@ -17,10 +17,7 @@ extension on GameEngine {
       playerCount: playerCount,
       forest: Forest.initial(),
       cardSides: {for (final card in ActionCardId.values) card: CardSide.a},
-      camp: Camp(
-        activists: playerCount,
-        resources: _startingResources(playerCount),
-      ),
+      camp: Camp.forPlayers(playerCount),
       support: 0,
       round: 0,
       phase: GamePhase.setup,
@@ -28,12 +25,6 @@ extension on GameEngine {
       randomState: randomState,
     );
   }
-
-  int _startingResources(int playerCount) => switch (playerCount) {
-    1 => 2,
-    2 => 1,
-    _ => 0,
-  };
 
   /// Fisher–Yates shuffle driven by the injected generator.
   ({List<RepressionCard> deck, int randomState}) _shuffle(
