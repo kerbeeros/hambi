@@ -24,6 +24,7 @@ class RepressionCardView extends StatelessWidget {
     required this.description,
     required this.kind,
     this.compact = false,
+    this.onLongPress,
     super.key,
   });
 
@@ -39,10 +40,13 @@ class RepressionCardView extends StatelessWidget {
   /// Whether to show the small board variant.
   final bool compact;
 
+  /// Called when the card is long pressed, e.g. to show its details (UX-07).
+  final VoidCallback? onLongPress;
+
   @override
   Widget build(BuildContext context) {
     final (width, height) = compact ? (113.0, 56.0) : (200.0, 280.0);
-    return Container(
+    final card = Container(
       width: width,
       height: height,
       padding: EdgeInsets.all(compact ? AppSpacing.sm : AppSpacing.lg),
@@ -84,5 +88,8 @@ class RepressionCardView extends StatelessWidget {
         ],
       ),
     );
+    return onLongPress == null
+        ? card
+        : GestureDetector(onLongPress: onLongPress, child: card);
   }
 }
