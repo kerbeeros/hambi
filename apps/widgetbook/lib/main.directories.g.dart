@@ -11,6 +11,8 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'package:hambi_widgetbook/ui_kit/action_card_view.dart'
+    as _hambi_widgetbook_ui_kit_action_card_view;
 import 'package:hambi_widgetbook/ui_kit/camp_card_view.dart'
     as _hambi_widgetbook_ui_kit_camp_card_view;
 import 'package:hambi_widgetbook/ui_kit/die_view.dart'
@@ -50,12 +52,32 @@ final directories = <_widgetbook.WidgetbookNode>[
     name: 'widgets',
     children: [
       _widgetbook.WidgetbookComponent(
+        name: 'ActionCardView',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'Default',
+            builder: _hambi_widgetbook_ui_kit_action_card_view
+                .buildActionCardViewUseCase,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
         name: 'CampCardView',
         useCases: [
           _widgetbook.WidgetbookUseCase(
             name: 'Default',
             builder: _hambi_widgetbook_ui_kit_camp_card_view
                 .buildCampCardViewUseCase,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'CardSymbolView',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'All',
+            builder: _hambi_widgetbook_ui_kit_action_card_view
+                .buildCardSymbolViewUseCase,
           ),
         ],
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/src/icons/icons.dart';
 import 'package:ui_kit/src/tokens/tokens.dart';
+import 'package:ui_kit/src/widgets/repression_symbol.dart';
 
 /// What a [StatusChip] shows.
 enum StatusChipKind {
@@ -67,7 +68,7 @@ class StatusChip extends StatelessWidget {
           if (icon != null)
             HambiIcon(icon, size: _iconSize)
           else
-            const _RepressionCardSymbol(),
+            const RepressionSymbol(),
           const SizedBox(width: AppSpacing.xs),
           Text(label, style: AppTextStyle.numberSmall),
         ],
@@ -76,22 +77,5 @@ class StatusChip extends StatelessWidget {
     final semanticLabel = this.semanticLabel;
     if (semanticLabel == null) return chip;
     return Semantics(label: semanticLabel, excludeSemantics: true, child: chip);
-  }
-}
-
-class _RepressionCardSymbol extends StatelessWidget {
-  const new();
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 12,
-      height: 16,
-      decoration: BoxDecoration(
-        color: AppColors.cardRepression,
-        border: Border.all(color: AppColors.trackRepressionField, width: 2),
-        borderRadius: BorderRadius.circular(AppRadius.sm / 2),
-      ),
-    );
   }
 }
