@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:game_domain/models/forest_position.dart';
 
 /// State of a single forest card (R-001).
 enum ForestCardState {
@@ -81,6 +82,23 @@ class Forest extends Equatable {
 
   /// All forest cards, column by column.
   Iterable<ForestCard> get cards => columns.expand((column) => column);
+
+  /// Position of the card the excavator hits in [column] (R-123, Q4): the
+  /// first card that is not removed, or `null` if the column is removed.
+  int? targetPosition(int column) {
+    final position = columns[column].indexWhere(
+      (card) => card.state != ForestCardState.removed,
+    );
+    return position < 0 ? null : position;
+  }
+
+  /// Excavator targets without an activist protecting them.
+  Set<ForestPosition> get threatenedPositions => {
+    for (var column = 0; column < columnCount; column++)
+      if (targetPosition(column) case final position?
+          when !columns[column][position].hasActivist)
+        ForestPosition(column: column, position: position),
+  };
 
   /// Whether ([column], [position]) is a card of the forest.
   static bool contains({required int column, required int position}) =>

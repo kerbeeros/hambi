@@ -1,6 +1,7 @@
 export 'action_card_cost.dart';
 export 'action_card_effect.dart';
 export 'action_card_id.dart';
+export 'assignment_status.dart';
 export 'camp.dart';
 export 'forest.dart';
 export 'forest_position.dart';
