@@ -1068,6 +1068,24 @@ abstract class GameLocalizations {
   /// In de, this message translates to:
   /// **'{section}: {symbols}'**
   String actionCardSymbolsLabel(String section, String symbols);
+
+  /// A rolling die for screen readers
+  ///
+  /// In de, this message translates to:
+  /// **'Würfel rollt'**
+  String get dieRollingLabel;
+
+  /// A die with its value for screen readers
+  ///
+  /// In de, this message translates to:
+  /// **'Würfel zeigt {value}'**
+  String dieShowsLabel(int value);
+
+  /// An excavator die with the forest column it hits
+  ///
+  /// In de, this message translates to:
+  /// **'Würfel zeigt {value}, trifft WS{column}'**
+  String dieHitsColumnLabel(int value, int column);
 }
 
 class _GameLocalizationsDelegate extends LocalizationsDelegate<GameLocalizations> {

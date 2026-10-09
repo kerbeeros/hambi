@@ -161,5 +161,8 @@
   "symbolNameRerollDie": "Reroll a die",
   "symbolNamePreventRepression": "One repression card less",
   "actionCardSideLabel": "{title}, side {side}",
-  "actionCardSymbolsLabel": "{section}: {symbols}"
+  "actionCardSymbolsLabel": "{section}: {symbols}",
+  "dieRollingLabel": "Die rolls",
+  "dieShowsLabel": "Die shows {value}",
+  "dieHitsColumnLabel": "Die shows {value}, hits FC{column}"
 }

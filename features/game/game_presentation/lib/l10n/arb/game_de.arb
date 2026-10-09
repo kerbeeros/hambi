@@ -774,5 +774,30 @@
         "type": "String"
       }
     }
+  },
+  "dieRollingLabel": "Würfel rollt",
+  "@dieRollingLabel": {
+    "description": "A rolling die for screen readers"
+  },
+  "dieShowsLabel": "Würfel zeigt {value}",
+  "@dieShowsLabel": {
+    "description": "A die with its value for screen readers",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "dieHitsColumnLabel": "Würfel zeigt {value}, trifft WS{column}",
+  "@dieHitsColumnLabel": {
+    "description": "An excavator die with the forest column it hits",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      },
+      "column": {
+        "type": "int"
+      }
+    }
   }
 }
