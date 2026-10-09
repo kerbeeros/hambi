@@ -150,5 +150,16 @@
   "detailSymbolCount": "{count} ×",
   "statusAssigned": "Assigned",
   "closeAction": "Close",
-  "menuRulesAction": "Rules"
+  "menuRulesAction": "Rules",
+  "symbolNameActivist": "Activist",
+  "symbolNameResource": "Resource",
+  "symbolNameLoseSupport": "Support −1",
+  "symbolNameGainSupport": "Support +1",
+  "symbolNameGainActivist": "Activist to the camp",
+  "symbolNameGainResource": "Resource to the camp",
+  "symbolNameActivistToForest": "Activist to the forest",
+  "symbolNameRerollDie": "Reroll a die",
+  "symbolNamePreventRepression": "One repression card less",
+  "actionCardSideLabel": "{title}, side {side}",
+  "actionCardSymbolsLabel": "{section}: {symbols}"
 }

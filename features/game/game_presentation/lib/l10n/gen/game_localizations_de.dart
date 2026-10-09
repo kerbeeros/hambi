@@ -499,4 +499,41 @@ class GameLocalizationsDe extends GameLocalizations {
 
   @override
   String get menuRulesAction => 'Regeln';
+
+  @override
+  String get symbolNameActivist => 'Mitstreiter*in';
+
+  @override
+  String get symbolNameResource => 'Ressource';
+
+  @override
+  String get symbolNameLoseSupport => 'Unterstützung −1';
+
+  @override
+  String get symbolNameGainSupport => 'Unterstützung +1';
+
+  @override
+  String get symbolNameGainActivist => 'Mitstreiter*in ins Camp';
+
+  @override
+  String get symbolNameGainResource => 'Ressource ins Camp';
+
+  @override
+  String get symbolNameActivistToForest => 'Mitstreiter*in in den Wald';
+
+  @override
+  String get symbolNameRerollDie => 'Würfel neu würfeln';
+
+  @override
+  String get symbolNamePreventRepression => 'Repressionskarte weniger';
+
+  @override
+  String actionCardSideLabel(String title, String side) {
+    return '$title, Seite $side';
+  }
+
+  @override
+  String actionCardSymbolsLabel(String section, String symbols) {
+    return '$section: $symbols';
+  }
 }

@@ -1002,6 +1002,72 @@ abstract class GameLocalizations {
   /// In de, this message translates to:
   /// **'Regeln'**
   String get menuRulesAction;
+
+  /// Short name of the activist symbol for screen readers
+  ///
+  /// In de, this message translates to:
+  /// **'Mitstreiter*in'**
+  String get symbolNameActivist;
+
+  /// Short name of the resource symbol
+  ///
+  /// In de, this message translates to:
+  /// **'Ressource'**
+  String get symbolNameResource;
+
+  /// Short name of the lose support symbol
+  ///
+  /// In de, this message translates to:
+  /// **'Unterstützung −1'**
+  String get symbolNameLoseSupport;
+
+  /// Short name of the gain support symbol
+  ///
+  /// In de, this message translates to:
+  /// **'Unterstützung +1'**
+  String get symbolNameGainSupport;
+
+  /// Short name of the gain activist symbol
+  ///
+  /// In de, this message translates to:
+  /// **'Mitstreiter*in ins Camp'**
+  String get symbolNameGainActivist;
+
+  /// Short name of the gain resource symbol
+  ///
+  /// In de, this message translates to:
+  /// **'Ressource ins Camp'**
+  String get symbolNameGainResource;
+
+  /// Short name of the activist to forest symbol
+  ///
+  /// In de, this message translates to:
+  /// **'Mitstreiter*in in den Wald'**
+  String get symbolNameActivistToForest;
+
+  /// Short name of the reroll symbol
+  ///
+  /// In de, this message translates to:
+  /// **'Würfel neu würfeln'**
+  String get symbolNameRerollDie;
+
+  /// Short name of the prevent repression symbol
+  ///
+  /// In de, this message translates to:
+  /// **'Repressionskarte weniger'**
+  String get symbolNamePreventRepression;
+
+  /// Card title with its side for screen readers
+  ///
+  /// In de, this message translates to:
+  /// **'{title}, Seite {side}'**
+  String actionCardSideLabel(String title, String side);
+
+  /// Conditions or effects of a card for screen readers
+  ///
+  /// In de, this message translates to:
+  /// **'{section}: {symbols}'**
+  String actionCardSymbolsLabel(String section, String symbols);
 }
 
 class _GameLocalizationsDelegate extends LocalizationsDelegate<GameLocalizations> {

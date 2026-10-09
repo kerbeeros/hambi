@@ -714,5 +714,65 @@
   "menuRulesAction": "Regeln",
   "@menuRulesAction": {
     "description": "Rules"
+  },
+  "symbolNameActivist": "Mitstreiter*in",
+  "@symbolNameActivist": {
+    "description": "Short name of the activist symbol for screen readers"
+  },
+  "symbolNameResource": "Ressource",
+  "@symbolNameResource": {
+    "description": "Short name of the resource symbol"
+  },
+  "symbolNameLoseSupport": "Unterstützung −1",
+  "@symbolNameLoseSupport": {
+    "description": "Short name of the lose support symbol"
+  },
+  "symbolNameGainSupport": "Unterstützung +1",
+  "@symbolNameGainSupport": {
+    "description": "Short name of the gain support symbol"
+  },
+  "symbolNameGainActivist": "Mitstreiter*in ins Camp",
+  "@symbolNameGainActivist": {
+    "description": "Short name of the gain activist symbol"
+  },
+  "symbolNameGainResource": "Ressource ins Camp",
+  "@symbolNameGainResource": {
+    "description": "Short name of the gain resource symbol"
+  },
+  "symbolNameActivistToForest": "Mitstreiter*in in den Wald",
+  "@symbolNameActivistToForest": {
+    "description": "Short name of the activist to forest symbol"
+  },
+  "symbolNameRerollDie": "Würfel neu würfeln",
+  "@symbolNameRerollDie": {
+    "description": "Short name of the reroll symbol"
+  },
+  "symbolNamePreventRepression": "Repressionskarte weniger",
+  "@symbolNamePreventRepression": {
+    "description": "Short name of the prevent repression symbol"
+  },
+  "actionCardSideLabel": "{title}, Seite {side}",
+  "@actionCardSideLabel": {
+    "description": "Card title with its side for screen readers",
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "side": {
+        "type": "String"
+      }
+    }
+  },
+  "actionCardSymbolsLabel": "{section}: {symbols}",
+  "@actionCardSymbolsLabel": {
+    "description": "Conditions or effects of a card for screen readers",
+    "placeholders": {
+      "section": {
+        "type": "String"
+      },
+      "symbols": {
+        "type": "String"
+      }
+    }
   }
 }

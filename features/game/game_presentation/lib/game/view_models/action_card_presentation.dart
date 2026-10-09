@@ -58,6 +58,47 @@ extension ActionCardPresentation on ActionCardId {
       ...List.filled(effect.activists, CardSymbol.gainActivist),
     ];
   }
+
+  /// Description for screen readers with side, conditions, effects and
+  /// [status] (NF-04, UX-02).
+  String semanticLabel(
+    GameLocalizations l10n, {
+    required CardSide side,
+    required AssignmentStatus status,
+  }) {
+    final title = side == CardSide.b
+        ? l10n.actionCardSideLabel(this.title(l10n), l10n.cardSideB)
+        : this.title(l10n);
+    final statusLabel = status == AssignmentStatus.assigned
+        ? l10n.statusAssigned
+        : status.label(l10n);
+    return [
+      title,
+      l10n.actionCardSymbolsLabel(
+        l10n.detailConditions,
+        _countedNames(conditions(side), l10n),
+      ),
+      l10n.actionCardSymbolsLabel(
+        l10n.detailEffects,
+        _countedNames(effects(side), l10n),
+      ),
+      ?statusLabel,
+    ].join('. ');
+  }
+
+  static String _countedNames(
+    List<CardSymbol> symbols,
+    GameLocalizations l10n,
+  ) {
+    final counts = <CardSymbol, int>{};
+    for (final symbol in symbols) {
+      counts[symbol] = (counts[symbol] ?? 0) + 1;
+    }
+    return [
+      for (final MapEntry(key: symbol, value: count) in counts.entries)
+        '${l10n.detailSymbolCount(count)} ${symbol.shortName(l10n)}',
+    ].join(', ');
+  }
 }
 
 /// How an [AssignmentStatus] is shown on an action card (UX-02).
@@ -98,5 +139,18 @@ extension CardSymbolPresentation on CardSymbol {
     CardSymbol.activistToForest => l10n.symbolActivistToForest,
     CardSymbol.rerollDie => l10n.symbolRerollDie,
     CardSymbol.preventRepression => l10n.symbolPreventRepression,
+  };
+
+  /// Short name of the symbol for screen readers (NF-04).
+  String shortName(GameLocalizations l10n) => switch (this) {
+    CardSymbol.activist => l10n.symbolNameActivist,
+    CardSymbol.resource => l10n.symbolNameResource,
+    CardSymbol.loseSupport => l10n.symbolNameLoseSupport,
+    CardSymbol.gainSupport => l10n.symbolNameGainSupport,
+    CardSymbol.gainActivist => l10n.symbolNameGainActivist,
+    CardSymbol.gainResource => l10n.symbolNameGainResource,
+    CardSymbol.activistToForest => l10n.symbolNameActivistToForest,
+    CardSymbol.rerollDie => l10n.symbolNameRerollDie,
+    CardSymbol.preventRepression => l10n.symbolNamePreventRepression,
   };
 }

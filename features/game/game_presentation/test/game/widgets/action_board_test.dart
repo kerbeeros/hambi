@@ -61,6 +61,23 @@ void main() {
       expect(commands, equals([const AssignToCard(ActionCardId.sabotage)]));
     });
 
+    testWidgets('AC-062: screen readers read and assign a card', (
+      tester,
+    ) async {
+      final semantics = tester.ensureSemantics();
+      final commands = <GameCommand>[];
+      await tester.pumpApp(
+        ActionBoard(game: buildGameState(), onCommand: commands.add),
+      );
+
+      tester.semantics.tap(
+        find.semantics.byLabel(RegExp(r'^Sabotage\. Bedingungen: ')),
+      );
+
+      expect(commands, equals([const AssignToCard(ActionCardId.sabotage)]));
+      semantics.dispose();
+    });
+
     testWidgets('F-06: tapping an assigned card undoes it', (tester) async {
       final commands = <GameCommand>[];
       await tester.pumpApp(
