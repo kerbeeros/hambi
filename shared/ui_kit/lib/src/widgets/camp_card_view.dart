@@ -11,6 +11,7 @@ class CampCardView extends StatelessWidget {
     required this.title,
     required this.activists,
     required this.resources,
+    this.semanticLabel,
     super.key,
   });
 
@@ -23,6 +24,10 @@ class CampCardView extends StatelessWidget {
   /// Available resources.
   final int resources;
 
+  /// Description for screen readers, e.g. "Camp: 6 activists, 0
+  /// resources"; replaces the title and counts.
+  final String? semanticLabel;
+
   /// Card width in logical pixels.
   static const double width = 113;
 
@@ -31,7 +36,7 @@ class CampCardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    final card = Container(
       width: width,
       height: height,
       padding: const EdgeInsets.all(AppSpacing.sm),
@@ -68,6 +73,9 @@ class CampCardView extends StatelessWidget {
         ),
       ),
     );
+    final semanticLabel = this.semanticLabel;
+    if (semanticLabel == null) return card;
+    return Semantics(label: semanticLabel, excludeSemantics: true, child: card);
   }
 }
 

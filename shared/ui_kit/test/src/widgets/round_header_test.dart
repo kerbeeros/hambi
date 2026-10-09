@@ -21,6 +21,20 @@ void main() {
       await expectMeetsAccessibilityGuidelines(tester);
     });
 
+    testWidgets('NF-04: labels the log and menu buttons', (tester) async {
+      final semantics = tester.ensureSemantics();
+      var logs = 0;
+      var menus = 0;
+      await tester.pumpApp(header(onLog: () => logs++, onMenu: () => menus++));
+
+      tester.semantics
+        ..tap(find.semantics.byLabel('Rundenlog'))
+        ..tap(find.semantics.byLabel('Spielmenü'));
+
+      expect((logs, menus), equals((1, 1)));
+      semantics.dispose();
+    });
+
     testWidgets('renders title and subtitle', (tester) async {
       await tester.pumpApp(header());
 

@@ -70,17 +70,45 @@ class RoundHeader extends StatelessWidget {
               ],
             ),
           ),
-          IconButton(
-            tooltip: logTooltip,
+          _HeaderButton(
+            label: logTooltip,
             onPressed: onLogPressed,
-            icon: const HambiIcon(HambiIconData.log, color: onDark),
+            icon: HambiIconData.log,
           ),
-          IconButton(
-            tooltip: menuTooltip,
+          _HeaderButton(
+            label: menuTooltip,
             onPressed: onMenuPressed,
-            icon: const HambiIcon(HambiIconData.menu, color: onDark),
+            icon: HambiIconData.menu,
           ),
         ],
+      ),
+    );
+  }
+}
+
+/// An icon button whose label reaches screen readers as its description,
+/// not only as a tooltip (NF-04).
+class _HeaderButton extends StatelessWidget {
+  const new({required this.label, required this.onPressed, required this.icon});
+
+  final String label;
+  final VoidCallback onPressed;
+  final HambiIconData icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Tooltip(
+      message: label,
+      excludeFromSemantics: true,
+      child: Semantics(
+        label: label,
+        button: true,
+        excludeSemantics: true,
+        onTap: onPressed,
+        child: IconButton(
+          onPressed: onPressed,
+          icon: HambiIcon(icon, color: AppColors.textOnDark),
+        ),
       ),
     );
   }
