@@ -32,6 +32,12 @@ void main() {
       ),
     );
 
+    testWidgets('AC-060: meets the accessibility guidelines', (tester) async {
+      await pumpView(tester);
+
+      await expectMeetsAccessibilityGuidelines(tester);
+    });
+
     testWidgets('S-02: shows the player count', (tester) async {
       await pumpView(tester);
 
@@ -98,6 +104,13 @@ void main() {
           Stream.value(const SetupState(status: SetupStatus.confirmOverwrite)),
           initialState: const SetupState(),
         );
+      });
+
+      testWidgets('AC-060: meets the accessibility guidelines', (tester) async {
+        await pumpView(tester);
+        await tester.pumpAndSettle();
+
+        await expectMeetsAccessibilityGuidelines(tester);
       });
 
       testWidgets('confirms overwriting the saved game', (tester) async {
