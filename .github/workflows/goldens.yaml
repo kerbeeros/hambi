@@ -1,19 +1,25 @@
 name: goldens
 
 # Generates the platform-independent CI goldens on Linux, the platform the
-# ci workflow compares them on (ADR 0004). Run it on a branch, download the
-# "ci-goldens" artifact and commit the files.
+# ci workflow compares them on (ADR 0004), and commits them to the branch.
+# Runs on a push to a branch whose head commit message contains
+# "[update-goldens]", or manually. Commits pushed with GITHUB_TOKEN do not
+# trigger other workflows, so push again afterwards to run the ci workflow.
 on:
+  push:
+    branches-ignore:
+      - main
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   update:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      contains(github.event.head_commit.message, '[update-goldens]')
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        package:
-          - shared/ui_kit
-          - features/game/game_presentation
     steps:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
@@ -24,10 +30,18 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
       - name: Update CI goldens
-        working-directory: ${{ matrix.package }}
-        run: flutter test --tags golden --update-goldens --dart-define=CI=true
-      - name: Upload CI goldens
-        uses: actions/upload-artifact@v4
-        with:
-          name: ci-goldens-${{ strategy.job-index }}
-          path: ${{ matrix.package }}/test/**/goldens/ci/
+        run: |
+          for package in shared/ui_kit features/game/game_presentation; do
+            (cd "$package" && flutter test --tags golden --update-goldens --dart-define=CI=true)
+          done
+      - name: Commit CI goldens
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- '*/goldens/ci/*'
+          if git diff --cached --quiet; then
+            echo "CI goldens are up to date."
+          else
+            git commit -m "test: update CI goldens"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
