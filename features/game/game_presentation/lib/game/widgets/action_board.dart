@@ -49,6 +49,10 @@ class ActionBoard extends StatelessWidget {
               title: l10n.campTitle,
               activists: game.camp.activists,
               resources: game.camp.resources,
+              semanticLabel: [
+                l10n.campActivistsLabel(game.camp.activists),
+                l10n.campResourcesLabel(game.camp.resources),
+              ].join(', '),
             ),
           ],
         ),

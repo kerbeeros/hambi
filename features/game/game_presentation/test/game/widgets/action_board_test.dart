@@ -78,6 +78,40 @@ void main() {
       semantics.dispose();
     });
 
+    testWidgets('AC-062: screen readers find unavailable cards', (
+      tester,
+    ) async {
+      final semantics = tester.ensureSemantics();
+      await tester.pumpApp(
+        ActionBoard(
+          game: buildGameState(camp: const Camp(activists: 1, resources: 0)),
+          onCommand: (_) {},
+        ),
+      );
+
+      expect(
+        find.semantics.byLabel(RegExp(r'^Demo\. .*Zu wenig M$')),
+        findsOne,
+      );
+      semantics.dispose();
+    });
+
+    testWidgets('AC-062: describes the camp to screen readers', (tester) async {
+      await tester.pumpApp(
+        ActionBoard(
+          game: buildGameState(camp: const Camp(activists: 6, resources: 0)),
+          onCommand: (_) {},
+        ),
+      );
+
+      expect(
+        find.bySemanticsLabel(
+          '6 Mitstreiter*innen im Camp, 0 Ressourcen im Camp',
+        ),
+        findsOneWidget,
+      );
+    });
+
     testWidgets('F-06: tapping an assigned card undoes it', (tester) async {
       final commands = <GameCommand>[];
       await tester.pumpApp(
