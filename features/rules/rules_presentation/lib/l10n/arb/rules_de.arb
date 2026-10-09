@@ -23,5 +23,113 @@
   "tabCards": "Karten",
   "@tabCards": {
     "description": "Cards"
+  },
+  "ideaBackgroundTitle": "Der Hambacher Forst",
+  "@ideaBackgroundTitle": {
+    "description": "The Hambach Forest"
+  },
+  "ideaBackground": "Der Hambacher Forst gehörte mit seinem einzigartigen Ökosystem zu den letzten großen Mischwäldern Mitteleuropas. 1978 kaufte der Energiekonzern RWE (damals Rheinbraun) den Wald von den umliegenden Gemeinden. Seitdem wird er gerodet, um Braunkohle abzubauen. Von dem einst 5.500 ha großen Wald ist nur noch ein Zehntel übrig. Doch der Widerstand ist stark! Der Wald ist besetzt, um die weitere Zerstörung zu verhindern. Dieser Widerstand steht nicht nur für Klimagerechtigkeit, sondern auch für eine herrschaftsfreie Welt ohne kapitalistische Zwänge. In diesem Spiel wollen wir den Aufstand für die Klimagerechtigkeit schon mal üben.",
+  "@ideaBackground": {
+    "description": "With its unique ecosystem, the Hambach Forest was one of the last large mixed forests of Central Europe. In 1978 the energy company RWE (then Rheinbraun) bought the forest from the surrounding municipalities. Since then it has been cleared to mine lignite. Only a tenth of the once 5,500 ha forest is left. But the resistance is strong! The forest is occupied to prevent further destruction. This resistance stands not only for climate justice but also for a world free of domination and capitalist constraints. In this game we practise the uprising for climate justice."
+  },
+  "ideaGoalTitle": "Gemeinsam für Klimagerechtigkeit!",
+  "@ideaGoalTitle": {
+    "description": "Together for climate justice!"
+  },
+  "ideaGoal": "Das Spiel läuft über zwölf Runden. In dieser Zeit versucht ihr gemeinsam, die Zerstörung des Hambacher Forstes zu verhindern.",
+  "@ideaGoal": {
+    "description": "The game lasts twelve rounds. During this time you try together to prevent the destruction of the Hambach Forest."
+  },
+  "ideaVictory": "Sieg: Nach Runde 12 ist die öffentliche Unterstützung höher als die Anzahl der Waldkarten, die RWE abgebaggert, also aus dem Spiel entfernt hat.",
+  "@ideaVictory": {
+    "description": "Victory: after round 12, public support is higher than the number of forest cards RWE has excavated, that is removed from the game."
+  },
+  "ideaDefeat": "Niederlage: Ist die Anzahl dieser Karten gleich hoch oder höher, verliert ihr. Hat RWE eine Waldspalte komplett abgebaggert, verliert ihr sofort.",
+  "@ideaDefeat": {
+    "description": "Defeat: if the number of these cards is equal or higher, you lose. If RWE has excavated a whole forest column, you lose at once."
+  },
+  "flowSetupTitle": "Spielvorbereitung",
+  "@flowSetupTitle": {
+    "description": "Setup"
+  },
+  "flowSetup": "Die Waldkarten liegen mit der grünen Seite nach oben in drei Waldspalten zu je vier Karten. Alle Kampagnen und Support-Karten liegen auf der A-Seite. Ins Camp kommen so viele Mitstreiter*innen, wie es Spieler*innen gibt. Spielst du allein, bekommst du noch zwei Ressourcen, seid ihr zu zweit, bekommt ihr eine Ressource. Vor der ersten Runde zieht ihr so viele Repressionskarten, wie Repressionsfelder erreicht sind, und führt sie aus.",
+  "@flowSetup": {
+    "description": "The forest cards lie green side up in three forest columns of four cards each. All campaign and support cards lie on side A. The camp gets as many activists as there are players. Playing alone, you also get two resources; playing as two, you get one resource. Before the first round you draw and execute as many repression cards as repression fields are reached."
+  },
+  "flowRound": "Das Spiel läuft über zwölf Runden. Jede Runde ist in vier Phasen unterteilt.",
+  "@flowRound": {
+    "description": "The game lasts twelve rounds. Each round has four phases."
+  },
+  "flowPreparationTitle": "1. Vorbereitungsphase",
+  "@flowPreparationTitle": {
+    "description": "1. Preparation phase"
+  },
+  "flowPreparation": "Die Uhr rückt eine Stunde vor. Ihr entscheidet gemeinsam, was ihr in dieser Runde machen möchtet: Die Karten stellen mögliche Aktionen dar. Im oberen Bereich stehen die Bedingungen, die ihr erfüllen müsst, um die Aktionen und Vorteile im unteren Bereich zu aktivieren. Nur wenn alle Bedingungen erfüllt sind, wird der Vorteil aktiviert. Blockierte Karten könnt ihr in dieser Runde nicht nutzen.",
+  "@flowPreparation": {
+    "description": "The clock moves on one hour. You decide together what to do this round: the cards show possible actions. The top part shows the conditions you have to meet to activate the actions and benefits in the bottom part. The benefit is only activated when all conditions are met. Blocked cards cannot be used this round."
+  },
+  "flowActionTitle": "2. Aktionsphase",
+  "@flowActionTitle": {
+    "description": "2. Action phase"
+  },
+  "flowAction": "Ihr führt die Aktionen im unteren Bereich der belegten Karten aus. Die Mitstreiter*innen, die ihr oben auf den Karten eingesetzt habt, kehren danach ins Camp zurück, die Ressourcen verfallen. Alle neu gewonnenen Mitstreiter*innen und Ressourcen kommen ins Camp.",
+  "@flowAction": {
+    "description": "You carry out the actions in the bottom part of the assigned cards. The activists you placed on top of the cards return to the camp afterwards, the resources are used up. All newly gained activists and resources go to the camp."
+  },
+  "flowExcavationTitle": "3. Baggerphase",
+  "@flowExcavationTitle": {
+    "description": "3. Excavator phase"
+  },
+  "flowExcavation": "RWE versucht, den Wald zuerst abzuholzen und danach abzubaggern. Zwei Würfel zeigen, welche Waldspalte getroffen wird (1–2: WS1, 3–4: WS2, 5–6: WS3); sie werden nacheinander abgehandelt. Getroffen wird die erste noch nicht entfernte Karte der Spalte. Liegt sie noch auf der Waldseite, wird sie umgedreht; zeigt sie bereits abgeholztes Gebiet, wird sie entfernt. Steht ein Secu auf der Karte, wird er zuerst entfernt. Steht ein*e Mitstreiter*in auf der Karte, bleibt sie unverändert, der*die Mitstreiter*in wird aber aus dem Spiel genommen. Mitstreiter*innen, die danach auf dem Wald stehen, können ins Camp zurückkehren.",
+  "@flowExcavation": {
+    "description": "RWE tries to clear the forest first and then excavate it. Two dice show which forest column is hit (1–2: FC1, 3–4: FC2, 5–6: FC3); they are handled one after the other. The first card of the column that is not removed yet is hit. If it still shows forest, it is turned over; if it already shows cleared land, it is removed. A security guard on the card is removed first. If an activist stands on the card, it stays unchanged, but the activist is removed from the game. Activists left on the forest can return to the camp."
+  },
+  "flowRepressionTitle": "4. Repressionsphase",
+  "@flowRepressionTitle": {
+    "description": "4. Repression phase"
+  },
+  "flowRepression": "Zuerst kommen alle Repressionskarten der vorherigen Runde zurück in den Stapel, der neu gemischt wird. Dann schaut ihr, wie viele Repressionsfelder die Erfolgsleisten erreicht oder überschritten haben. So viele Karten zieht ihr: immer eine nach der anderen, und jede wird ausgeführt, bevor ihr die nächste zieht.",
+  "@flowRepression": {
+    "description": "First all repression cards of the previous round go back into the deck, which is shuffled. Then you check how many repression fields the success tracks have reached or passed. You draw that many cards, one after the other, and execute each before drawing the next."
+  },
+  "symbolsActionCardsTitle": "Symbole der Aktionskarten",
+  "@symbolsActionCardsTitle": {
+    "description": "Symbols of the action cards"
+  },
+  "symbolsMaterialTitle": "Spielmaterial",
+  "@symbolsMaterialTitle": {
+    "description": "Game pieces"
+  },
+  "symbolActivistPiece": "Mitstreiter*in: wird für Aktionen eingesetzt oder schützt eine Waldkarte. Die Erfolgsleiste zeigt, wie viele Mitstreiter*innen im Spiel sind.",
+  "@symbolActivistPiece": {
+    "description": "Activist: is placed for actions or protects a forest card. The success track shows how many activists are in play."
+  },
+  "symbolResourcePiece": "Ressource: Material und Geld, das für Aktionen verbraucht wird.",
+  "@symbolResourcePiece": {
+    "description": "Resource: material and money used up by actions."
+  },
+  "symbolSecuPiece": "Secu: Security auf einer Waldkarte. Auf diese Karte könnt ihr keine Mitstreiter*innen stellen.",
+  "@symbolSecuPiece": {
+    "description": "Security guard on a forest card. You cannot put activists on this card."
+  },
+  "symbolSupportPiece": "Öffentliche Unterstützung: Am Ende muss sie höher sein als die Anzahl entfernter Waldkarten.",
+  "@symbolSupportPiece": {
+    "description": "Public support: at the end it has to be higher than the number of removed forest cards."
+  },
+  "symbolRepressionField": "Repressionsfeld: Erreicht eine Erfolgsleiste dieses Feld, zieht ihr in der Repressionsphase eine Karte mehr.",
+  "@symbolRepressionField": {
+    "description": "Repression field: when a success track reaches this field, you draw one more card in the repression phase."
+  },
+  "symbolOneTime": "Einmalig: Die Repressionskarte wird nach der Ausführung aus dem Spiel genommen.",
+  "@symbolOneTime": {
+    "description": "One-time: the repression card is removed from the game after it is executed."
+  },
+  "cardsHint": "Tippt auf eine Karte, um sie im Detail zu sehen.",
+  "@cardsHint": {
+    "description": "Tap a card to see its details."
+  },
+  "cardsRepressionTitle": "Repressionskarten",
+  "@cardsRepressionTitle": {
+    "description": "Repression cards"
   }
 }
