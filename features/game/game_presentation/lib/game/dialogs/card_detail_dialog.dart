@@ -6,11 +6,12 @@ import 'package:ui_kit/ui_kit.dart';
 
 /// The card detail (D-08): an enlarged card with explanations (UX-07).
 abstract final class CardDetailDialog {
-  /// Shows the detail of the action [card] in [game].
+  /// Shows the detail of the action [card] in [game]; without a game, e.g.
+  /// in the rules (UX-10), side A without a status.
   static Future<void> showActionCard(
     BuildContext context, {
-    required GameState game,
     required ActionCardId card,
+    GameState? game,
   }) => HambiDialog.show<void>(
     context,
     dismissible: true,
@@ -46,14 +47,15 @@ abstract final class CardDetailDialog {
 
 /// {@template action_card_detail}
 /// D-08 for an action card: the card on its current side, its conditions
-/// and effects explained and its status (UX-07).
+/// and effects explained and its status (UX-07). Without a [game], side A
+/// without a status (UX-10).
 /// {@endtemplate}
 class ActionCardDetail extends StatelessWidget {
   /// {@macro action_card_detail}
-  const new({required this.game, required this.card, super.key});
+  const new({required this.card, this.game, super.key});
 
-  /// The game the card is part of.
-  final GameState game;
+  /// The game the card is part of, if any.
+  final GameState? game;
 
   /// The card to explain.
   final ActionCardId card;
@@ -61,8 +63,9 @@ class ActionCardDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    final side = game.cardSides[card]!;
-    final status = game.assignmentStatus(card);
+    final game = this.game;
+    final side = game?.cardSides[card] ?? CardSide.a;
+    final status = game?.assignmentStatus(card) ?? AssignmentStatus.available;
     final statusLabel = status == AssignmentStatus.assigned
         ? l10n.statusAssigned
         : status.label(l10n);

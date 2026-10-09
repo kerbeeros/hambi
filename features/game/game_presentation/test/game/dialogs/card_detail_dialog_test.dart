@@ -109,6 +109,22 @@ void main() {
         expect(find.text('Belegt'), findsOneWidget);
       });
 
+      testWidgets('UX-10: shows side A without status when there is no game', (
+        tester,
+      ) async {
+        await open(
+          tester,
+          (context) =>
+              CardDetailDialog.showActionCard(context, card: ActionCardId.demo),
+        );
+
+        final view = tester.widget<ActionCardView>(find.byType(ActionCardView));
+        expect(view.sideLabel, isNull);
+        expect(view.status, equals(ActionCardStatus.available));
+        expect(view.statusLabel, isNull);
+        expect(find.text('5 ×'), findsOneWidget);
+      });
+
       testWidgets('closes with the close button', (tester) async {
         await openDemo(tester, buildGameState());
 
