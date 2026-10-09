@@ -97,7 +97,11 @@ void main() {
           buildGameState(camp: const Camp(activists: 1, resources: 1)),
         );
 
-        expect(find.text('Zu wenig M'), findsWidgets);
+        expect(find.text('Zu wenig M'), findsOneWidget);
+        expect(
+          find.text('Im Camp sind nicht genug Mitstreiter*innen frei.'),
+          findsOneWidget,
+        );
       });
 
       testWidgets('UX-07: shows that the card is assigned', (tester) async {
@@ -106,7 +110,10 @@ void main() {
           buildGameState(assignedCards: {ActionCardId.demo}),
         );
 
-        expect(find.text('Belegt'), findsOneWidget);
+        expect(
+          find.text('Ihr habt diese Karte in dieser Runde belegt.'),
+          findsOneWidget,
+        );
       });
 
       testWidgets('UX-10: shows side A without status when there is no game', (

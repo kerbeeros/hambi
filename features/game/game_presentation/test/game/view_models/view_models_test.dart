@@ -215,6 +215,20 @@ void main() {
     }
   });
 
+  group('AssignmentStatusPresentation explanation', () {
+    test('UX-07: explains every status that shows on the card', () {
+      for (final status in AssignmentStatus.values) {
+        expect(
+          status.explanation(l10n) == null,
+          equals(
+            status.label(l10n) == null && status != AssignmentStatus.assigned,
+          ),
+          reason: '$status',
+        );
+      }
+    });
+  });
+
   group('ForestCardPresentation', () {
     for (final (card, state, occupant) in [
       (const ForestCard(), ForestCardViewState.intact, ForestCardOccupant.none),

@@ -549,4 +549,19 @@ class GameLocalizationsEn extends GameLocalizations {
   String dieHitsColumnLabel(int value, int column) {
     return 'Die shows $value, hits FC$column';
   }
+
+  @override
+  String get statusExplainedAssigned => 'You assigned this card this round.';
+
+  @override
+  String get statusExplainedBlocked => 'A repression card blocks this card until the next repression phase.';
+
+  @override
+  String get statusExplainedNotEnoughActivists => 'There are not enough free activists in the camp.';
+
+  @override
+  String get statusExplainedNotEnoughResources => 'There are not enough resources in the camp.';
+
+  @override
+  String get statusExplainedNotEnoughSupport => 'There is not enough public support.';
 }

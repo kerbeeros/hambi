@@ -799,5 +799,25 @@
         "type": "int"
       }
     }
+  },
+  "statusExplainedAssigned": "Ihr habt diese Karte in dieser Runde belegt.",
+  "@statusExplainedAssigned": {
+    "description": "Explains the status of an action card in its detail (UX-07)"
+  },
+  "statusExplainedBlocked": "Eine Repressionskarte blockiert diese Karte bis zur nächsten Repressionsphase.",
+  "@statusExplainedBlocked": {
+    "description": "Explains the status of an action card in its detail (UX-07)"
+  },
+  "statusExplainedNotEnoughActivists": "Im Camp sind nicht genug Mitstreiter*innen frei.",
+  "@statusExplainedNotEnoughActivists": {
+    "description": "Explains the status of an action card in its detail (UX-07)"
+  },
+  "statusExplainedNotEnoughResources": "Im Camp sind nicht genug Ressourcen.",
+  "@statusExplainedNotEnoughResources": {
+    "description": "Explains the status of an action card in its detail (UX-07)"
+  },
+  "statusExplainedNotEnoughSupport": "Die öffentliche Unterstützung reicht nicht aus.",
+  "@statusExplainedNotEnoughSupport": {
+    "description": "Explains the status of an action card in its detail (UX-07)"
   }
 }

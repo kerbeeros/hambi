@@ -549,4 +549,19 @@ class GameLocalizationsDe extends GameLocalizations {
   String dieHitsColumnLabel(int value, int column) {
     return 'Würfel zeigt $value, trifft WS$column';
   }
+
+  @override
+  String get statusExplainedAssigned => 'Ihr habt diese Karte in dieser Runde belegt.';
+
+  @override
+  String get statusExplainedBlocked => 'Eine Repressionskarte blockiert diese Karte bis zur nächsten Repressionsphase.';
+
+  @override
+  String get statusExplainedNotEnoughActivists => 'Im Camp sind nicht genug Mitstreiter*innen frei.';
+
+  @override
+  String get statusExplainedNotEnoughResources => 'Im Camp sind nicht genug Ressourcen.';
+
+  @override
+  String get statusExplainedNotEnoughSupport => 'Die öffentliche Unterstützung reicht nicht aus.';
 }

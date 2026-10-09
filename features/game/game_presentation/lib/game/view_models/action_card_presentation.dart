@@ -124,6 +124,18 @@ extension AssignmentStatusPresentation on AssignmentStatus {
     AssignmentStatus.notEnoughResources => l10n.statusNotEnoughResources,
     AssignmentStatus.notEnoughSupport => l10n.statusNotEnoughSupport,
   };
+
+  /// Explanation of the status in the card detail, if any (UX-07).
+  String? explanation(GameLocalizations l10n) => switch (this) {
+    AssignmentStatus.available || AssignmentStatus.notInPreparation => null,
+    AssignmentStatus.assigned => l10n.statusExplainedAssigned,
+    AssignmentStatus.blocked => l10n.statusExplainedBlocked,
+    AssignmentStatus.notEnoughActivists =>
+      l10n.statusExplainedNotEnoughActivists,
+    AssignmentStatus.notEnoughResources =>
+      l10n.statusExplainedNotEnoughResources,
+    AssignmentStatus.notEnoughSupport => l10n.statusExplainedNotEnoughSupport,
+  };
 }
 
 /// How a [CardSymbol] is explained in the card detail (UX-07).

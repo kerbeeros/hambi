@@ -164,5 +164,10 @@
   "actionCardSymbolsLabel": "{section}: {symbols}",
   "dieRollingLabel": "Die rolls",
   "dieShowsLabel": "Die shows {value}",
-  "dieHitsColumnLabel": "Die shows {value}, hits FC{column}"
+  "dieHitsColumnLabel": "Die shows {value}, hits FC{column}",
+  "statusExplainedAssigned": "You assigned this card this round.",
+  "statusExplainedBlocked": "A repression card blocks this card until the next repression phase.",
+  "statusExplainedNotEnoughActivists": "There are not enough free activists in the camp.",
+  "statusExplainedNotEnoughResources": "There are not enough resources in the camp.",
+  "statusExplainedNotEnoughSupport": "There is not enough public support."
 }
