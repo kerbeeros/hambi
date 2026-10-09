@@ -74,15 +74,9 @@ class ForestCardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final (background, symbol) = switch (state) {
-      ForestCardViewState.intact => (
-        AppColors.forestIntact,
-        (HambiIconData.deciduousTree, HambiIconData.fir),
-      ),
-      ForestCardViewState.cleared => (
-        AppColors.forestCleared,
-        (HambiIconData.stump, HambiIconData.stump),
-      ),
+    final (background, side) = switch (state) {
+      ForestCardViewState.intact => (AppColors.forestIntact, 'intact'),
+      ForestCardViewState.cleared => (AppColors.forestCleared, 'cleared'),
       ForestCardViewState.removed => (AppColors.forestRemoved, null),
     };
     final occupantIcon = switch (occupant) {
@@ -114,22 +108,12 @@ class ForestCardView extends StatelessWidget {
             onLongPress: onLongPress,
             child: Stack(
               children: [
-                if (motif case final motif?)
+                if ((side, motif) case (final side?, final motif?))
                   Positioned.fill(
                     child: SvgPicture.asset(
-                      'assets/images/forest/forest_intact_${motif.toString().padLeft(2, '0')}.svg',
+                      _motifAsset(side, motif),
                       package: 'ui_kit',
                       fit: BoxFit.cover,
-                    ),
-                  ),
-                if (symbol case (final first, final second))
-                  Positioned(
-                    top: AppSpacing.sm,
-                    left: 0,
-                    right: 0,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [HambiIcon(first), HambiIcon(second)],
                     ),
                   ),
                 if (occupantIcon != null)
@@ -153,6 +137,9 @@ class ForestCardView extends StatelessWidget {
     );
   }
 }
+
+String _motifAsset(String side, int motif) =>
+    'assets/images/forest/forest_${side}_${motif.toString().padLeft(2, '0')}.svg';
 
 class _TargetBadge extends StatelessWidget {
   const new();
