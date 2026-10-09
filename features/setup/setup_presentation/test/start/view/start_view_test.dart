@@ -60,9 +60,7 @@ void main() {
       expect(tester.takeException(), isNull);
     });
 
-    testWidgets('AC-070: shows the original logo as the title', (
-      tester,
-    ) async {
+    testWidgets('AC-070: shows the original logo as the title', (tester) async {
       await pumpView(tester, const StartState(status: StartStatus.ready));
 
       expect(

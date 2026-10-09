@@ -12,11 +12,7 @@ Widget buildForestCardViewUseCase(BuildContext context) {
       options: ForestCardViewState.values,
       labelBuilder: (state) => state.name,
     ),
-    motif: context.knobs.int.slider(
-      label: 'Motif',
-      max: 11,
-      divisions: 11,
-    ),
+    motif: context.knobs.int.slider(label: 'Motif', max: 11, divisions: 11),
     occupant: context.knobs.object.dropdown(
       label: 'Occupant',
       options: ForestCardOccupant.values,
