@@ -36,6 +36,12 @@ class CardsSection extends StatelessWidget {
                     title: card.title(gameL10n),
                     conditions: card.conditions(CardSide.a),
                     effects: card.effects(CardSide.a),
+                    // Without a game there is no status (UX-10).
+                    semanticLabel: card.semanticLabel(
+                      gameL10n,
+                      side: CardSide.a,
+                      status: AssignmentStatus.available,
+                    ),
                     onTap: () =>
                         CardDetailDialog.showActionCard(context, card: card),
                   ),

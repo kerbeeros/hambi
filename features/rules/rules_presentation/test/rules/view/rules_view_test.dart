@@ -31,6 +31,16 @@ void main() {
       );
     }
 
+    for (final section in RulesSection.values) {
+      testWidgets('AC-060: $section meets the accessibility guidelines', (
+        tester,
+      ) async {
+        await pumpView(tester, section);
+
+        await expectMeetsAccessibilityGuidelines(tester);
+      });
+    }
+
     group('renders', () {
       testWidgets('S-05: the title and a tab per section', (tester) async {
         await pumpView(tester, RulesSection.idea);

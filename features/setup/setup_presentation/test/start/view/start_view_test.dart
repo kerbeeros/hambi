@@ -40,6 +40,15 @@ void main() {
       );
     }
 
+    testWidgets('AC-060: meets the accessibility guidelines', (tester) async {
+      await pumpView(
+        tester,
+        const StartState(status: StartStatus.ready, hasSavedGame: true),
+      );
+
+      await expectMeetsAccessibilityGuidelines(tester);
+    });
+
     testWidgets('S-01: shows the title', (tester) async {
       await pumpView(tester, const StartState(status: StartStatus.ready));
 
