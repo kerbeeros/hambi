@@ -13,6 +13,7 @@ export 'src/widgets/die_view.dart';
 export 'src/widgets/forest_card_view.dart';
 export 'src/widgets/hambi_button.dart';
 export 'src/widgets/hambi_dialog.dart';
+export 'src/widgets/hambi_logo.dart';
 export 'src/widgets/phase_stepper.dart';
 export 'src/widgets/repression_card_back_view.dart';
 export 'src/widgets/repression_card_view.dart';
