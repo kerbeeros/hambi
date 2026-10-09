@@ -84,9 +84,13 @@ class _Sign extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xxs),
-      child: Text(text, style: AppTextStyle.numberSmall),
+    // A sign means nothing on its own; the card or legend around the symbol
+    // describes it to screen readers (NF-04).
+    return ExcludeSemantics(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xxs),
+        child: Text(text, style: AppTextStyle.numberSmall),
+      ),
     );
   }
 }

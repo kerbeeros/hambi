@@ -178,6 +178,12 @@ void main() {
   });
 
   group(CardSymbolView, () {
+    testWidgets('NF-04: keeps signs away from screen readers', (tester) async {
+      await tester.pumpApp(const CardSymbolView(CardSymbol.loseSupport));
+
+      expect(find.bySemanticsLabel('−'), findsNothing);
+    });
+
     testWidgets('renders icons in the given size', (tester) async {
       await tester.pumpApp(const CardSymbolView(CardSymbol.activist, size: 14));
 
