@@ -33,7 +33,7 @@ void main() {
   });
 
   group(GameMenuSheet, () {
-    late Future<bool> result;
+    late Future<GameMenuAction?> result;
 
     Future<void> open(WidgetTester tester) async {
       await tester.pumpApp(const SizedBox());
@@ -50,7 +50,7 @@ void main() {
 
       await tester.tap(find.text('Spiel abbrechen').last);
       await tester.pumpAndSettle();
-      expect(await result, isTrue);
+      expect(await result, equals(GameMenuAction.exit));
     });
 
     testWidgets('UX-08: keeps playing when leaving is cancelled', (
@@ -63,7 +63,7 @@ void main() {
       await tester.tap(find.text('Weiterspielen'));
       await tester.pumpAndSettle();
 
-      expect(await result, isFalse);
+      expect(await result, isNull);
     });
 
     testWidgets('returns to the game', (tester) async {
@@ -72,7 +72,16 @@ void main() {
       await tester.tap(find.text('Zurück zum Spiel'));
       await tester.pumpAndSettle();
 
-      expect(await result, isFalse);
+      expect(await result, isNull);
+    });
+
+    testWidgets('UX-10: opens the rules', (tester) async {
+      await open(tester);
+
+      await tester.tap(find.text('Regeln'));
+      await tester.pumpAndSettle();
+
+      expect(await result, equals(GameMenuAction.rules));
     });
   });
 }

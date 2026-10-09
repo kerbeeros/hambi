@@ -41,6 +41,15 @@ class RoundLogSheet extends StatelessWidget {
   }
 }
 
+/// What the players chose in the game menu (D-10).
+enum GameMenuAction {
+  /// Open the rules (UX-10).
+  rules,
+
+  /// Leave the game after confirming it (UX-08).
+  exit,
+}
+
 /// {@template game_menu_sheet}
 /// The game menu (D-10, UX-08).
 /// {@endtemplate}
@@ -48,14 +57,13 @@ class GameMenuSheet extends StatelessWidget {
   /// {@macro game_menu_sheet}
   const new({super.key});
 
-  /// Shows the menu and returns whether the players confirmed leaving the
-  /// game; the game stays saved.
-  static Future<bool> show(BuildContext context) async =>
-      await HambiBottomSheet.show<bool>(
+  /// Shows the menu and returns the chosen action, or `null` to keep
+  /// playing; the game stays saved.
+  static Future<GameMenuAction?> show(BuildContext context) =>
+      HambiBottomSheet.show<GameMenuAction>(
         context,
         builder: (_) => const GameMenuSheet(),
-      ) ??
-      false;
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -67,18 +75,21 @@ class GameMenuSheet extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           HambiButton(
+            label: l10n.menuRulesAction,
+            style: HambiButtonStyle.secondary,
+            onPressed: () => navigator.pop(GameMenuAction.rules),
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          HambiButton(
             label: l10n.menuExitAction,
             style: HambiButtonStyle.secondary,
             onPressed: () async {
               final confirmed = await _confirmExit(context);
-              navigator.pop(confirmed);
+              navigator.pop(confirmed ? GameMenuAction.exit : null);
             },
           ),
           const SizedBox(height: AppSpacing.sm),
-          HambiButton(
-            label: l10n.menuCloseAction,
-            onPressed: () => navigator.pop(false),
-          ),
+          HambiButton(label: l10n.menuCloseAction, onPressed: navigator.pop),
         ],
       ),
     );

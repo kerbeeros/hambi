@@ -28,7 +28,11 @@ void main() {
             child: GameModule(
               launch: launch,
               seed: () => 7,
-              child: const GameView(onExit: _noop, onNewGame: _noop),
+              child: const GameView(
+                onExit: _noop,
+                onNewGame: _noop,
+                onRules: _noop,
+              ),
             ),
           ),
         );
@@ -51,7 +55,7 @@ void main() {
           value: repository,
           child: const GameModule(
             launch: NewGameLaunch(playerCount: 3),
-            child: GameView(onExit: _noop, onNewGame: _noop),
+            child: GameView(onExit: _noop, onNewGame: _noop, onRules: _noop),
           ),
         ),
       );
