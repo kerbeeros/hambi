@@ -15,6 +15,7 @@ export 'src/widgets/hambi_dialog.dart';
 export 'src/widgets/phase_stepper.dart';
 export 'src/widgets/repression_card_view.dart';
 export 'src/widgets/repression_symbol.dart';
+export 'src/widgets/rolling_die_view.dart';
 export 'src/widgets/round_header.dart';
 export 'src/widgets/status_chip.dart';
 export 'src/widgets/success_track.dart';
