@@ -49,7 +49,7 @@ void main() {
       await pumpApp(tester);
 
       expect(find.byType(StartView), findsOneWidget);
-      expect(find.text('Hambi bleibt!'), findsOneWidget);
+      expect(find.bySemanticsLabel('Hambi bleibt!'), findsOneWidget);
     });
 
     testWidgets('F-01: starts a new game through the setup', (tester) async {
