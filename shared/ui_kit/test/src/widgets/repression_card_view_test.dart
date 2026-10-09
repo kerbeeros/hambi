@@ -103,6 +103,38 @@ void main() {
       );
     });
 
+    testWidgets('AC-061: grows with 200 % text instead of overflowing', (
+      tester,
+    ) async {
+      setTextScale(tester, 2);
+      await tester.pumpApp(
+        const SingleChildScrollView(
+          child: RepressionCardView(
+            title: 'Razzia',
+            description:
+                'Die Hälfte der Ressourcen im Camp wird entfernt. '
+                'Rundet dabei zu euren Ungunsten.',
+            kind: RepressionCardKind.immediate,
+          ),
+        ),
+      );
+
+      expect(tester.takeException(), isNull);
+      expect(
+        tester.getSize(find.byType(RepressionCardView)).height,
+        greaterThan(280),
+      );
+    });
+
+    testWidgets('AC-061: fits 200 % text into the compact card', (
+      tester,
+    ) async {
+      setTextScale(tester, 2);
+      await tester.pumpApp(card(compact: true));
+
+      expect(tester.takeException(), isNull);
+    });
+
     testWidgets('UX-10: calls onTap when tapped', (tester) async {
       var taps = 0;
       await tester.pumpApp(

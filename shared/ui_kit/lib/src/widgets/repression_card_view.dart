@@ -49,10 +49,12 @@ class RepressionCardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final (width, height) = compact ? (113.0, 56.0) : (200.0, 280.0);
+    // The large card grows with large text instead of overflowing; the
+    // compact one keeps its place on the board (NF-04).
     final card = Container(
-      width: width,
-      height: height,
+      constraints: compact
+          ? BoxConstraints.tight(const Size(113, 56))
+          : const BoxConstraints(minWidth: 200, maxWidth: 200, minHeight: 280),
       padding: EdgeInsets.all(compact ? AppSpacing.sm : AppSpacing.lg),
       decoration: BoxDecoration(
         color: AppColors.cardRepression,
@@ -63,6 +65,7 @@ class RepressionCardView extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppRadius.card),
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
