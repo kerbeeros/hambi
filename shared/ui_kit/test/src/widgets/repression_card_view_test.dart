@@ -103,6 +103,23 @@ void main() {
       );
     });
 
+    testWidgets('UX-10: calls onTap when tapped', (tester) async {
+      var taps = 0;
+      await tester.pumpApp(
+        RepressionCardView(
+          title: 'Razzia',
+          description: 'Hälfte der R im Camp entfernen',
+          kind: RepressionCardKind.immediate,
+          compact: true,
+          onTap: () => taps++,
+        ),
+      );
+
+      await tester.tap(find.byType(RepressionCardView));
+
+      expect(taps, equals(1));
+    });
+
     testWidgets('UX-07: calls onLongPress when long pressed', (tester) async {
       var longPresses = 0;
       await tester.pumpApp(
