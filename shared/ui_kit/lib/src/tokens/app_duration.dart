@@ -5,4 +5,8 @@ abstract final class AppDuration {
 
   /// 400 ms – a card turns over.
   static const Duration cardFlip = Duration(milliseconds: 400);
+
+  /// 1000 ms – dice roll or a drawn card stays face down before the result
+  /// shows (UX-04).
+  static const Duration reveal = Duration(milliseconds: 1000);
 }

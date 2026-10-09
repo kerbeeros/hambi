@@ -84,6 +84,9 @@ class GameLocalizationsEn extends GameLocalizations {
   String get endPreparationAction => 'End preparation';
 
   @override
+  String get skipAction => 'Skip';
+
+  @override
   String get continueAction => 'Continue';
 
   @override

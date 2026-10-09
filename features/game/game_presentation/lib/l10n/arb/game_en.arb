@@ -20,6 +20,7 @@
   "campTitle": "Camp",
   "startGameAction": "Run initial repression",
   "endPreparationAction": "End preparation",
+  "skipAction": "Skip",
   "continueAction": "Continue",
   "sectionDirectActions": "Direct actions",
   "sectionCampaigns": "Campaigns",

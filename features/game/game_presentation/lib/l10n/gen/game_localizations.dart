@@ -217,6 +217,12 @@ abstract class GameLocalizations {
   /// **'Vorbereitung beenden'**
   String get endPreparationAction;
 
+  /// Skip an animation and show its result (UX-04)
+  ///
+  /// In de, this message translates to:
+  /// **'Überspringen'**
+  String get skipAction;
+
   /// Continue
   ///
   /// In de, this message translates to:
