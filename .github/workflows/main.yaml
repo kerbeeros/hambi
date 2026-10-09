@@ -84,6 +84,14 @@ jobs:
       min_coverage: 100
       coverage_excludes: "**/*.g.dart"
 
+  rules_presentation:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
+    with:
+      working_directory: features/rules/rules_presentation
+      flutter_version: 3.47.6
+      min_coverage: 100
+      coverage_excludes: "**/*.g.dart"
+
   generated_code:
     name: generated code is up to date
     runs-on: ubuntu-latest
@@ -120,6 +128,7 @@ jobs:
       - game_data
       - game_presentation
       - setup_presentation
+      - rules_presentation
       - widgetbook
       - generated_code
     runs-on: ubuntu-latest
