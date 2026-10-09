@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ui_kit/src/icons/icons.dart';
 import 'package:ui_kit/src/tokens/tokens.dart';
 
@@ -33,6 +34,7 @@ class ForestCardView extends StatelessWidget {
   /// {@macro forest_card_view}
   const new({
     required this.state,
+    this.motif,
     this.occupant = ForestCardOccupant.none,
     this.isTarget = false,
     this.semanticLabel,
@@ -43,6 +45,10 @@ class ForestCardView extends StatelessWidget {
 
   /// State of the card.
   final ForestCardViewState state;
+
+  /// Original illustration (0–11) of the card's place on the board, i.e.
+  /// `4 × column + position`; `null` shows a plain card.
+  final int? motif;
 
   /// Piece standing on the card.
   final ForestCardOccupant occupant;
@@ -108,6 +114,14 @@ class ForestCardView extends StatelessWidget {
             onLongPress: onLongPress,
             child: Stack(
               children: [
+                if (motif case final motif?)
+                  Positioned.fill(
+                    child: SvgPicture.asset(
+                      'assets/images/forest/forest_intact_${motif.toString().padLeft(2, '0')}.svg',
+                      package: 'ui_kit',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 if (symbol case (final first, final second))
                   Positioned(
                     top: AppSpacing.sm,
