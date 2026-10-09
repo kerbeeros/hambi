@@ -13,6 +13,7 @@ class RollingDieView extends StatefulWidget {
     required this.value,
     required this.rolling,
     this.semanticLabel,
+    this.rollingSemanticLabel,
     super.key,
   });
 
@@ -24,6 +25,9 @@ class RollingDieView extends StatefulWidget {
 
   /// Description of the result for screen readers.
   final String? semanticLabel;
+
+  /// Description for screen readers while the die rolls, e.g. "Die rolls".
+  final String? rollingSemanticLabel;
 
   @override
   State<RollingDieView> createState() => _RollingDieViewState();
@@ -74,7 +78,7 @@ class _RollingDieViewState extends State<RollingDieView>
     final face = (widget.value + _faceIndex) % 6 + 1;
     return Transform.rotate(
       angle: _faceIndex.isEven ? -_tilt : _tilt,
-      child: DieView(value: face),
+      child: DieView(value: face, semanticLabel: widget.rollingSemanticLabel),
     );
   }
 }

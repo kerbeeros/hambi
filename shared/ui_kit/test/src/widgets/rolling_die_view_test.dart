@@ -53,5 +53,20 @@ void main() {
 
       expect(find.bySemanticsLabel('Würfel zeigt 5'), findsOneWidget);
     });
+    testWidgets('AC-063: exposes the rolling label while rolling', (
+      tester,
+    ) async {
+      await tester.pumpApp(
+        const RollingDieView(
+          value: 5,
+          rolling: true,
+          semanticLabel: 'Würfel zeigt 5',
+          rollingSemanticLabel: 'Würfel rollt',
+        ),
+      );
+
+      expect(find.bySemanticsLabel('Würfel rollt'), findsOneWidget);
+      expect(find.bySemanticsLabel('Würfel zeigt 5'), findsNothing);
+    });
   });
 }
