@@ -9,6 +9,7 @@ part of 'app_router.dart';
 List<RouteBase> get $appRoutes => [
   $newGameRoute,
   $resumeGameRoute,
+  $rulesRoute,
   $startRoute,
 ];
 
@@ -55,6 +56,32 @@ mixin $ResumeGameRoute on GoRouteData {
 
   @override
   String get location => GoRouteData.$location('/game/resume');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $rulesRoute => GoRouteData.$route(
+  path: '/rules',
+  hasOverriddenOnExit: false,
+  factory: $RulesRoute._fromState,
+);
+
+mixin $RulesRoute on GoRouteData {
+  static RulesRoute _fromState(GoRouterState state) => const RulesRoute();
+
+  @override
+  String get location => GoRouteData.$location('/rules');
 
   @override
   void go(BuildContext context) => context.go(location);

@@ -5,6 +5,7 @@ import 'package:game_presentation/l10n/l10n.dart' show GameLocalizations;
 import 'package:go_router/go_router.dart';
 import 'package:hambi_app/app/routes/app_router.dart';
 import 'package:hambi_app/l10n/l10n.dart';
+import 'package:rules_presentation/l10n/l10n.dart' show RulesLocalizations;
 import 'package:setup_presentation/l10n/l10n.dart' show SetupLocalizations;
 import 'package:ui_kit/ui_kit.dart';
 
@@ -52,6 +53,7 @@ class _AppViewState extends State<_AppView> {
       localizationsDelegates: const [
         ...AppLocalizations.localizationsDelegates,
         GameLocalizations.delegate,
+        RulesLocalizations.delegate,
         SetupLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,

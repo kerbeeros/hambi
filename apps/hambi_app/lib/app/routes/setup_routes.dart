@@ -16,6 +16,7 @@ class StartRoute extends GoRouteData with $StartRoute {
     child: StartView(
       onNewGame: () => const SetupRoute().go(context),
       onResume: () => const ResumeGameRoute().go(context),
+      onRules: () => const RulesRoute().push<void>(context),
     ),
   );
 }
