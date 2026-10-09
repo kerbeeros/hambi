@@ -63,3 +63,9 @@ extension ForestCardPresentation on ForestCard {
     if (isThreatened) l10n.forestDetailThreatened,
   ];
 }
+
+/// How a [ForestPosition] is shown (T-032).
+extension ForestPositionPresentation on ForestPosition {
+  /// Original illustration of this place on the board (AC-071).
+  int get motif => column * Forest.cardsPerColumn + position;
+}

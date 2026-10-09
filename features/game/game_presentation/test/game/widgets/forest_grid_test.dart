@@ -17,6 +17,20 @@ void main() {
       }
     });
 
+    testWidgets('AC-071: shows each card with the motif of its place', (
+      tester,
+    ) async {
+      await tester.pumpApp(ForestGrid(forest: Forest.initial()));
+
+      final cards = tester.widgetList<ForestCardView>(
+        find.byType(ForestCardView),
+      );
+      expect(
+        cards.map((card) => card.motif),
+        equals([for (var motif = 0; motif < 12; motif++) motif]),
+      );
+    });
+
     testWidgets('marks threatened cards as targets', (tester) async {
       await tester.pumpApp(
         ForestGrid(
