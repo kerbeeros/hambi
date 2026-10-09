@@ -62,6 +62,24 @@ void main() {
       });
     });
 
+    group('AC-061: fits 200 % text', () {
+      for (final (name, tab, size) in [
+        ('on the actions tab', BoardSection.actions, const Size(393, 852)),
+        ('on the forest tab', BoardSection.forest, const Size(393, 852)),
+        ('on a tablet', BoardSection.actions, tablet),
+      ]) {
+        testWidgets(name, (tester) async {
+          setTextScale(tester, 2);
+          await tester.pumpApp(
+            board(game: samplePreparation, tab: tab),
+            size: size,
+          );
+
+          expect(tester.takeException(), isNull);
+        });
+      }
+    });
+
     testWidgets('AC-062: screen readers find all forest cards', (tester) async {
       final semantics = tester.ensureSemantics();
       await tester.pumpApp(board(tab: BoardSection.forest));

@@ -39,6 +39,13 @@ void main() {
 
         await expectMeetsAccessibilityGuidelines(tester);
       });
+
+      testWidgets('AC-061: $section fits 200 % text', (tester) async {
+        setTextScale(tester, 2);
+        await pumpView(tester, section);
+
+        expect(tester.takeException(), isNull);
+      });
     }
 
     group('renders', () {
