@@ -37,8 +37,9 @@ class BoardTabs extends StatelessWidget {
   /// Called with the index of a tapped tab.
   final ValueChanged<int> onSelected;
 
-  /// Height in logical pixels.
-  static const double height = 44;
+  /// Height in logical pixels; leaves each tab the 48 logical pixels of a
+  /// tap target (NF-04).
+  static const double height = 52;
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +51,7 @@ class BoardTabs extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppRadius.lg),
       ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           for (var index = 0; index < tabs.length; index++)
             Expanded(

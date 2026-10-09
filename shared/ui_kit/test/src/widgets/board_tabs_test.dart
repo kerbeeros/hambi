@@ -80,10 +80,16 @@ void main() {
       expect(tester.takeException(), isNull);
     });
 
-    testWidgets('is 44 logical pixels high', (tester) async {
+    testWidgets('is 52 logical pixels high', (tester) async {
       await tester.pumpApp(tabs());
 
-      expect(tester.getSize(find.byType(BoardTabs)).height, equals(44));
+      expect(tester.getSize(find.byType(BoardTabs)).height, equals(52));
+    });
+
+    testWidgets('AC-060: meets the accessibility guidelines', (tester) async {
+      await tester.pumpApp(tabs());
+
+      await expectMeetsAccessibilityGuidelines(tester);
     });
   });
 }
