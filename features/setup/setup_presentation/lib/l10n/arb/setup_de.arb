@@ -76,5 +76,9 @@
   "overwriteCancelAction": "Abbrechen",
   "@overwriteCancelAction": {
     "description": "Cancel"
+  },
+  "rulesAction": "Regeln",
+  "@rulesAction": {
+    "description": "Rules"
   }
 }

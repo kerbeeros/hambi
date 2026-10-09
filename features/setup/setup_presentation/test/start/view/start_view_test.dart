@@ -17,11 +17,13 @@ void main() {
     late StartCubit cubit;
     late int newGames;
     late int resumes;
+    late int rules;
 
     setUp(() {
       cubit = _MockStartCubit();
       newGames = 0;
       resumes = 0;
+      rules = 0;
     });
 
     Future<void> pumpView(WidgetTester tester, StartState state) {
@@ -32,6 +34,7 @@ void main() {
           child: StartView(
             onNewGame: () => newGames++,
             onResume: () => resumes++,
+            onRules: () => rules++,
           ),
         ),
       );
@@ -76,6 +79,14 @@ void main() {
 
       expect(resumes, equals(1));
     });
+
+    testWidgets('UX-10: opens the rules', (tester) async {
+      await pumpView(tester, const StartState(status: StartStatus.ready));
+
+      await tester.tap(find.text('Regeln'));
+
+      expect(rules, equals(1));
+    });
   });
 
   group(StartModule, () {
@@ -87,7 +98,7 @@ void main() {
         RepositoryProvider<IGameRepository>.value(
           value: repository,
           child: StartModule(
-            child: StartView(onNewGame: () {}, onResume: () {}),
+            child: StartView(onNewGame: () {}, onResume: () {}, onRules: () {}),
           ),
         ),
       );
