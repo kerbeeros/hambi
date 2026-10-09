@@ -117,6 +117,23 @@ void main() {
       semantics.dispose();
     });
 
+    testWidgets('AC-062: offers the tap to screen readers', (tester) async {
+      final semantics = tester.ensureSemantics();
+      var taps = 0;
+      await tester.pumpApp(
+        ForestCardView(
+          state: ForestCardViewState.intact,
+          semanticLabel: 'Waldkarte',
+          onTap: () => taps++,
+        ),
+      );
+
+      tester.semantics.tap(find.semantics.byLabel('Waldkarte'));
+
+      expect(taps, equals(1));
+      semantics.dispose();
+    });
+
     testWidgets('is 78 × 104 logical pixels', (tester) async {
       await tester.pumpApp(
         const ForestCardView(state: ForestCardViewState.removed),

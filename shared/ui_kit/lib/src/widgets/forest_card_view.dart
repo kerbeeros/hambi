@@ -88,6 +88,7 @@ class ForestCardView extends StatelessWidget {
     return Semantics(
       label: semanticLabel,
       button: onTap != null,
+      onTap: onTap,
       onLongPress: onLongPress,
       excludeSemantics: true,
       child: SizedBox(
