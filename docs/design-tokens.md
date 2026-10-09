@@ -130,7 +130,19 @@ Zusätzlich zu den Spielsymbolen unten gibt es UI-Icons im selben Stil (Quelltex
 | Tanne | `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10.5" y="17" width="3" height="5" rx="1" fill="#5A1E00"/><path d="M12 2L4 18h16L12 2z" fill="#006B2E" stroke="#003D18" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 8l-3.5 7h7L12 8z" fill="#00B04A"/></svg>` |
 | Baumstumpf | `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 11v8c0 1.1 2.2 2 5 2s5-.9 5-2v-8" fill="#6B3A12" stroke="#3A1A00" stroke-width="1.5"/><ellipse cx="12" cy="11" rx="5" ry="2" fill="#D9A066" stroke="#3A1A00" stroke-width="1.5"/></svg>` |
 
-Zusätzlich aus den Original-PDFs (`docs/reference/`): Logo „Hambi bleibt!“, Uhr/„System Change not Climate Change“, Waldkarten-Illustrationen – als Assets extrahieren, wenn die jeweiligen Screens gebaut werden.
+### 4.1 Originalgrafiken
+
+Assets in `shared/ui_kit/assets/images/`, extrahiert aus den Original-PDFs (`docs/reference/`) mit poppler (`pdftocairo`):
+
+| Asset | Quelle | Format | Einsatz |
+|---|---|---|---|
+| `logo.png` (+ `2.0x/`, `3.0x/`) | Anleitung S. 2, Ausschnitt x 426, y 190, 394 × 98 pt | PNG mit Transparenz, Basisbreite 280 dp (der Baum ist im Original eine Rastergrafik) | `HambiLogo` auf S-01 |
+| `forest/forest_intact_00–11.svg` | Spielplan S. 1 (Vorderseiten) | SVG, eine Karte je Datei (133 × 205 pt, Hintergrundverlauf inklusive) | `ForestCardView` „wald“ |
+| `forest/forest_cleared_00–11.svg` | Spielplan S. 2 (Rückseiten, spiegelverkehrt gedruckt: Rückseite von Spalte *c* steht in Spalte 3 − *c*) | SVG wie oben | `ForestCardView` „abgeholzt“ |
+
+Motiv-Nummer = 4 × Waldspalte + Position (beide ab 0), also Zeile × 4 + Spalte im Spielplan. Die Karten werden mit `BoxFit.cover` auf 78 × 104 gesetzt, oben und unten wird dabei etwas abgeschnitten.
+Extraktion: `pdftocairo -svg` pro Seite, dann je Karte die Pfade im Kartenrahmen behalten, Farben in Hex umrechnen und Zahlen auf 2 Nachkommastellen runden.
+Nicht übernommen: Sanduhr „System Change not Climate Change“, Würfel- und Zeltzeichnung (Raster, in der Spec nicht vorgesehen; Würfel/Camp bleiben Icons).
 
 ## 5. Komponenten (`ui_kit`)
 
@@ -141,7 +153,7 @@ Karten-Widgets tragen das Suffix `View` (z. B. `ForestCardView`), um Namenskonfl
 |---|---|---|
 | `HambiButton` | primary / secondary × enabled / disabled, Label | Höhe 48, Radius `lg` |
 | `StatusChip` | activist / resource / support / repression, Label | Höhe 28, Radius `full` |
-| `ForestCardView` | intact / cleared / removed × none / activist / secu × target (roter Rand + „!“-Badge) | 78 × 104, Radius `card` |
+| `ForestCardView` | intact / cleared / removed × none / activist / secu × target (roter Rand + „!“-Badge); `motif` 0–11 wählt das Original-Motiv (§4.1) | 78 × 104, Radius `card` |
 | `ActionCardView` | directAction / campaign / support × available / assigned (✓) / blocked (Schloss) / unavailable (abgeblendet); Titel, Bedingungen und Effekte als `CardSymbol`, Seite, Status-Text | 113 × 96, Radius `card`; oben Kartenfarbe (Bedingung), unten Effektfarbe |
 | `CardSymbolView` | activist, resource, ±support, +activist, +resource, activist→forest, reroll, −repression | Icons 14 (Karte) bzw. 18 |
 | `CampCardView` | Anzahl M, Anzahl R | 113 × 96 |
@@ -154,6 +166,7 @@ Karten-Widgets tragen das Suffix `View` (z. B. `ForestCardView`), um Namenskonfl
 | `RoundHeader` | Runde, Phase, Buttons Log/Menü | Höhe ≈ 64, `bg/board` |
 | `PhaseStepper` | aktive Phase 1–4 | |
 | `BoardTabs` | Wald / Aktionen, Badge | Segmented Control, Höhe 52 (Segmente 48) |
+| `HambiLogo` | Original-Logo (§4.1), `semanticLabel` | Breite 280 (skaliert mit `width`) |
 | `HambiDialog`, `HambiBottomSheet` | Titel, Inhalt, Aktionen; Dialoge nicht durch Tippen daneben schließbar (UX-03) | |
 
 ## 6. Layout „Spielbrett“ (Variante B, ADR 0003)
