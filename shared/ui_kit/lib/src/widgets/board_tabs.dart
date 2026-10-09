@@ -84,15 +84,23 @@ class _Segment extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(AppRadius.md),
           onTap: onTap,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(tab.label, style: AppTextStyle.label),
-              if (badgeCount > 0) ...[
-                const SizedBox(width: AppSpacing.xs),
-                _Badge(badgeCount),
-              ],
-            ],
+          // Long labels and large text scale down instead of overflowing
+          // (NF-04).
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xxs),
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(tab.label, style: AppTextStyle.label),
+                  if (badgeCount > 0) ...[
+                    const SizedBox(width: AppSpacing.xs),
+                    _Badge(badgeCount),
+                  ],
+                ],
+              ),
+            ),
           ),
         ),
       ),

@@ -55,6 +55,31 @@ void main() {
       );
     });
 
+    testWidgets('NF-04: fits four labels at twice the text size', (
+      tester,
+    ) async {
+      await tester.pumpApp(
+        MediaQuery(
+          data: const MediaQueryData(textScaler: TextScaler.linear(2)),
+          child: SizedBox(
+            width: 361,
+            child: BoardTabs(
+              tabs: const [
+                BoardTab(label: 'Spielidee'),
+                BoardTab(label: 'Ablauf'),
+                BoardTab(label: 'Symbole', badgeCount: 3),
+                BoardTab(label: 'Karten'),
+              ],
+              selectedIndex: 0,
+              onSelected: (_) {},
+            ),
+          ),
+        ),
+      );
+
+      expect(tester.takeException(), isNull);
+    });
+
     testWidgets('is 44 logical pixels high', (tester) async {
       await tester.pumpApp(tabs());
 
