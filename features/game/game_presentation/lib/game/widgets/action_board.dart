@@ -131,6 +131,7 @@ class _BoardActionCard extends StatelessWidget {
       effects: card.effects(side),
       status: status.viewStatus,
       statusLabel: status.label(l10n),
+      semanticLabel: card.semanticLabel(l10n, side: side, status: status),
       onTap: command != null && onCommand != null
           ? () => onCommand(command)
           : null,

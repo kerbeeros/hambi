@@ -100,6 +100,53 @@ void main() {
     });
   });
 
+  group('ActionCardPresentation semanticLabel', () {
+    test('AC-062: names title, conditions, effects and status', () {
+      expect(
+        ActionCardId.demo.semanticLabel(
+          l10n,
+          side: CardSide.a,
+          status: AssignmentStatus.notEnoughActivists,
+        ),
+        equals(
+          'Demo. Bedingungen: 5 × Mitstreiter*in, 1 × Ressource. '
+          'Effekte: 2 × Unterstützung +1, 1 × Mitstreiter*in ins Camp. '
+          'Zu wenig M',
+        ),
+      );
+    });
+
+    test('AC-062: names side B', () {
+      expect(
+        ActionCardId.internet.semanticLabel(
+          l10n,
+          side: CardSide.b,
+          status: AssignmentStatus.available,
+        ),
+        startsWith('Internet, Seite B. '),
+      );
+    });
+
+    test('AC-062: names an assigned card', () {
+      expect(
+        ActionCardId.sabotage.semanticLabel(
+          l10n,
+          side: CardSide.a,
+          status: AssignmentStatus.assigned,
+        ),
+        endsWith('. Belegt'),
+      );
+    });
+
+    test('AC-062: names every symbol', () {
+      final labels = {
+        for (final symbol in CardSymbol.values) symbol.shortName(l10n),
+      };
+
+      expect(labels, hasLength(CardSymbol.values.length));
+    });
+  });
+
   group('CardSymbolPresentation', () {
     for (final (symbol, explanation) in [
       (CardSymbol.activist, 'Ihr müsst eine*n Mitstreiter*in einsetzen.'),

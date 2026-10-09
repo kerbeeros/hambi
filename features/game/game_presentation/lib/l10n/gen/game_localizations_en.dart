@@ -499,4 +499,41 @@ class GameLocalizationsEn extends GameLocalizations {
 
   @override
   String get menuRulesAction => 'Rules';
+
+  @override
+  String get symbolNameActivist => 'Activist';
+
+  @override
+  String get symbolNameResource => 'Resource';
+
+  @override
+  String get symbolNameLoseSupport => 'Support −1';
+
+  @override
+  String get symbolNameGainSupport => 'Support +1';
+
+  @override
+  String get symbolNameGainActivist => 'Activist to the camp';
+
+  @override
+  String get symbolNameGainResource => 'Resource to the camp';
+
+  @override
+  String get symbolNameActivistToForest => 'Activist to the forest';
+
+  @override
+  String get symbolNameRerollDie => 'Reroll a die';
+
+  @override
+  String get symbolNamePreventRepression => 'One repression card less';
+
+  @override
+  String actionCardSideLabel(String title, String side) {
+    return '$title, side $side';
+  }
+
+  @override
+  String actionCardSymbolsLabel(String section, String symbols) {
+    return '$section: $symbols';
+  }
 }
