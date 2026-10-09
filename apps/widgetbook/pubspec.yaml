@@ -16,6 +16,8 @@ dependencies:
     path: ../../features/game/game_domain
   game_presentation:
     path: ../../features/game/game_presentation
+  rules_presentation:
+    path: ../../features/rules/rules_presentation
   setup_presentation:
     path: ../../features/setup/setup_presentation
   ui_kit:
