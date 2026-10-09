@@ -41,6 +41,7 @@ class _GameScreen extends StatelessWidget {
       child: GameView(
         onExit: () => const StartRoute().go(context),
         onNewGame: () => const SetupRoute().go(context),
+        onRules: () => const RulesRoute().push<void>(context),
       ),
     );
   }

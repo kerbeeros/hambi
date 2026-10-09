@@ -4,6 +4,7 @@ import 'package:game_domain/game_domain.dart';
 import 'package:game_presentation/game_presentation.dart';
 import 'package:hambi_app/app/app.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:rules_presentation/rules_presentation.dart';
 import 'package:setup_presentation/setup_presentation.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -106,6 +107,41 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byType(StartView), findsOneWidget);
+    });
+
+    testWidgets('UX-10: opens the rules from the start and goes back', (
+      tester,
+    ) async {
+      await pumpApp(tester);
+
+      await tester.tap(find.text('Regeln'));
+      await tester.pumpAndSettle();
+      expect(find.byType(RulesView), findsOneWidget);
+
+      await tester.tap(find.text('Zurück'));
+      await tester.pumpAndSettle();
+      expect(find.byType(StartView), findsOneWidget);
+    });
+
+    testWidgets('UX-10: opens the rules from the game and returns to it', (
+      tester,
+    ) async {
+      await pumpApp(tester);
+      await tester.tap(find.text('Neues Spiel'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Spiel starten'));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byTooltip('Spielmenü'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Regeln'));
+      await tester.pumpAndSettle();
+      expect(find.byType(RulesView), findsOneWidget);
+
+      await tester.tap(find.text('Zurück'));
+      await tester.pumpAndSettle();
+      expect(find.byType(GameView), findsOneWidget);
+      expect(find.text('Spielaufbau'), findsOneWidget);
     });
 
     testWidgets('S-04: a new game after the result opens the setup', (

@@ -23,6 +23,8 @@ dependencies:
     path: ../../features/game/game_presentation
   go_router: ^18.0.2
   intl: ^0.20.2
+  rules_presentation:
+    path: ../../features/rules/rules_presentation
   setup_presentation:
     path: ../../features/setup/setup_presentation
   shared_preferences: ^2.5.6
