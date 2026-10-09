@@ -41,6 +41,17 @@ void main() {
       await tester.pumpAndSettle();
     }
 
+    testWidgets('NF-04: screen readers open the rules', (tester) async {
+      final semantics = tester.ensureSemantics();
+      await open(tester);
+
+      tester.semantics.tap(find.semantics.byLabel('Regeln'));
+      await tester.pumpAndSettle();
+
+      expect(await result, equals(GameMenuAction.rules));
+      semantics.dispose();
+    });
+
     testWidgets('UX-08: leaving the game needs a confirmation', (tester) async {
       await open(tester);
 
