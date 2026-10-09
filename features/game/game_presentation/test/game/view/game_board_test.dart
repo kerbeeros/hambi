@@ -26,6 +26,53 @@ void main() {
       onMenuPressed: onMenuPressed ?? () {},
     );
 
+    group('AC-060: meets the accessibility guidelines', () {
+      testWidgets('on the actions tab', (tester) async {
+        await tester.pumpApp(board());
+
+        await expectMeetsAccessibilityGuidelines(tester);
+      });
+
+      testWidgets('on the forest tab', (tester) async {
+        await tester.pumpApp(board(tab: BoardSection.forest));
+
+        await expectMeetsAccessibilityGuidelines(tester);
+      });
+
+      testWidgets('with assigned, blocked and unavailable cards', (
+        tester,
+      ) async {
+        await tester.pumpApp(board(game: samplePreparation));
+
+        await expectMeetsAccessibilityGuidelines(tester);
+      });
+
+      testWidgets('with a played forest', (tester) async {
+        await tester.pumpApp(
+          board(game: samplePreparation, tab: BoardSection.forest),
+        );
+
+        await expectMeetsAccessibilityGuidelines(tester);
+      });
+
+      testWidgets('on a tablet', (tester) async {
+        await tester.pumpApp(board(game: samplePreparation), size: tablet);
+
+        await expectMeetsAccessibilityGuidelines(tester);
+      });
+    });
+
+    testWidgets('AC-062: screen readers find all forest cards', (tester) async {
+      final semantics = tester.ensureSemantics();
+      await tester.pumpApp(board(tab: BoardSection.forest));
+
+      expect(
+        find.semantics.byLabel(RegExp(r'^WS\d, Karte \d: ')),
+        findsExactly(12),
+      );
+      semantics.dispose();
+    });
+
     testWidgets('shows round and phase in the header', (tester) async {
       await tester.pumpApp(board());
 

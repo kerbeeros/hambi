@@ -215,6 +215,12 @@ class _RestoreCardDialog extends StatelessWidget {
                     sideLabel: l10n.cardSideB,
                     conditions: card.conditions(side),
                     effects: card.effects(side),
+                    // The status of the card does not matter here.
+                    semanticLabel: card.semanticLabel(
+                      l10n,
+                      side: side,
+                      status: AssignmentStatus.available,
+                    ),
                     onTap: () =>
                         Navigator.of(context).pop(ChooseCardToRestore(card)),
                   ),
