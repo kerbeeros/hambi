@@ -120,6 +120,7 @@ class _ForestGridCard extends StatelessWidget {
     final canTap = onTap != null && selectable;
     final view = ForestCardView(
       state: card.viewState,
+      motif: position.motif,
       occupant: card.occupant,
       isTarget: isMarked,
       semanticLabel: card.semanticLabel(
