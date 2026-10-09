@@ -103,6 +103,16 @@ Alle Stile skalieren mit der System-Schriftgröße (`MediaQuery.textScaler`).
 
 Touch-Ziele mindestens 44 × 44 pt. Bildschirmrand Smartphone: `lg` (16).
 
+### 3.1 Bewegung (`AppDuration`)
+
+| Token | Wert | Verwendung |
+|---|---|---|
+| `dieFace` | 80 ms | Wechsel der Augenzahl eines rollenden Würfels |
+| `cardFlip` | 400 ms | Umdrehen einer Karte (Kurve `easeInOut`) |
+| `reveal` | 1000 ms | Würfel rollen bzw. Karte liegt verdeckt, bevor das Ergebnis erscheint (UX-04) |
+
+Animationen sind überspringbar (UX-04) und entfallen bei „Bewegung reduzieren“ (`MediaQuery.disableAnimations`).
+
 ## 4. Icons
 
 24 × 24 Vektor-Icons im Stil des Spielmaterials, gerendert mit `flutter_svg` (ADR 0007) als `HambiIcon(HambiIconData.x)`. Farben der Spielsymbole sind fest (entsprechen dem Original) und werden nicht umgefärbt. `ui_kit`-Widgets verwenden keine Material-Icons.
@@ -137,6 +147,9 @@ Karten-Widgets tragen das Suffix `View` (z. B. `ForestCardView`), um Namenskonfl
 | `RepressionCardView` | immediate / blocking (dicker Rahmen) / oneTime (⦸); Titel, Text; kompakt fürs Brett | Dialog 200 × 280, kompakt 113 × 56 |
 | `SuccessTrack` | activists / support; Wert 0–11; Repressionsfelder (roter Rand), aktivierte Felder (Repressions-Symbol) | Zellen 22 (kompakt) bzw. 26 |
 | `DieView` | Wert 1–6 | 40 × 40, Radius `md` |
+| `RollingDieView` | Wert 1–6 × rollend (wechselnde Augen, leicht gedreht) / liegend (= `DieView`) | wie `DieView` |
+| `RepressionCardBackView` | Rückseite einer Repressionskarte (Repressions-Symbol) | 200 × 280 |
+| `CardFlipView` | Vorder-/Rückseite × aufgedeckt / verdeckt; dreht beim Aufdecken um die Hochachse (`cardFlip`) | Größe der Karte |
 | `RoundHeader` | Runde, Phase, Buttons Log/Menü | Höhe ≈ 64, `bg/board` |
 | `PhaseStepper` | aktive Phase 1–4 | |
 | `BoardTabs` | Wald / Aktionen, Badge | Segmented Control, Höhe 44 |
