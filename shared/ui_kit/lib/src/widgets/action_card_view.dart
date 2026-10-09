@@ -186,6 +186,7 @@ class ActionCardView extends StatelessWidget {
     return Semantics(
       label: semanticLabel,
       button: onTap != null,
+      onTap: onTap,
       onLongPress: onLongPress,
       excludeSemantics: semanticLabel != null,
       child: SizedBox(width: width, height: height, child: card),
