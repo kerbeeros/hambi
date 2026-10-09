@@ -149,6 +149,38 @@ void main() {
         expect(revealed(tester), isTrue);
       });
 
+      testWidgets('AC-063: labels a rolling die', (tester) async {
+        await openAnimated(tester, const RepressionDieRolled(2));
+
+        // Lets the dialog finish its entrance while the die still rolls.
+        await tester.pump(AppDuration.reveal ~/ 2);
+
+        expect(find.bySemanticsLabel('Würfel rollt'), findsOneWidget);
+      });
+
+      testWidgets('AC-063: labels an excavator die with its column', (
+        tester,
+      ) async {
+        await openAnimated(tester, const DiceRolled([3, 6]));
+
+        await tester.pump(AppDuration.reveal);
+
+        expect(
+          find.bySemanticsLabel('Würfel zeigt 3, trifft WS2'),
+          findsOneWidget,
+        );
+      });
+
+      testWidgets('AC-063: labels a repression die with its value', (
+        tester,
+      ) async {
+        await openAnimated(tester, const RepressionDieRolled(2));
+
+        await tester.pump(AppDuration.reveal);
+
+        expect(find.bySemanticsLabel('Würfel zeigt 2'), findsOneWidget);
+      });
+
       testWidgets('AC-053: shows the result at once with reduced motion', (
         tester,
       ) async {

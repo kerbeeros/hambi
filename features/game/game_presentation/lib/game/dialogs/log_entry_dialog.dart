@@ -68,7 +68,12 @@ class _LogEntryDialogState extends State<_LogEntryDialog> {
       RepressionDieRolled(:final value) => (
         l10n.repressionDieTitle,
         Center(
-          child: RollingDieView(value: value, rolling: !_revealed),
+          child: RollingDieView(
+            value: value,
+            rolling: !_revealed,
+            semanticLabel: l10n.dieShowsLabel(value),
+            rollingSemanticLabel: l10n.dieRollingLabel,
+          ),
         ),
       ),
       RepressionCardDrawn(:final card) => (
@@ -88,7 +93,13 @@ class _LogEntryDialogState extends State<_LogEntryDialog> {
     };
     return HambiDialog(
       title: title,
-      content: GestureDetector(onTap: _reveal, child: content),
+      // Screen readers skip with the button, so the dice and the card keep
+      // their own labels instead of merging into one tappable node.
+      content: GestureDetector(
+        onTap: _reveal,
+        excludeFromSemantics: true,
+        child: content,
+      ),
       actions: [
         if (_revealed)
           HambiButton(
@@ -110,6 +121,9 @@ class _Dice extends StatelessWidget {
   final List<int> values;
   final bool revealed;
 
+  /// Forest column (1–3) a die hits (R-120).
+  static int _columnOf(int value) => (value - 1) ~/ 2 + 1;
+
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
@@ -120,10 +134,21 @@ class _Dice extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: AppSpacing.sm),
             child: Row(
               children: [
-                RollingDieView(value: value, rolling: !revealed),
+                RollingDieView(
+                  value: value,
+                  rolling: !revealed,
+                  semanticLabel: l10n.dieHitsColumnLabel(
+                    value,
+                    _columnOf(value),
+                  ),
+                  rollingSemanticLabel: l10n.dieRollingLabel,
+                ),
                 const SizedBox(width: AppSpacing.md),
+                // The die already tells screen readers the column.
                 if (revealed)
-                  Text(l10n.dieHitsColumn(value, (value - 1) ~/ 2 + 1)),
+                  ExcludeSemantics(
+                    child: Text(l10n.dieHitsColumn(value, _columnOf(value))),
+                  ),
               ],
             ),
           ),

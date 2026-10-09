@@ -536,4 +536,17 @@ class GameLocalizationsEn extends GameLocalizations {
   String actionCardSymbolsLabel(String section, String symbols) {
     return '$section: $symbols';
   }
+
+  @override
+  String get dieRollingLabel => 'Die rolls';
+
+  @override
+  String dieShowsLabel(int value) {
+    return 'Die shows $value';
+  }
+
+  @override
+  String dieHitsColumnLabel(int value, int column) {
+    return 'Die shows $value, hits FC$column';
+  }
 }

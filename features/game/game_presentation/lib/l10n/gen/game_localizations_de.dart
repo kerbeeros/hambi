@@ -536,4 +536,17 @@ class GameLocalizationsDe extends GameLocalizations {
   String actionCardSymbolsLabel(String section, String symbols) {
     return '$section: $symbols';
   }
+
+  @override
+  String get dieRollingLabel => 'Würfel rollt';
+
+  @override
+  String dieShowsLabel(int value) {
+    return 'Würfel zeigt $value';
+  }
+
+  @override
+  String dieHitsColumnLabel(int value, int column) {
+    return 'Würfel zeigt $value, trifft WS$column';
+  }
 }
