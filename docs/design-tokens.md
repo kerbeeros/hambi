@@ -141,7 +141,8 @@ Assets in `shared/ui_kit/assets/images/`, extrahiert aus den Original-PDFs (`doc
 | `forest/forest_cleared_00–11.svg` | Spielplan S. 2 (Rückseiten, spiegelverkehrt gedruckt: Rückseite von Spalte *c* steht in Spalte 3 − *c*) | SVG wie oben | `ForestCardView` „abgeholzt“ |
 
 Motiv-Nummer = 4 × Waldspalte + Position (beide ab 0), also Zeile × 4 + Spalte im Spielplan. Die Karten werden mit `BoxFit.cover` auf 78 × 104 gesetzt, oben und unten wird dabei etwas abgeschnitten.
-Extraktion: `pdftocairo -svg` pro Seite, dann je Karte die Pfade im Kartenrahmen behalten, Farben in Hex umrechnen und Zahlen auf 2 Nachkommastellen runden.
+Extraktion Waldkarten: `pdftocairo -svg` pro Seite, dann je Karte die Pfade im Kartenrahmen behalten, leere Pfade (`M x y Z`, Schnittmarken – Flutter zeichnet sie als Punkte) entfernen, Farben in Hex umrechnen und Zahlen auf 2 Nachkommastellen runden.
+Extraktion Logo: `pdftoppm -gray` mit dem Ausschnitt oben, dann Helligkeit in Transparenz umrechnen (schwarz mit Alpha = 255 − Grauwert), weil die Seite einen weißen Hintergrund zeichnet.
 Nicht übernommen: Sanduhr „System Change not Climate Change“, Würfel- und Zeltzeichnung (Raster, in der Spec nicht vorgesehen; Würfel/Camp bleiben Icons).
 
 ## 5. Komponenten (`ui_kit`)
