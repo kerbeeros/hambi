@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -11,34 +12,24 @@ void main() {
         .map((icon) => icon.icon)
         .toList();
 
-    testWidgets('renders trees on an intact card', (tester) async {
+    String? motifOf(WidgetTester tester) => tester
+        .widgetList<SvgPicture>(find.byType(SvgPicture))
+        .map((picture) => picture.bytesLoader)
+        .whereType<SvgAssetLoader>()
+        .map((loader) => 'packages/${loader.packageName}/${loader.assetName}')
+        .singleOrNull;
+
+    testWidgets('AC-071: renders the original motif on an intact card', (
+      tester,
+    ) async {
       await tester.pumpApp(
-        const ForestCardView(state: ForestCardViewState.intact),
+        const ForestCardView(state: ForestCardViewState.intact, motif: 5),
       );
 
       expect(
-        iconsOf(tester),
-        equals([HambiIconData.deciduousTree, HambiIconData.fir]),
+        motifOf(tester),
+        equals('packages/ui_kit/assets/images/forest/forest_intact_05.svg'),
       );
-    });
-
-    testWidgets('renders stumps on a cleared card', (tester) async {
-      await tester.pumpApp(
-        const ForestCardView(state: ForestCardViewState.cleared),
-      );
-
-      expect(
-        iconsOf(tester),
-        equals([HambiIconData.stump, HambiIconData.stump]),
-      );
-    });
-
-    testWidgets('renders no symbol on a removed card', (tester) async {
-      await tester.pumpApp(
-        const ForestCardView(state: ForestCardViewState.removed),
-      );
-
-      expect(find.byType(HambiIcon), findsNothing);
     });
 
     for (final (occupant, icon) in [
