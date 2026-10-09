@@ -7,6 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:game_domain/game_domain.dart';
 import 'package:game_presentation/game_presentation.dart';
+import 'package:ui_kit/ui_kit.dart';
 
 import '../../helpers/helpers.dart';
 
@@ -53,6 +54,11 @@ void main() {
       'D-06, D-07: renders every log entry',
       fileName: 'log_entry_dialog',
       tags: [TestTag.golden],
+      // Shows the result after the dice rolled and the card turned (UX-04).
+      pumpBeforeTest: (tester) async {
+        await tester.pump(AppDuration.reveal);
+        await tester.pumpAndSettle();
+      },
       builder: () => GoldenTestGroup(
         columns: 4,
         scenarioConstraints: dialogWidth,

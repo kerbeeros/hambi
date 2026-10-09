@@ -113,6 +113,10 @@
   "@endPreparationAction": {
     "description": "End preparation"
   },
+  "skipAction": "Überspringen",
+  "@skipAction": {
+    "description": "Skip an animation and show its result (UX-04)"
+  },
   "continueAction": "Weiter",
   "@continueAction": {
     "description": "Continue"
