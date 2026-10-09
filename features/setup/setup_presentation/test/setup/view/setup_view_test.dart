@@ -38,6 +38,13 @@ void main() {
       await expectMeetsAccessibilityGuidelines(tester);
     });
 
+    testWidgets('AC-061: fits 200 % text', (tester) async {
+      setTextScale(tester, 2);
+      await pumpView(tester);
+
+      expect(tester.takeException(), isNull);
+    });
+
     testWidgets('S-02: shows the player count', (tester) async {
       await pumpView(tester);
 
@@ -111,6 +118,14 @@ void main() {
         await tester.pumpAndSettle();
 
         await expectMeetsAccessibilityGuidelines(tester);
+      });
+
+      testWidgets('AC-061: fits 200 % text', (tester) async {
+        setTextScale(tester, 2);
+        await pumpView(tester);
+        await tester.pumpAndSettle();
+
+        expect(tester.takeException(), isNull);
       });
 
       testWidgets('confirms overwriting the saved game', (tester) async {

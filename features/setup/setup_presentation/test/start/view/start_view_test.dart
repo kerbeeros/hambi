@@ -49,6 +49,16 @@ void main() {
       await expectMeetsAccessibilityGuidelines(tester);
     });
 
+    testWidgets('AC-061: fits 200 % text', (tester) async {
+      setTextScale(tester, 2);
+      await pumpView(
+        tester,
+        const StartState(status: StartStatus.ready, hasSavedGame: true),
+      );
+
+      expect(tester.takeException(), isNull);
+    });
+
     testWidgets('S-01: shows the title', (tester) async {
       await pumpView(tester, const StartState(status: StartStatus.ready));
 

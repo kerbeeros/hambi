@@ -37,6 +37,22 @@ void main() {
 
         await expectMeetsAccessibilityGuidelines(tester);
       });
+
+      testWidgets('AC-061: a $outcome fits 200 % text', (tester) async {
+        setTextScale(tester, 2);
+        await tester.pumpApp(
+          GameResultView(
+            game: buildGameState(
+              round: 12,
+              phase: GamePhase.finished,
+              outcome: outcome,
+            ),
+            onNewGame: () {},
+          ),
+        );
+
+        expect(tester.takeException(), isNull);
+      });
     }
 
     testWidgets(
