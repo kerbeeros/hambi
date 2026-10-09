@@ -128,6 +128,7 @@ class ForestCardDetail extends StatelessWidget {
         size: const Size(ForestCardView.width, ForestCardView.height),
         child: ForestCardView(
           state: card.viewState,
+          motif: position.motif,
           occupant: card.occupant,
           isTarget: isThreatened,
         ),
