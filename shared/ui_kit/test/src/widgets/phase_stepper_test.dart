@@ -8,6 +8,17 @@ void main() {
   group(PhaseStepper, () {
     const labels = ['Vorbereitung', 'Aktion', 'Bagger', 'Repression'];
 
+    testWidgets('AC-060: meets the accessibility guidelines', (tester) async {
+      await tester.pumpApp(
+        const SizedBox(
+          width: 361,
+          child: PhaseStepper(labels: labels, activeIndex: 1),
+        ),
+      );
+
+      await expectMeetsAccessibilityGuidelines(tester);
+    });
+
     testWidgets('renders all phase labels', (tester) async {
       await tester.pumpApp(
         const SizedBox(

@@ -19,7 +19,7 @@ abstract final class AppColors {
   static const textPrimary = Color(0xFF111111);
 
   /// Helper text.
-  static const textSecondary = Color(0xFF77756F);
+  static const textSecondary = Color(0xFF6B6963);
 
   /// Text on [bgBoard] and [actionPrimary].
   static const textOnDark = Color(0xFFFFFFFF);

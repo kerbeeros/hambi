@@ -30,7 +30,8 @@
 | `neutral/white` | `#FFFFFF` | |
 | `neutral/paper` | `#F7F3EA` | App-Hintergrund (Papier) |
 | `neutral/gray-200` | `#E2E0DA` | Ränder, deaktiviert |
-| `neutral/gray-500` | `#77756F` | Sekundärtext |
+| `neutral/gray-500` | `#77756F` | |
+| `neutral/gray-600` | `#6B6963` | Sekundärtext (WCAG AA auf `bg/app`, NF-04) |
 | `neutral/gray-900` | `#222222` | Secu |
 | `neutral/black` | `#111111` | Primärtext, Ränder |
 
@@ -44,7 +45,7 @@ Widgets verwenden **nur** semantische Tokens. Nur ein Modus (hell); Dark Mode is
 | `bg/surface` | `neutral/white` | Karten, Sheets, Dialoge |
 | `bg/board` | `green/forest-dark` | Header, Wald-Bereich |
 | `text/primary` | `neutral/black` | Text |
-| `text/secondary` | `neutral/gray-500` | Hilfstext |
+| `text/secondary` | `neutral/gray-600` | Hilfstext |
 | `text/on-dark` | `neutral/white` | Text auf `bg/board` |
 | `border/default` | `neutral/black` | starke Ränder, belegte Karte |
 | `border/subtle` | `neutral/gray-200` | normale Ränder |
@@ -101,7 +102,7 @@ Alle Stile skalieren mit der System-Schriftgröße (`MediaQuery.textScaler`).
 | `xxl` | 32 | | | |
 | `xxxl` | 48 | | | |
 
-Touch-Ziele mindestens 44 × 44 pt. Bildschirmrand Smartphone: `lg` (16).
+Touch-Ziele mindestens 48 × 48 dp (Android) bzw. 44 × 44 pt (iOS), NF-04. Bildschirmrand Smartphone: `lg` (16).
 
 ### 3.1 Bewegung (`AppDuration`)
 
@@ -152,7 +153,7 @@ Karten-Widgets tragen das Suffix `View` (z. B. `ForestCardView`), um Namenskonfl
 | `CardFlipView` | Vorder-/Rückseite × aufgedeckt / verdeckt; dreht beim Aufdecken um die Hochachse (`cardFlip`) | Größe der Karte |
 | `RoundHeader` | Runde, Phase, Buttons Log/Menü | Höhe ≈ 64, `bg/board` |
 | `PhaseStepper` | aktive Phase 1–4 | |
-| `BoardTabs` | Wald / Aktionen, Badge | Segmented Control, Höhe 44 |
+| `BoardTabs` | Wald / Aktionen, Badge | Segmented Control, Höhe 52 (Segmente 48) |
 | `HambiDialog`, `HambiBottomSheet` | Titel, Inhalt, Aktionen; Dialoge nicht durch Tippen daneben schließbar (UX-03) | |
 
 ## 6. Layout „Spielbrett“ (Variante B, ADR 0003)
