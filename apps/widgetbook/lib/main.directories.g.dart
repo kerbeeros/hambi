@@ -23,6 +23,8 @@ import 'package:hambi_widgetbook/ui_kit/board_controls.dart'
     as _hambi_widgetbook_ui_kit_board_controls;
 import 'package:hambi_widgetbook/ui_kit/camp_card_view.dart'
     as _hambi_widgetbook_ui_kit_camp_card_view;
+import 'package:hambi_widgetbook/ui_kit/card_flip_view.dart'
+    as _hambi_widgetbook_ui_kit_card_flip_view;
 import 'package:hambi_widgetbook/ui_kit/die_view.dart'
     as _hambi_widgetbook_ui_kit_die_view;
 import 'package:hambi_widgetbook/ui_kit/forest_card_view.dart'
@@ -31,8 +33,12 @@ import 'package:hambi_widgetbook/ui_kit/hambi_button.dart'
     as _hambi_widgetbook_ui_kit_hambi_button;
 import 'package:hambi_widgetbook/ui_kit/hambi_icon.dart'
     as _hambi_widgetbook_ui_kit_hambi_icon;
+import 'package:hambi_widgetbook/ui_kit/repression_card_back_view.dart'
+    as _hambi_widgetbook_ui_kit_repression_card_back_view;
 import 'package:hambi_widgetbook/ui_kit/repression_card_view.dart'
     as _hambi_widgetbook_ui_kit_repression_card_view;
+import 'package:hambi_widgetbook/ui_kit/rolling_die_view.dart'
+    as _hambi_widgetbook_ui_kit_rolling_die_view;
 import 'package:hambi_widgetbook/ui_kit/status_chip.dart'
     as _hambi_widgetbook_ui_kit_status_chip;
 import 'package:hambi_widgetbook/ui_kit/success_track.dart'
@@ -249,6 +255,16 @@ final directories = <_widgetbook.WidgetbookNode>[
         ],
       ),
       _widgetbook.WidgetbookComponent(
+        name: 'CardFlipView',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'Repression card',
+            builder: _hambi_widgetbook_ui_kit_card_flip_view
+                .buildCardFlipViewUseCase,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
         name: 'CardSymbolView',
         useCases: [
           _widgetbook.WidgetbookUseCase(
@@ -323,12 +339,32 @@ final directories = <_widgetbook.WidgetbookNode>[
         ],
       ),
       _widgetbook.WidgetbookComponent(
+        name: 'RepressionCardBackView',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'Default',
+            builder: _hambi_widgetbook_ui_kit_repression_card_back_view
+                .buildRepressionCardBackViewUseCase,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
         name: 'RepressionCardView',
         useCases: [
           _widgetbook.WidgetbookUseCase(
             name: 'Default',
             builder: _hambi_widgetbook_ui_kit_repression_card_view
                 .buildRepressionCardViewUseCase,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'RollingDieView',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'Default',
+            builder: _hambi_widgetbook_ui_kit_rolling_die_view
+                .buildRollingDieViewUseCase,
           ),
         ],
       ),
