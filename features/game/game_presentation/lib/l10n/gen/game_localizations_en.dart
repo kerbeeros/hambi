@@ -493,4 +493,7 @@ class GameLocalizationsEn extends GameLocalizations {
 
   @override
   String get closeAction => 'Close';
+
+  @override
+  String get menuRulesAction => 'Rules';
 }

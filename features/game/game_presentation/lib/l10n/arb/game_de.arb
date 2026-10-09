@@ -706,5 +706,9 @@
   "closeAction": "Schließen",
   "@closeAction": {
     "description": "Close"
+  },
+  "menuRulesAction": "Regeln",
+  "@menuRulesAction": {
+    "description": "Rules"
   }
 }

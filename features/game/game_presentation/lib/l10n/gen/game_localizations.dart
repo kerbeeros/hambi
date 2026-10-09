@@ -990,6 +990,12 @@ abstract class GameLocalizations {
   /// In de, this message translates to:
   /// **'Schließen'**
   String get closeAction;
+
+  /// Rules
+  ///
+  /// In de, this message translates to:
+  /// **'Regeln'**
+  String get menuRulesAction;
 }
 
 class _GameLocalizationsDelegate extends LocalizationsDelegate<GameLocalizations> {

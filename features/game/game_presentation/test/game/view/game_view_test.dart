@@ -21,6 +21,7 @@ void main() {
     late BoardTabCubit tabCubit;
     late int exits;
     late int newGames;
+    late int rules;
 
     setUp(() {
       gameBloc = _MockGameBloc();
@@ -28,6 +29,7 @@ void main() {
       when(() => tabCubit.state).thenReturn(BoardSection.actions);
       exits = 0;
       newGames = 0;
+      rules = 0;
     });
 
     Future<void> pumpView(WidgetTester tester) => tester.pumpApp(
@@ -36,7 +38,11 @@ void main() {
           BlocProvider.value(value: gameBloc),
           BlocProvider.value(value: tabCubit),
         ],
-        child: GameView(onExit: () => exits++, onNewGame: () => newGames++),
+        child: GameView(
+          onExit: () => exits++,
+          onNewGame: () => newGames++,
+          onRules: () => rules++,
+        ),
       ),
     );
 
@@ -216,6 +222,20 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(exits, equals(1));
+      });
+
+      testWidgets('UX-10: opens the rules from the menu', (tester) async {
+        when(() => gameBloc.state)
+            .thenReturn(GameInProgress(game: buildGameState()));
+        await pumpView(tester);
+
+        await tester.tap(find.byTooltip('Spielmenü'));
+        await tester.pumpAndSettle();
+        await tester.tap(find.text('Regeln'));
+        await tester.pumpAndSettle();
+
+        expect(rules, equals(1));
+        expect(exits, equals(0));
       });
 
       testWidgets('stays in the game when the menu is closed', (tester) async {

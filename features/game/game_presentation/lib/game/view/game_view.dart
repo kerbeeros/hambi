@@ -17,13 +17,21 @@ import 'package:ui_kit/ui_kit.dart';
 /// {@endtemplate}
 class GameView extends StatelessWidget {
   /// {@macro game_view}
-  const new({required this.onExit, required this.onNewGame, super.key});
+  const new({
+    required this.onExit,
+    required this.onNewGame,
+    required this.onRules,
+    super.key,
+  });
 
   /// Leaves the game screen; a running game stays saved.
   final VoidCallback onExit;
 
   /// Starts over with a new game.
   final VoidCallback onNewGame;
+
+  /// Opens the rules over the game (UX-10).
+  final VoidCallback onRules;
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +63,7 @@ class GameView extends StatelessWidget {
               GameInProgress(:final game) => _RunningGame(
                 game: game,
                 onExit: onExit,
+                onRules: onRules,
               ),
               GameFinished(:final game) => GameResultView(
                 game: game,
@@ -94,10 +103,11 @@ class GameView extends StatelessWidget {
 }
 
 class _RunningGame extends StatelessWidget {
-  const new({required this.game, required this.onExit});
+  const new({required this.game, required this.onExit, required this.onRules});
 
   final GameState game;
   final VoidCallback onExit;
+  final VoidCallback onRules;
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +120,14 @@ class _RunningGame extends StatelessWidget {
       onCommand: (command) => bloc.add(GameCommandSubmitted(command)),
       onLogPressed: () => RoundLogSheet.show(context, game.log),
       onMenuPressed: () async {
-        if (await GameMenuSheet.show(context)) onExit();
+        switch (await GameMenuSheet.show(context)) {
+          case GameMenuAction.rules:
+            onRules();
+          case GameMenuAction.exit:
+            onExit();
+          case null:
+            break;
+        }
       },
     );
   }
