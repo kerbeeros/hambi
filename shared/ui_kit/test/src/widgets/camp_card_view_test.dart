@@ -27,6 +27,25 @@ void main() {
       expect(icons, equals([HambiIconData.activist, HambiIconData.resource]));
     });
 
+    testWidgets('AC-062: exposes the semantic label instead of the parts', (
+      tester,
+    ) async {
+      await tester.pumpApp(
+        const CampCardView(
+          title: 'Camp',
+          activists: 6,
+          resources: 0,
+          semanticLabel: 'Camp: 6 Mitstreiter*innen, 0 Ressourcen',
+        ),
+      );
+
+      expect(
+        find.bySemanticsLabel('Camp: 6 Mitstreiter*innen, 0 Ressourcen'),
+        findsOneWidget,
+      );
+      expect(find.bySemanticsLabel('6'), findsNothing);
+    });
+
     testWidgets('AC-061: fits 200 % text into the card', (tester) async {
       setTextScale(tester, 2);
       await tester.pumpApp(
