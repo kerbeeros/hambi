@@ -35,20 +35,27 @@ class RoundHeader extends StatelessWidget {
   /// Opens the game menu.
   final VoidCallback onMenuPressed;
 
-  /// Header height in logical pixels.
+  /// Minimum header height in logical pixels; the header grows with large
+  /// text (NF-04).
   static const double height = 64;
 
   @override
   Widget build(BuildContext context) {
     const onDark = AppColors.textOnDark;
     return Container(
-      height: height,
+      constraints: const BoxConstraints(minHeight: height),
       color: AppColors.bgBoard,
-      padding: const EdgeInsets.only(left: AppSpacing.lg, right: AppSpacing.xs),
+      padding: const EdgeInsets.only(
+        left: AppSpacing.lg,
+        right: AppSpacing.xs,
+        top: AppSpacing.xxs,
+        bottom: AppSpacing.xxs,
+      ),
       child: Row(
         children: [
           Expanded(
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

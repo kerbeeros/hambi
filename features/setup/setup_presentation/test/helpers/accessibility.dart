@@ -10,3 +10,10 @@ Future<void> expectMeetsAccessibilityGuidelines(WidgetTester tester) async {
   await expectLater(tester, meetsGuideline(textContrastGuideline));
   semantics.dispose();
 }
+
+/// Scales all text by [factor] for the rest of the test, like the system
+/// font size setting (AC-061).
+void setTextScale(WidgetTester tester, double factor) {
+  tester.platformDispatcher.textScaleFactorTestValue = factor;
+  addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+}

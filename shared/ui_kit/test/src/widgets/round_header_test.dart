@@ -51,5 +51,15 @@ void main() {
 
       expect(tester.getSize(find.byType(RoundHeader)).height, equals(64));
     });
+
+    testWidgets('AC-061: grows with 200 % text instead of overflowing', (
+      tester,
+    ) async {
+      setTextScale(tester, 2);
+      await tester.pumpApp(header());
+
+      expect(tester.takeException(), isNull);
+      expect(tester.getSize(find.byType(RoundHeader)).height, greaterThan(64));
+    });
   });
 }

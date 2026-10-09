@@ -40,15 +40,32 @@ class CampCardView extends StatelessWidget {
         border: Border.all(color: AppColors.borderDefault),
         borderRadius: BorderRadius.circular(AppRadius.card),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(title, style: AppTextStyle.cardTitle),
-          const Spacer(),
-          _Counter(icon: HambiIconData.activist, value: activists),
-          const SizedBox(height: AppSpacing.xs),
-          _Counter(icon: HambiIconData.resource, value: resources),
-        ],
+      // The card keeps its size on the board; large text scales down to fit
+      // instead of overflowing (NF-04).
+      child: LayoutBuilder(
+        builder: (context, constraints) => FittedBox(
+          fit: BoxFit.scaleDown,
+          alignment: Alignment.topLeft,
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minWidth: constraints.maxWidth,
+              maxWidth: constraints.maxWidth,
+              minHeight: constraints.maxHeight,
+            ),
+            child: IntrinsicHeight(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title, style: AppTextStyle.cardTitle),
+                  const Spacer(),
+                  _Counter(icon: HambiIconData.activist, value: activists),
+                  const SizedBox(height: AppSpacing.xs),
+                  _Counter(icon: HambiIconData.resource, value: resources),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
