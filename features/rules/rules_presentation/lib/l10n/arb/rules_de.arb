@@ -1,0 +1,27 @@
+{
+  "@@locale": "de",
+  "rulesTitle": "Regeln",
+  "@rulesTitle": {
+    "description": "Rules"
+  },
+  "backAction": "Zurück",
+  "@backAction": {
+    "description": "Back"
+  },
+  "tabIdea": "Spielidee",
+  "@tabIdea": {
+    "description": "Idea"
+  },
+  "tabFlow": "Ablauf",
+  "@tabFlow": {
+    "description": "Flow"
+  },
+  "tabSymbols": "Symbole",
+  "@tabSymbols": {
+    "description": "Symbols"
+  },
+  "tabCards": "Karten",
+  "@tabCards": {
+    "description": "Cards"
+  }
+}

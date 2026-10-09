@@ -1,0 +1,33 @@
+name: rules_presentation
+description: Hambi rules screen.
+version: 0.1.0+1
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ^3.13.0
+  flutter: ^3.47.0
+
+dependencies:
+  bloc: ^9.2.1
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.1.1
+  flutter_localizations:
+    sdk: flutter
+  game_domain:
+    path: ../../game/game_domain
+  game_presentation:
+    path: ../../game/game_presentation
+  intl: ^0.20.3
+  ui_kit:
+    path: ../../../shared/ui_kit
+
+dev_dependencies:
+  bloc_test: ^10.0.0
+  flutter_test:
+    sdk: flutter
+  very_good_analysis: ^11.0.0
+
+flutter:
+  generate: true

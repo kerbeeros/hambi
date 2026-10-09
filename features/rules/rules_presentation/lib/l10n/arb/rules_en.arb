@@ -1,0 +1,9 @@
+{
+  "@@locale": "en",
+  "rulesTitle": "Rules",
+  "backAction": "Back",
+  "tabIdea": "Idea",
+  "tabFlow": "Flow",
+  "tabSymbols": "Symbols",
+  "tabCards": "Cards"
+}

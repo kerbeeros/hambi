@@ -13,6 +13,7 @@ workspace:
   - features/game/game_data
   - features/game/game_presentation
   - features/setup/setup_presentation
+  - features/rules/rules_presentation
 
 dev_dependencies:
   very_good_analysis: ^11.0.0

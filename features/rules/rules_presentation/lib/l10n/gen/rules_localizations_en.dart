@@ -1,0 +1,31 @@
+// dart format off
+// coverage:ignore-file
+
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'rules_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for English (`en`).
+class RulesLocalizationsEn extends RulesLocalizations {
+  RulesLocalizationsEn([String locale = 'en']) : super(locale);
+
+  @override
+  String get rulesTitle => 'Rules';
+
+  @override
+  String get backAction => 'Back';
+
+  @override
+  String get tabIdea => 'Idea';
+
+  @override
+  String get tabFlow => 'Flow';
+
+  @override
+  String get tabSymbols => 'Symbols';
+
+  @override
+  String get tabCards => 'Cards';
+}
