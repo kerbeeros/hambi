@@ -20,6 +20,25 @@ void main() {
       ],
     );
 
+    for (final outcome in GameOutcome.values) {
+      testWidgets('AC-060: a $outcome meets the accessibility guidelines', (
+        tester,
+      ) async {
+        await tester.pumpApp(
+          GameResultView(
+            game: buildGameState(
+              round: 12,
+              phase: GamePhase.finished,
+              outcome: outcome,
+            ),
+            onNewGame: () {},
+          ),
+        );
+
+        await expectMeetsAccessibilityGuidelines(tester);
+      });
+    }
+
     testWidgets(
       'R-102: shows a victory with support, removed cards and round',
       (tester) async {
