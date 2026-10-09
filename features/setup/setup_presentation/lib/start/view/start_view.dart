@@ -40,10 +40,9 @@ class StartView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
-                    l10n.appTitle,
-                    style: AppTextStyle.display,
-                    textAlign: TextAlign.center,
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: HambiLogo(semanticLabel: l10n.appTitle),
                   ),
                   const SizedBox(height: AppSpacing.sm),
                   Text(

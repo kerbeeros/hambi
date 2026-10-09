@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:game_domain/game_domain.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:setup_presentation/setup_presentation.dart';
+import 'package:ui_kit/ui_kit.dart';
 
 import '../../helpers/helpers.dart';
 
@@ -59,10 +60,16 @@ void main() {
       expect(tester.takeException(), isNull);
     });
 
-    testWidgets('S-01: shows the title', (tester) async {
+    testWidgets('AC-070: shows the original logo as the title', (
+      tester,
+    ) async {
       await pumpView(tester, const StartState(status: StartStatus.ready));
 
-      expect(find.text('Hambi bleibt!'), findsOneWidget);
+      expect(
+        tester.widget<HambiLogo>(find.byType(HambiLogo)).semanticLabel,
+        equals('Hambi bleibt!'),
+      );
+      expect(find.text('Hambi bleibt!'), findsNothing);
     });
 
     testWidgets('shows a progress indicator while loading', (tester) async {
