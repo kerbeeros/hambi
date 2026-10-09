@@ -15,6 +15,17 @@ void main() {
       onMenuPressed: onMenu ?? () {},
     );
 
+    testWidgets('AC-060: meets the accessibility guidelines', (tester) async {
+      final semantics = tester.ensureSemantics();
+      await tester.pumpApp(header());
+
+      await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
+      await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
+      await expectLater(tester, meetsGuideline(iOSTapTargetGuideline));
+      await expectLater(tester, meetsGuideline(textContrastGuideline));
+      semantics.dispose();
+    });
+
     testWidgets('renders title and subtitle', (tester) async {
       await tester.pumpApp(header());
 
