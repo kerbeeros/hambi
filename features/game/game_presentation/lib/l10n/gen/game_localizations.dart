@@ -1086,6 +1086,36 @@ abstract class GameLocalizations {
   /// In de, this message translates to:
   /// **'Würfel zeigt {value}, trifft WS{column}'**
   String dieHitsColumnLabel(int value, int column);
+
+  /// Explains the status of an action card in its detail (UX-07)
+  ///
+  /// In de, this message translates to:
+  /// **'Ihr habt diese Karte in dieser Runde belegt.'**
+  String get statusExplainedAssigned;
+
+  /// Explains the status of an action card in its detail (UX-07)
+  ///
+  /// In de, this message translates to:
+  /// **'Eine Repressionskarte blockiert diese Karte bis zur nächsten Repressionsphase.'**
+  String get statusExplainedBlocked;
+
+  /// Explains the status of an action card in its detail (UX-07)
+  ///
+  /// In de, this message translates to:
+  /// **'Im Camp sind nicht genug Mitstreiter*innen frei.'**
+  String get statusExplainedNotEnoughActivists;
+
+  /// Explains the status of an action card in its detail (UX-07)
+  ///
+  /// In de, this message translates to:
+  /// **'Im Camp sind nicht genug Ressourcen.'**
+  String get statusExplainedNotEnoughResources;
+
+  /// Explains the status of an action card in its detail (UX-07)
+  ///
+  /// In de, this message translates to:
+  /// **'Die öffentliche Unterstützung reicht nicht aus.'**
+  String get statusExplainedNotEnoughSupport;
 }
 
 class _GameLocalizationsDelegate extends LocalizationsDelegate<GameLocalizations> {

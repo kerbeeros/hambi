@@ -66,9 +66,7 @@ class ActionCardDetail extends StatelessWidget {
     final game = this.game;
     final side = game?.cardSides[card] ?? CardSide.a;
     final status = game?.assignmentStatus(card) ?? AssignmentStatus.available;
-    final statusLabel = status == AssignmentStatus.assigned
-        ? l10n.statusAssigned
-        : status.label(l10n);
+    final statusExplanation = status.explanation(l10n);
     return _CardDetail(
       title: card.title(l10n),
       card: _Enlarged(
@@ -84,7 +82,8 @@ class ActionCardDetail extends StatelessWidget {
         ),
       ),
       children: [
-        if (statusLabel != null) Text(statusLabel, style: AppTextStyle.label),
+        if (statusExplanation != null)
+          Text(statusExplanation, style: AppTextStyle.label),
         _SymbolSection(
           title: l10n.detailConditions,
           symbols: card.conditions(side),
