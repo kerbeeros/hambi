@@ -32,7 +32,7 @@ Widget buildStartViewUseCase(BuildContext context) {
     key: ValueKey(hasSaved),
     create: (_) => _CatalogRepository(hasSaved: hasSaved),
     child: StartModule(
-      child: StartView(onNewGame: () {}, onResume: () {}),
+      child: StartView(onNewGame: () {}, onResume: () {}, onRules: () {}),
     ),
   );
 }

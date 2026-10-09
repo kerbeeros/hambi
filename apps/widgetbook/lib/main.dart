@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:game_presentation/l10n/l10n.dart' show GameLocalizations;
 import 'package:hambi_widgetbook/main.directories.g.dart';
+import 'package:rules_presentation/l10n/l10n.dart' show RulesLocalizations;
 import 'package:setup_presentation/l10n/l10n.dart' show SetupLocalizations;
 import 'package:ui_kit/ui_kit.dart';
 import 'package:widgetbook/widgetbook.dart';
@@ -35,6 +36,7 @@ class WidgetbookApp extends StatelessWidget {
           localizationsDelegates: const [
             ...GameLocalizations.localizationsDelegates,
             SetupLocalizations.delegate,
+            RulesLocalizations.delegate,
           ],
           initialLocale: const Locale('de'),
         ),
