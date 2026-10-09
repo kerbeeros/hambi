@@ -24,6 +24,7 @@ class RepressionCardView extends StatelessWidget {
     required this.description,
     required this.kind,
     this.compact = false,
+    this.onTap,
     this.onLongPress,
     super.key,
   });
@@ -39,6 +40,9 @@ class RepressionCardView extends StatelessWidget {
 
   /// Whether to show the small board variant.
   final bool compact;
+
+  /// Called when the card is tapped, e.g. in the rules (UX-10).
+  final VoidCallback? onTap;
 
   /// Called when the card is long pressed, e.g. to show its details (UX-07).
   final VoidCallback? onLongPress;
@@ -88,8 +92,8 @@ class RepressionCardView extends StatelessWidget {
         ],
       ),
     );
-    return onLongPress == null
+    return onTap == null && onLongPress == null
         ? card
-        : GestureDetector(onLongPress: onLongPress, child: card);
+        : GestureDetector(onTap: onTap, onLongPress: onLongPress, child: card);
   }
 }
