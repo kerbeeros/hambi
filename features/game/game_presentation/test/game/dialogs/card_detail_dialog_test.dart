@@ -183,6 +183,25 @@ void main() {
         );
       });
 
+      testWidgets('AC-071: shows the card with the motif of its place', (
+        tester,
+      ) async {
+        await open(
+          tester,
+          (context) => CardDetailDialog.showForestCard(
+            context,
+            card: const ForestCard(),
+            position: const ForestPosition(column: 2, position: 1),
+            isThreatened: false,
+          ),
+        );
+
+        expect(
+          tester.widget<ForestCardView>(find.byType(ForestCardView)).motif,
+          equals(9),
+        );
+      });
+
       testWidgets('closes with the close button', (tester) async {
         await open(
           tester,
