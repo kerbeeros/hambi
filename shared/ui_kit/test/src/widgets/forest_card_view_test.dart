@@ -32,6 +32,39 @@ void main() {
       );
     });
 
+    testWidgets('AC-071: renders the original motif on a cleared card', (
+      tester,
+    ) async {
+      await tester.pumpApp(
+        const ForestCardView(state: ForestCardViewState.cleared, motif: 11),
+      );
+
+      expect(
+        motifOf(tester),
+        equals('packages/ui_kit/assets/images/forest/forest_cleared_11.svg'),
+      );
+    });
+
+    testWidgets('AC-071: renders no motif on a removed card', (tester) async {
+      await tester.pumpApp(
+        const ForestCardView(state: ForestCardViewState.removed, motif: 3),
+      );
+
+      expect(motifOf(tester), isNull);
+    });
+
+    for (final state in [
+      ForestCardViewState.intact,
+      ForestCardViewState.cleared,
+    ]) {
+      testWidgets('AC-071: renders the motif instead of symbols when '
+          '${state.name}', (tester) async {
+        await tester.pumpApp(ForestCardView(state: state, motif: 0));
+
+        expect(find.byType(HambiIcon), findsNothing);
+      });
+    }
+
     for (final (occupant, icon) in [
       (ForestCardOccupant.activist, HambiIconData.activist),
       (ForestCardOccupant.secu, HambiIconData.secu),
