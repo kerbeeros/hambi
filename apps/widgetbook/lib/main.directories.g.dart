@@ -33,6 +33,8 @@ import 'package:hambi_widgetbook/ui_kit/hambi_button.dart'
     as _hambi_widgetbook_ui_kit_hambi_button;
 import 'package:hambi_widgetbook/ui_kit/hambi_icon.dart'
     as _hambi_widgetbook_ui_kit_hambi_icon;
+import 'package:hambi_widgetbook/ui_kit/hambi_logo.dart'
+    as _hambi_widgetbook_ui_kit_hambi_logo;
 import 'package:hambi_widgetbook/ui_kit/repression_card_back_view.dart'
     as _hambi_widgetbook_ui_kit_repression_card_back_view;
 import 'package:hambi_widgetbook/ui_kit/repression_card_view.dart'
@@ -325,6 +327,15 @@ final directories = <_widgetbook.WidgetbookNode>[
             name: 'Decision',
             builder:
                 _hambi_widgetbook_ui_kit_board_controls.buildHambiDialogUseCase,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'HambiLogo',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'Default',
+            builder: _hambi_widgetbook_ui_kit_hambi_logo.buildHambiLogoUseCase,
           ),
         ],
       ),
