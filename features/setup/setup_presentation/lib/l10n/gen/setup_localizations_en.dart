@@ -62,4 +62,7 @@ class SetupLocalizationsEn extends SetupLocalizations {
 
   @override
   String get overwriteCancelAction => 'Cancel';
+
+  @override
+  String get rulesAction => 'Rules';
 }

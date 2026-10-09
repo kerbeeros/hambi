@@ -192,6 +192,12 @@ abstract class SetupLocalizations {
   /// In de, this message translates to:
   /// **'Abbrechen'**
   String get overwriteCancelAction;
+
+  /// Rules
+  ///
+  /// In de, this message translates to:
+  /// **'Regeln'**
+  String get rulesAction;
 }
 
 class _SetupLocalizationsDelegate extends LocalizationsDelegate<SetupLocalizations> {

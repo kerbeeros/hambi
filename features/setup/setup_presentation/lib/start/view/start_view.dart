@@ -5,18 +5,26 @@ import 'package:setup_presentation/start/cubit/cubit.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 /// {@template start_view}
-/// The start screen (S-01): new game and, if there is a saved game,
-/// continue (F-04).
+/// The start screen (S-01): new game, if there is a saved game continue
+/// (F-04), and the rules (UX-10).
 /// {@endtemplate}
 class StartView extends StatelessWidget {
   /// {@macro start_view}
-  const new({required this.onNewGame, required this.onResume, super.key});
+  const new({
+    required this.onNewGame,
+    required this.onResume,
+    required this.onRules,
+    super.key,
+  });
 
   /// Opens the setup of a new game.
   final VoidCallback onNewGame;
 
   /// Continues the saved game.
   final VoidCallback onResume;
+
+  /// Opens the rules.
+  final VoidCallback onRules;
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +67,12 @@ class StartView extends StatelessWidget {
                         onPressed: onResume,
                       ),
                     ],
+                    const SizedBox(height: AppSpacing.sm),
+                    HambiButton(
+                      label: l10n.rulesAction,
+                      style: HambiButtonStyle.secondary,
+                      onPressed: onRules,
+                    ),
                   ],
                 ],
               ),

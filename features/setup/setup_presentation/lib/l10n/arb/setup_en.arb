@@ -15,5 +15,6 @@
   "overwriteTitle": "Overwrite saved game?",
   "overwriteBody": "There is a game in progress. A new game replaces it.",
   "overwriteConfirmAction": "Start new game",
-  "overwriteCancelAction": "Cancel"
+  "overwriteCancelAction": "Cancel",
+  "rulesAction": "Rules"
 }
